@@ -19,7 +19,7 @@ public class DaoTest {
 		if(conn == null)System.out.println("conn is null");
 		else System.out.println("conn is not null");
 		
-		PageHelper.startPage(1, 4);
+		//PageHelper.startPage(1, 4);
 		SqlSession sqlSession = MyBatisUtil.getSqlSession();
 		StudentMapper studentDao = sqlSession.getMapper(StudentMapper.class);
 		StudentExample se = new StudentExample();
@@ -28,7 +28,7 @@ public class DaoTest {
 		
 		c.andSsexEqualTo("ÄÐ");
 		List<Student> list = studentDao.selectByExample(se);
-		PageInfo<Student> page = new PageInfo<>(list);
+		//PageInfo<Student> page = new PageInfo<>(list);
 		/*c.andClnoEqualTo("95031");
 		List<Student> list = studentDao.selectByExample(se);*/
 		
@@ -40,17 +40,17 @@ public class DaoTest {
 		System.out.println("delete:"+delStatement);*/
 		
 		
-		System.out.println(list.size());
-		/*for(Student now:list)
+		//System.out.println(list.size());
+		for(Student now:list)
 		{
 			System.out.println(now);
-		}*/
-		for(Student now:page.getList())
+		}
+		/*for(Student now:page.getList())
 		{
 			System.out.println(now);
 		}
 
-		sqlSession.close();
+		sqlSession.close();*/
 	}
 
 }
