@@ -10,7 +10,7 @@ import org.springframework.web.servlet.ModelAndView;
 @RequestMapping("/welcome")
 public class WelcomeController {
 	@RequestMapping("/")
-	public ModelAndView toIndex(HttpServletRequest request)
+	public ModelAndView toWelcome(HttpServletRequest request)
 	{
 		ModelAndView modelAndView = new ModelAndView("welcome");
 		return modelAndView;		
