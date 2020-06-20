@@ -2,6 +2,8 @@ package cn.sims.controller;
 
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -14,24 +16,36 @@ import cn.sims.model.StudentExample;
 
 
 @Controller
-@RequestMapping("/student")
-public class StudentInfoController {
+@RequestMapping("/stuInfo")
+public class StudentController {
 	
 	private SqlSession sqlSession;
 	private StudentMapper studentDao;
 	List<Student> list;
 	
 	@RequestMapping("/")
-	public ModelAndView studentinfo()
+	public ModelAndView selectAllStudent()
 	{
-		
 		sqlSession = MyBatisUtil.getSqlSession();
 		studentDao = sqlSession.getMapper(StudentMapper.class);
 		StudentExample se = new StudentExample();
-		StudentExample.Criteria c = se.createCriteria();
-		c.andSsexEqualTo("ÄÐ");
 		list = studentDao.selectByExample(se);
-		ModelAndView modelAndView = new ModelAndView("view");
+		ModelAndView modelAndView = new ModelAndView("stuInfo");
+		modelAndView.addObject("studentlist", list);
+		return modelAndView;
+	}
+	@RequestMapping("/sno")
+	public ModelAndView selectStudentBySno(HttpServletRequest request)
+	{
+		sqlSession = MyBatisUtil.getSqlSession();
+		studentDao = sqlSession.getMapper(StudentMapper.class);
+		String sno = request.getParameter("sno");
+		if(sno == null)sno="";
+		StudentExample se = new StudentExample();
+		StudentExample.Criteria c = se.createCriteria();
+		c.andSnoEqualTo(sno);
+		list = studentDao.selectByExample(se);
+		ModelAndView modelAndView = new ModelAndView("stuInfo");
 		modelAndView.addObject("studentlist", list);
 		return modelAndView;
 	}

@@ -1,0 +1,40 @@
+@charset "UTF-8";
+*{
+	margin: 0;
+	padding: 0;
+	text-decoration: none;
+	font-family: "微软雅黑"  ;
+}
+
+h1{
+	color :
+}
+body{
+	min-height: 110vh;
+	background-image: linear-gradient(#cac6c5,#ffffff);
+}
+.ContentFrame{
+	border: medium none;
+	width: 1920px;
+	height: 1000px;
+	overflow: none;
+}
+.Navigation{
+	overflow: hidden;
+	background: rgba(0, 0, 0, 0.3);
+}
+
+.Navigation a{
+	float: left;
+	display: block;
+	color: #ffffff;
+	text-align: center;
+	padding: 14px 16px;
+	text-decoration: none;
+	font-size: 17px;
+}
+
+.Navigation a:hover {
+    background-color: #ffffff;
+    color: black;
+}

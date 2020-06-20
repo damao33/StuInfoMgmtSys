@@ -20,6 +20,7 @@
 	
 	<!-- 配置注解驱动 -->
 	<mvc:annotation-driven/>
+	<mvc:resources location="/css/" mapping="/css/**"/>
 	
 	<!-- 配置视图解析器 -->
 	<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
@@ -30,6 +31,5 @@
 	<!-- <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
 		<property name="dataSource" ref="dataSource"></property>
 	</bean> -->
-
 
 </beans>

@@ -17,6 +17,8 @@ public interface ClassMapper {
     int insertSelective(Class record);
 
     List<Class> selectByExample(ClassExample example);
+    
+    Class selectAll();
 
     Class selectByPrimaryKey(String clno);
 

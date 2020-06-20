@@ -3,14 +3,14 @@ package cn.sims.model;
 import java.util.ArrayList;
 import java.util.List;
 
-public class SysAdminExample {
+public class UserExample {
     protected String orderByClause;
 
     protected boolean distinct;
 
     protected List<Criteria> oredCriteria;
 
-    public SysAdminExample() {
+    public UserExample() {
         oredCriteria = new ArrayList<>();
     }
 
@@ -104,73 +104,73 @@ public class SysAdminExample {
             criteria.add(new Criterion(condition, value1, value2));
         }
 
-        public Criteria andAccountsIsNull() {
-            addCriterion("Accounts is null");
+        public Criteria andAccountIsNull() {
+            addCriterion("Account is null");
             return (Criteria) this;
         }
 
-        public Criteria andAccountsIsNotNull() {
-            addCriterion("Accounts is not null");
+        public Criteria andAccountIsNotNull() {
+            addCriterion("Account is not null");
             return (Criteria) this;
         }
 
-        public Criteria andAccountsEqualTo(String value) {
-            addCriterion("Accounts =", value, "accounts");
+        public Criteria andAccountEqualTo(String value) {
+            addCriterion("Account =", value, "account");
             return (Criteria) this;
         }
 
-        public Criteria andAccountsNotEqualTo(String value) {
-            addCriterion("Accounts <>", value, "accounts");
+        public Criteria andAccountNotEqualTo(String value) {
+            addCriterion("Account <>", value, "account");
             return (Criteria) this;
         }
 
-        public Criteria andAccountsGreaterThan(String value) {
-            addCriterion("Accounts >", value, "accounts");
+        public Criteria andAccountGreaterThan(String value) {
+            addCriterion("Account >", value, "account");
             return (Criteria) this;
         }
 
-        public Criteria andAccountsGreaterThanOrEqualTo(String value) {
-            addCriterion("Accounts >=", value, "accounts");
+        public Criteria andAccountGreaterThanOrEqualTo(String value) {
+            addCriterion("Account >=", value, "account");
             return (Criteria) this;
         }
 
-        public Criteria andAccountsLessThan(String value) {
-            addCriterion("Accounts <", value, "accounts");
+        public Criteria andAccountLessThan(String value) {
+            addCriterion("Account <", value, "account");
             return (Criteria) this;
         }
 
-        public Criteria andAccountsLessThanOrEqualTo(String value) {
-            addCriterion("Accounts <=", value, "accounts");
+        public Criteria andAccountLessThanOrEqualTo(String value) {
+            addCriterion("Account <=", value, "account");
             return (Criteria) this;
         }
 
-        public Criteria andAccountsLike(String value) {
-            addCriterion("Accounts like", value, "accounts");
+        public Criteria andAccountLike(String value) {
+            addCriterion("Account like", value, "account");
             return (Criteria) this;
         }
 
-        public Criteria andAccountsNotLike(String value) {
-            addCriterion("Accounts not like", value, "accounts");
+        public Criteria andAccountNotLike(String value) {
+            addCriterion("Account not like", value, "account");
             return (Criteria) this;
         }
 
-        public Criteria andAccountsIn(List<String> values) {
-            addCriterion("Accounts in", values, "accounts");
+        public Criteria andAccountIn(List<String> values) {
+            addCriterion("Account in", values, "account");
             return (Criteria) this;
         }
 
-        public Criteria andAccountsNotIn(List<String> values) {
-            addCriterion("Accounts not in", values, "accounts");
+        public Criteria andAccountNotIn(List<String> values) {
+            addCriterion("Account not in", values, "account");
             return (Criteria) this;
         }
 
-        public Criteria andAccountsBetween(String value1, String value2) {
-            addCriterion("Accounts between", value1, value2, "accounts");
+        public Criteria andAccountBetween(String value1, String value2) {
+            addCriterion("Account between", value1, value2, "account");
             return (Criteria) this;
         }
 
-        public Criteria andAccountsNotBetween(String value1, String value2) {
-            addCriterion("Accounts not between", value1, value2, "accounts");
+        public Criteria andAccountNotBetween(String value1, String value2) {
+            addCriterion("Account not between", value1, value2, "account");
             return (Criteria) this;
         }
 

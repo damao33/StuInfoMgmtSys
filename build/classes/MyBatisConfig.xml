@@ -37,7 +37,7 @@
 		<mapper resource="cn/sims/mapper/CourseMapper.xml"/>
 		<mapper resource="cn/sims/mapper/ScoreMapper.xml"/>
 		<mapper resource="cn/sims/mapper/TeacherMapper.xml"/>
-		<mapper resource="cn/sims/mapper/SysAdminMapper.xml"/>
+		<mapper resource="cn/sims/mapper/UserMapper.xml"/>
   	 </mappers>
   	 
   </configuration>
