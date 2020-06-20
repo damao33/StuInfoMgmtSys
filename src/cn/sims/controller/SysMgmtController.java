@@ -5,12 +5,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
-@RequestMapping("/welcome")
-public class WelcomeController {
+@RequestMapping("/sysMgmt")
+public class SysMgmtController {
 	@RequestMapping("/")
 	public ModelAndView toWelcome()
 	{
-		ModelAndView modelAndView = new ModelAndView("welcome");
+		ModelAndView modelAndView = new ModelAndView("sysMgmt");
 		return modelAndView;		
 	}
 }

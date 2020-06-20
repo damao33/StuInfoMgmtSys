@@ -17,7 +17,7 @@
 	<div class="Navigation">
 	  <a href="${pageContext.request.contextPath}/welcome/" target="ContentFrame">主页</a>
 	  <a href="${pageContext.request.contextPath}/stuInfo/" target="ContentFrame">学生信息查询</a>
-	  <a href="${pageContext.request.contextPath}/sysMgmt" target="ContentFrame">系统管理</A>
+	  <a href="${pageContext.request.contextPath}/sysMgmt/" target="ContentFrame">系统管理</A>
 	  <a href="${pageContext.request.contextPath}/stuMgmt" target="ContentFrame">学生管理</a>
 	  <a href="${pageContext.request.contextPath}/cozMgmt" target="ContentFrame">课程管理</a>
 	  <a href="${pageContext.request.contextPath}/scoreMgmt" target="ContentFrame">成绩管理</a>
