@@ -14,7 +14,6 @@
 	
 	<br>
 	<table>
-		<c:forEach items="${studentlist}" var="student">
 			<tr>
 				<td>学号</td>
 				<td>姓名</td>
@@ -22,6 +21,7 @@
 				<td>出生日期</td>
 				<td>班级</td>			
 			</tr>
+		<c:forEach items="${studentlist}" var="student">			
 			<tr align = "center">			
 				<td> ${student.getSno()}</td>
 				<td> ${student.getSname()}</td>
@@ -31,6 +31,13 @@
 			</tr>			
 		</c:forEach>
 	</table>
+	<div>	
+	<button type="button">上一页</button>	
+	
+	<button type="button">下一页</button>	
+	</div>
+	
+	
 </body>
 <script>
 	function selectBySno()
