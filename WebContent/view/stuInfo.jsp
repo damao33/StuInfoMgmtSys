@@ -21,7 +21,7 @@
 				<td>出生日期</td>
 				<td>班级</td>			
 			</tr>
-		<c:forEach items="${studentlist}" var="student">			
+		<c:forEach items="${studentlist.getList()}" var="student">			
 			<tr align = "center">			
 				<td> ${student.getSno()}</td>
 				<td> ${student.getSname()}</td>
@@ -31,10 +31,10 @@
 			</tr>			
 		</c:forEach>
 	</table>
-	<div>	
-	<button type="button">上一页</button>	
-	
-	<button type="button">下一页</button>	
+	<div>
+	<a href="${pageContext.request.contextPath}/stuInfo${mapname}?currentPage=${studentlist.getPrePage()}${attributeType}${attributeValue}">上一页</a>		
+	<a href="${pageContext.request.contextPath}/stuInfo${mapname}?currentPage=${studentlist.getNextPage()}${attributeType}${attributeValue}">下一页</a>
+	第${studentlist.getPageNum()}/${studentlist.getPages()}页
 	</div>
 	
 	
@@ -51,7 +51,7 @@
 	}
 	function selectByClass()
 	{
-		var cls = prompt("输入班级","");
+		cls = prompt("输入班级","");
 		if(cls)
 		{
 			alert(cls);
