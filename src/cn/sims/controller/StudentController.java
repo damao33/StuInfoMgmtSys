@@ -49,5 +49,17 @@ public class StudentController {
 		modelAndView.addObject("studentlist", list);
 		return modelAndView;
 	}
+	@RequestMapping("/test")
+	public ModelAndView jstest(HttpServletRequest request)
+	{
+		sqlSession = MyBatisUtil.getSqlSession();
+		studentDao = sqlSession.getMapper(StudentMapper.class);
+		String sno = request.getParameter("sno");
+		if(sno == null)sno="";
+		ModelAndView modelAndView = new ModelAndView("stuInfo");
+		System.out.println("sno:"+sno);
+		modelAndView.addObject("studentlist", list);
+		return modelAndView;
+	}
 
 }

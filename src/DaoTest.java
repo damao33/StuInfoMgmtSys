@@ -24,8 +24,7 @@ public class DaoTest {
 		StudentMapper studentDao = sqlSession.getMapper(StudentMapper.class);
 		StudentExample se = new StudentExample();
 		StudentExample.Criteria c = se.createCriteria();
-		
-		
+				
 		c.andSsexEqualTo("ÄÐ");
 		List<Student> list = studentDao.selectByExample(se);
 		//PageInfo<Student> page = new PageInfo<>(list);
