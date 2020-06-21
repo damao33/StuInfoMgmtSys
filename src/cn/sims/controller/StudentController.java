@@ -49,15 +49,18 @@ public class StudentController {
 		modelAndView.addObject("studentlist", list);
 		return modelAndView;
 	}
-	@RequestMapping("/test")
-	public ModelAndView jstest(HttpServletRequest request)
+	@RequestMapping("/cls")
+	public ModelAndView selectStudentByClass(HttpServletRequest request)
 	{
 		sqlSession = MyBatisUtil.getSqlSession();
 		studentDao = sqlSession.getMapper(StudentMapper.class);
-		String sno = request.getParameter("sno");
-		if(sno == null)sno="";
+		String cls = request.getParameter("class");
+		if(cls == null)cls="";
+		StudentExample se = new StudentExample();
+		StudentExample.Criteria c = se.createCriteria();
+		c.andSnoEqualTo(cls);
+		list = studentDao.selectByExample(se);
 		ModelAndView modelAndView = new ModelAndView("stuInfo");
-		System.out.println("sno:"+sno);
 		modelAndView.addObject("studentlist", list);
 		return modelAndView;
 	}
