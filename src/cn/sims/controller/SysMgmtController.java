@@ -8,7 +8,7 @@ import org.springframework.web.servlet.ModelAndView;
 @RequestMapping("/sysMgmt")
 public class SysMgmtController {
 	@RequestMapping("/")
-	public ModelAndView toWelcome()
+	public ModelAndView toSysMgmt()
 	{
 		ModelAndView modelAndView = new ModelAndView("sysMgmt");
 		return modelAndView;		
