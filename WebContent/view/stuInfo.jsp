@@ -36,7 +36,6 @@
 		</tbody>
 	</table>
 	<div>
-	${pageContext.request.contextPath}/stuInfo${mapname}?currentPage=${studentlist.getPrePage()}${attributeType}${attributeValue}
 	<a href="${pageContext.request.contextPath}/stuInfo${mapname}?currentPage=${studentlist.getPrePage()}${attributeType}${attributeValue}">上一页</a>		
 	<a href="${pageContext.request.contextPath}/stuInfo${mapname}?currentPage=${studentlist.getNextPage()}${attributeType}${attributeValue}">下一页</a>
 	第${studentlist.getPageNum()}/${studentlist.getPages()}页
