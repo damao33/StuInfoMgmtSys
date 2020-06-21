@@ -43,9 +43,9 @@ public class StudentController {
 		ModelAndView modelAndView = new ModelAndView("stuInfo");
 		modelAndView.addObject("mapname", "/");//传回映射名
 		modelAndView.addObject("studentlist", page);//传回插件生成的页面信息PageInfo
-		modelAndView.addObject("attributeType","");//返回变量类型，本方法为selectAll不需要参数，所以两个都为空
-		modelAndView.addObject("arributeValue","");//返回变量值
-		sqlSession.close();
+		//modelAndView.addObject("attributeType","");//返回变量类型，本方法为selectAll不需要参数，所以两个都为空
+		//modelAndView.addObject("arributeValue","");//返回变量值
+		MyBatisUtil.closeSqlSession();
 		return modelAndView;
 	}
 	@RequestMapping("/sno")
@@ -70,7 +70,7 @@ public class StudentController {
 		modelAndView.addObject("mapname", "/sno");
 		modelAndView.addObject("attributeType","&sno=");
 		modelAndView.addObject("attributeValue", sno);
-		sqlSession.close();
+		MyBatisUtil.closeSqlSession();
 		return modelAndView;
 	}
 	@RequestMapping("/cls")
@@ -84,7 +84,7 @@ public class StudentController {
 		sqlSession = MyBatisUtil.getSqlSession();
 		studentDao = sqlSession.getMapper(StudentMapper.class);
 		String cls = request.getParameter("cls");
-		if(cls == null)cls="";
+		if(cls == null)cls="0";
 		StudentExample se = new StudentExample();
 		StudentExample.Criteria c = se.createCriteria();
 		c.andClnoEqualTo(cls);
@@ -95,7 +95,7 @@ public class StudentController {
 		modelAndView.addObject("mapname", "/cls");
 		modelAndView.addObject("attributeType","&cls=");
 		modelAndView.addObject("attributeValue", cls);
-		sqlSession.close();
+		MyBatisUtil.closeSqlSession();
 		return modelAndView;
 	}
 
