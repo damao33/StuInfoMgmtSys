@@ -97,7 +97,7 @@ public class CozMgmtController {
 		list = courseDao.selectByExample(se);
 		PageInfo<Course> page = new PageInfo<>(list);
 		modelAndView.addObject("courselist",page);
-		
+		modelAndView.addObject("mapname", "/insert");
 		MyBatisUtil.closeSqlSession();
 		return modelAndView;
 	}

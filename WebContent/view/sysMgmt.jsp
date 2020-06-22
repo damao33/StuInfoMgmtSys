@@ -11,6 +11,7 @@
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/sysMgmtStyle.css" />
 <body>
 <div class="select">
+<a href="${pageContext.request.contextPath}/sysMgmt/">查询所有用户</a>
 <a href="${pageContext.request.contextPath}/view/addSysuser.jsp">增加用户</a>
 <a href="${pageContext.request.contextPath}/view/alterSysuser.jsp">修改密码</a>
 <a href="#" onclick="exitSys()">退出系统</a>

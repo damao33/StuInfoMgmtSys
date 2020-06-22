@@ -14,7 +14,6 @@ import com.github.pagehelper.PageInfo;
 
 import cn.sims.util.MyBatisUtil;
 import cn.sims.dao.SysuserMapper;
-import cn.sims.model.Student;
 import cn.sims.model.Sysuser;
 import cn.sims.model.SysuserExample;
 
@@ -92,6 +91,7 @@ public class SysMgmtController {
 		SysuserExample se =new SysuserExample();
 		list=sysuserDao.selectByExample(se);
 		PageInfo<Sysuser> page = new PageInfo<>(list);
+		modelAndView.addObject("mapname", "/");
 		modelAndView.addObject("sysuserlist", page);
 		MyBatisUtil.closeSqlSession();
 		return modelAndView;

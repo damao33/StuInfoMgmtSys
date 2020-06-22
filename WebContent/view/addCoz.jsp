@@ -17,19 +17,19 @@
 	<a href="${pageContext.request.contextPath}/view/delCoz.jsp">删除课程信息</a>
 	</div>
 
-<form class="add-form" action="">
+<form class="add-form" action="${pageContext.request.contextPath}/cozMgmt/insert">
 	<h1>请输入想要添加的课程信息</h1>
 	<div class="txtb">	
-		<input type="text" name="Cno" 		value="" placeholder="这里是课程号">				
+		<input type="text" name="cno" 		value="" placeholder="这里是课程号">				
 	</div>	
 	<div class="txtb">	
-		<input type="text" name="Cname" 	value="" placeholder="这里是课程名">				
+		<input type="text" name="cname" 	value="" placeholder="这里是课程名">				
 	</div>
 	<div class="txtb">
-		<input type="text" name="Tno" 		value="" placeholder="这里是任课教师教师号">				
+		<input type="text" name="tno" 		value="" placeholder="这里是任课教师教师号">				
 	</div>
 	<div class="txtb">
-		<input type="text" name="Tname" value="" placeholder="这里是任课教师教师姓名">				
+		<input type="text" name="tname" value="" placeholder="这里是任课教师教师姓名">				
 	</div>	
 		<div align="center">
 		<input class="input1" type="submit" value="提交" >
