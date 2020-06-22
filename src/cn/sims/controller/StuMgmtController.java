@@ -59,7 +59,7 @@ public class StuMgmtController {
 		return modelAndView;
 	}
 	@RequestMapping("/update")
-	public ModelAndView updateStudentByExample(HttpServletRequest request) throws ParseException
+	public ModelAndView updateStudentBySno(HttpServletRequest request) throws ParseException
 	{
 		sqlSession = MyBatisUtil.getSqlSession();
 		studentDao = sqlSession.getMapper(StudentMapper.class);
