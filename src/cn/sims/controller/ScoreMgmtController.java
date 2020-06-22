@@ -111,6 +111,7 @@ public class ScoreMgmtController {
 		sqlSession.commit();
 		ModelAndView modelAndView = new ModelAndView("scoreMgmt");
 		modelAndView.addObject("num", num);
+		modelAndView.addObject("courselist",list);
 		MyBatisUtil.closeSqlSession();
 		return modelAndView;
 	}
@@ -136,7 +137,8 @@ public class ScoreMgmtController {
 		int num = scoreDao.insert(score);
 		sqlSession.commit();
 		ModelAndView modelAndView = new ModelAndView("scoreMgmt");
-		modelAndView.addObject("num", num);
+		modelAndView.addObject("controllerMsg", "增加了"+num+"条用户信息");
+		modelAndView.addObject("courselist",list);
 		MyBatisUtil.closeSqlSession();
 		return modelAndView;
 	}
@@ -164,8 +166,9 @@ public class ScoreMgmtController {
 		score.setDegrees(degree);
 		int num = scoreDao.updateByExample(score,se);
 		sqlSession.commit();
-		ModelAndView modelAndView = new ModelAndView("scoreMgmt");
+		ModelAndView modelAndView = new ModelAndView("alterScore");
 		modelAndView.addObject("num", num);
+		modelAndView.addObject("courselist",list);
 		MyBatisUtil.closeSqlSession();
 		return modelAndView;
 	}

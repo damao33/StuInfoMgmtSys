@@ -62,6 +62,7 @@ public class CozMgmtController {
 		sqlSession.commit();
 		ModelAndView modelAndView = new ModelAndView("cozMgmt");
 		modelAndView.addObject("num", num);
+		modelAndView.addObject("courselist",list);
 		MyBatisUtil.closeSqlSession();
 		return modelAndView;
 	}
@@ -83,7 +84,8 @@ public class CozMgmtController {
 		int num = courseDao.insert(course);
 		sqlSession.commit();
 		ModelAndView modelAndView = new ModelAndView("cozMgmt");
-		modelAndView.addObject("num", num);
+		modelAndView.addObject("controllerMsg", "增加了"+num+"条用户信息");
+		modelAndView.addObject("courselist",list);
 		MyBatisUtil.closeSqlSession();
 		return modelAndView;
 	}
@@ -107,8 +109,9 @@ public class CozMgmtController {
 		course.setTname(tname);
 		int num = courseDao.updateByExample(course,se);
 		sqlSession.commit();
-		ModelAndView modelAndView = new ModelAndView("cozMgmt");
+		ModelAndView modelAndView = new ModelAndView("alterCoz");
 		modelAndView.addObject("num", num);
+		modelAndView.addObject("courselist",list);
 		MyBatisUtil.closeSqlSession();
 		return modelAndView;
 	}
