@@ -21,7 +21,9 @@
 				<th>姓名</th>
 				<th>性别</th>
 				<th>出生日期</th>
-				<th>班级</th>			
+				<th>班级</th>		
+				<th>所在学院</th>		
+				<th>所在系部</th>		
 			</thead>
 		<tbody>
 		<c:forEach items="${studentlist.getList()}" var="student">			
@@ -31,6 +33,8 @@
 				<td> ${student.getSsex()}</td>
 				<td> ${student.getSbirthdayString()}</td>
 				<td> ${student.getClno()}</td>
+				<td> ${student.getSschool()}</td>
+				<td> ${student.getSfaculty()}</td>
 			</tr>		
 		</c:forEach>
 			</tbody>

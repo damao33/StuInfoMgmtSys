@@ -1,8 +1,12 @@
 import java.math.BigDecimal;
 import java.sql.Connection;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 import org.apache.ibatis.session.SqlSession;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
@@ -13,43 +17,30 @@ import cn.sims.util.*;
 
 public class DaoTest {
 
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-		Connection conn = MyBatisUtil.getSqlSession().getConnection();
-		if(conn == null)System.out.println("conn is null");
-		else System.out.println("conn is not null");
-		
-		//PageHelper.startPage(1, 4);
+	public static void main(String[] args) throws ParseException {
 		SqlSession sqlSession = MyBatisUtil.getSqlSession();
 		StudentMapper studentDao = sqlSession.getMapper(StudentMapper.class);
-		StudentExample se = new StudentExample();
-		StudentExample.Criteria c = se.createCriteria();
-				
-		c.andSsexEqualTo("男");
-		List<Student> list = studentDao.selectByExample(se);
-		//PageInfo<Student> page = new PageInfo<>(list);
-		/*c.andClnoEqualTo("95031");
-		List<Student> list = studentDao.selectByExample(se);*/
-		
-		/*c.andSnoEqualTo("109");
-		int delStatement = studentDao.deleteByExample(se);*/
-		
-		/*int delStatement = studentDao.deleteByPrimaryKey("109");
+		String sno = "101";
+		String sname = "asd";
+		String ssex = "男";
+		String sbirthday = "2020-10-10";
+		String clno = "95033";
+		String sschool = "理学院";
+		String sfaculty = "应用物理学";
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+		Date birthday =  sdf.parse(sbirthday);
+		Student student = new Student();
+		student.setSno(sno);
+		student.setSname(sname);
+		student.setSsex(ssex);
+		student.setSbirthday(birthday);
+		student.setClno(clno);
+		student.setSschool(sschool);
+		student.setSfaculty(sfaculty);
+		int num = studentDao.updateByPrimaryKey(student);
+		System.out.println("num："+num);
 		sqlSession.commit();
-		System.out.println("delete:"+delStatement);*/
-		
-		
-		//System.out.println(list.size());
-		for(Student now:list)
-		{
-			System.out.println(now);
-		}
-		/*for(Student now:page.getList())
-		{
-			System.out.println(now);
-		}
-
-		sqlSession.close();*/
+		MyBatisUtil.closeSqlSession();
 	}
 
 }
