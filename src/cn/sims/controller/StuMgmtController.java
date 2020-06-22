@@ -41,7 +41,7 @@ public class StuMgmtController {
 		StudentExample se = new StudentExample();
 		list = studentDao.selectByExample(se);
 		PageInfo<Student> page = new PageInfo<>(list);//根据查询得到的list来用插件生成PageInfo页面信息
-		ModelAndView modelAndView = new ModelAndView("stuInfo");
+		ModelAndView modelAndView = new ModelAndView("stuMgmt");
 		modelAndView.addObject("mapname", "/");//传回映射名
 		modelAndView.addObject("studentlist", page);//传回插件生成的页面信息PageInfo
 		//modelAndView.addObject("attributeType","");//返回变量类型，本方法为selectAll不需要参数，所以两个都为空
