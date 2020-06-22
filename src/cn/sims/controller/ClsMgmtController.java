@@ -63,6 +63,7 @@ public class ClsMgmtController {
 		sqlSession.commit();
 		ModelAndView modelAndView = new ModelAndView("clsMgmt");
 		modelAndView.addObject("num", num);
+		modelAndView.addObject("classlist",list);
 		MyBatisUtil.closeSqlSession();
 		return modelAndView;
 	}
@@ -84,7 +85,8 @@ public class ClsMgmtController {
 		int num = classDao.insert(cls);
 		sqlSession.commit();
 		ModelAndView modelAndView = new ModelAndView("clsMgmt");
-		modelAndView.addObject("num", num);
+		modelAndView.addObject("controllerMsg", "增加了"+num+"条用户信息");
+		modelAndView.addObject("classlist",list);
 		MyBatisUtil.closeSqlSession();
 		return modelAndView;
 	}
@@ -108,8 +110,9 @@ public class ClsMgmtController {
 		cls.setHtname(htname);
 		int num = classDao.updateByExample(cls,se);
 		sqlSession.commit();
-		ModelAndView modelAndView = new ModelAndView("clsMgmt");
+		ModelAndView modelAndView = new ModelAndView("alterClass");
 		modelAndView.addObject("num", num);
+		modelAndView.addObject("classlist",list);
 		MyBatisUtil.closeSqlSession();
 		return modelAndView;
 	}
