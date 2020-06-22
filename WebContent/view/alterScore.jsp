@@ -9,6 +9,13 @@
 <title>Insert title here</title>
 </head>
 <body>
+<br>
+	<a href="${pageContext.request.contextPath}/ScoreInfo/">查询所有成绩信息</a>
+	<a href="#" onclick="alterScore()">成绩修改</a>
+	<a href="${pageContext.request.contextPath}/view/addScore.jsp">成绩添加</a>
+	<a href="#" onclick="deleteScore()">成绩删除</a>
+	<br>
+	
 	<form action="">
 		请输入想要修改的学号：<input type="text" name="Sno" value="">			<br><br>
 			

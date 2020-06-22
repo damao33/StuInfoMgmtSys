@@ -9,8 +9,13 @@
 <title>Insert title here</title>
 </head>
 <body>
+<br>
+	<a href="${pageContext.request.contextPath}/view/addClass.jsp">添加班级信息</a>
+	<a href="#" onclick="alterClassInfo()">修改班级信息</a>
+	<a href="#" onclick="deleteClassInfo()">删除班级信息</a>	
+<br>
 	<form action="">
-		请输入想要修改的学号：<input type="text" name="Sno" value="">			<br><br>
+		请输入想要修改的班级号：<input type="text" name="Cno" value="">			<br><br>
 			
 		<input type="submit" value="提交">
 	</form>

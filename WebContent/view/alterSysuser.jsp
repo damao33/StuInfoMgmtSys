@@ -9,8 +9,13 @@
 <title>Insert title here</title>
 </head>
 <body>
+<br>
+<a href="${pageContext.request.contextPath}/view/addSysuser.jsp">增加用户</a>
+<a href="#" onclick="alterPw()">修改密码</a>
+<a href="#" onclick="exitSys()">退出系统</a>
+<br>
 	<form action="">
-		请输入想要修改的学号：<input type="text" name="Sno" value="">			<br><br>
+		请输入想要修改的账号：<input type="text" name="Account" value="">			<br><br>
 			
 		<input type="submit" value="提交">
 	</form>
