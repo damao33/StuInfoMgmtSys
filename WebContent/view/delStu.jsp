@@ -9,12 +9,9 @@
 <title>Insert title here</title>
 </head>
 <br>
-	<a href="${pageContext.request.contextPath}/view/addStu.jsp">添加学生信息</a>
-	<a href="#" onclick="alterStuInfo()">修改学生信息</a>
-	<a href="#" onclick="addStuFacInfo()">添加学生系部信息</a>
-	<a href="#" onclick="alterStuFacInfo()">修改学生系部信息</a>
-	<a href="#" onclick="addStuSchInfo()">添加学生学院信息</a>
-	<a href="#" onclick="alterStuSchInfo()">修改学生学院信息</a>
+		<a href="${pageContext.request.contextPath}/view/addStu.jsp">添加学生信息</a>
+	<a href="${pageContext.request.contextPath}/view/alterStu.jsp">修改学生信息</a>
+	
 	<table class="table1"  border="1">
 			<thead>
 				<th>学号</th>

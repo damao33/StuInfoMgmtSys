@@ -11,7 +11,7 @@
 <body>
 <br>
 <a href="${pageContext.request.contextPath}/view/addSysuser.jsp">增加用户</a>
-<a href="#" onclick="alterPw()">修改密码</a>
+<a href="${pageContext.request.contextPath}/view/alterSysuser.jsp">修改密码</a>
 <a href="#" onclick="exitSys()">退出系统</a>
 <br>
 <p>

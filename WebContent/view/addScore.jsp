@@ -10,10 +10,10 @@
 </head>
 <body>
 <br>
-	<a href="${pageContext.request.contextPath}/ScoreInfo/">查询所有成绩信息</a>
-	<a href="#" onclick="alterScore()">成绩修改</a>
+		<a href="${pageContext.request.contextPath}/scoreMgmt/">查询所有成绩信息</a>
+	<a href="${pageContext.request.contextPath}/view/alterScore.jsp">成绩修改</a>
 	<a href="${pageContext.request.contextPath}/view/addScore.jsp">成绩添加</a>
-	<a href="#" onclick="deleteScore()">成绩删除</a>
+	<a href="${pageContext.request.contextPath}/view/delScore.jsp">成绩删除</a>
 	<br>
 <p>
 请输入想要添加的成绩信息

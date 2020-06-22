@@ -72,65 +72,7 @@
 			alert("系统中不存在该学生");//代码
 		}		
 	}
-	
-	function addStuFacInfo()//-添加-学生系部信息 faculty是系
-	{
-		var sno = prompt("输入学号","学号"),
-			sname = prompt("输入姓名","姓名");			
-			
-		if(sno)
-		{
-			//代码
-		}
-		else
-		{
-			alert("系统中不存在该学生");//代码
-		}		
-	}	
-	
-	function alterStuFacInfo()//-修改-学生系部信息 faculty是系
-	{
-		var sno = prompt("输入学号",""),
-			sname = prompt("输入姓名","");				
-		if(sno)
-		{
-			alert("不能输入空值");
-		}
-		else
-		{
-			//代码
-		}		
-	}
-	
-	function addStuSchInfo()//-添加-学生学院信息school学院
-	{
-		var sno = prompt("输入学号",""),
-			sname = prompt("输入姓名","");			
-			
-		if(sno)
-		{
-			//代码
-		}
-		else
-		{
-			alert("系统中不存在该学生");//代码
-		}		
-	}
-	
-	function alterStuSchInfo()//-修改-学生学院信息 
-	{
-		var sno = prompt("输入学号",""),
-			sname = prompt("输入姓名","");			
-			
-		if(sno)
-		{
-			//代码
-		}
-		else
-		{
-			alert("系统中不存在该学生");
-		}		
-	}
+
 	
 </script>
 </html>
