@@ -9,19 +9,23 @@
 h1{
 	color :
 }
+
 body{
 	min-height: 110vh;
-	background-image: linear-gradient(#cac6c5,#ffffff);
+	background-image: linear-gradient(#cac6c5,#ffffff);  /* 页面背景渐变色 */
 }
+
 .ContentFrame{
 	border: medium none;
-	width: 1920px;
-	height: 1000px;
+	margin-top: 30px;
+	width: 1450px;
+	height: 750px;
 	overflow: none;
 }
+
 .Navigation{
 	overflow: hidden;
-	background: rgba(0, 0, 0, 0.3);
+	background: rgba(0, 0, 0, 0.3); 
 }
 
 .Navigation a{

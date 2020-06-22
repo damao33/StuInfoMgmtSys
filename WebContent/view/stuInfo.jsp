@@ -21,7 +21,7 @@
 				<th>姓名</th>
 				<th>性别</th>
 				<th>出生日期</th>
-				<th>班级</th>		
+				<th>班级</th>			
 			</thead>
 		<tbody>
 		<c:forEach items="${studentlist.getList()}" var="student">			
@@ -31,11 +31,11 @@
 				<td> ${student.getSsex()}</td>
 				<td> ${student.getSbirthdayString()}</td>
 				<td> ${student.getClno()}</td>
-			</tr>			
+			</tr>		
 		</c:forEach>
-		</tbody>
+			</tbody>
 	</table>
-	<div>
+	<div class="passage">	
 	<a href="${pageContext.request.contextPath}/stuInfo${mapname}?currentPage=${studentlist.getPrePage()}${attributeType}${attributeValue}">上一页</a>		
 	<a href="${pageContext.request.contextPath}/stuInfo${mapname}?currentPage=${studentlist.getNextPage()}${attributeType}${attributeValue}">下一页</a>
 	第${studentlist.getPageNum()}/${studentlist.getPages()}页
