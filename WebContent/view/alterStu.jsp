@@ -12,10 +12,7 @@
 <br>
 	<a href="${pageContext.request.contextPath}/view/addStu.jsp">添加学生信息</a>
 	<a href="${pageContext.request.contextPath}/view/alterStu.jsp">修改学生信息</a>
-	<a href="#" onclick="addStuFacInfo()">添加学生系部信息</a>
-	<a href="#" onclick="alterStuFacInfo()">修改学生系部信息</a>
-	<a href="#" onclick="addStuSchInfo()">添加学生学院信息</a>
-	<a href="#" onclick="alterStuSchInfo()">修改学生学院信息</a>
+
 	<br>
 	<form action="">
 		请输入想要修改的学号：<input type="text" name="Sno" value="">			<br><br>
