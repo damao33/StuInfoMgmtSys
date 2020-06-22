@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -16,6 +17,24 @@
 	<a href="#" onclick="deleteCozInfo()">删除课程信息</a>
 <br>
 
+<table class="table1"  border="1">
+			<thead>
+				<th>课程号</th>
+				<th>课程名</th>
+				<th>教师号</th>
+				<th>任课教师</th>					
+			</thead>
+		<tbody>
+		<c:forEach items="${courselist.getList()}" var="course">			
+			<tr align = "center">			
+				<td> ${course.getCno()}</td>
+				<td> ${course.getCname()}</td>
+				<td> ${course.getTno()}</td>
+				<td> ${course.getTname()}</td>				
+			</tr>		
+		</c:forEach>
+			</tbody>
+	</table>
 
 </body>
 <script>
