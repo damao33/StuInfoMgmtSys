@@ -18,9 +18,10 @@ body{
 .ContentFrame{
 	border: medium none;
 	margin-top: 30px;
-	width: 1450px;
+	width: 80%;
 	height: 750px;
 	overflow: none;
+	scrolling: no;
 }
 
 .Navigation{

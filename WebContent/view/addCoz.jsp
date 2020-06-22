@@ -8,20 +8,32 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/addStyle.css" / >
 <body>
 <br>
+	<div class="lable">
 		<a href="${pageContext.request.contextPath}/view/addCoz.jsp">添加课程信息</a>
 	<a href="${pageContext.request.contextPath}/view/alterCoz.jsp">修改课程信息</a>
 	<a href="${pageContext.request.contextPath}/view/delCoz.jsp">删除课程信息</a>
-<p>
-请输入想要添加的课程信息
-</p>
-<form action="">
-	课程号：			<input type="text" name="Cno" 		value="">				<br><br>
-	课程名：			<input type="text" name="Cname" 	value="">				<br><br>
-	任课教师教师号：		<input type="text" name="Tno" 		value="">				<br><br>
-	任课教师教师姓名：	<input type="text" name="Tname" value="">				<br><br>
-<input type="submit" value="提交">
+	</div>
+
+<form class="add-form" action="">
+	<h1>请输入想要添加的课程信息</h1>
+	<div class="txtb">	
+		<input type="text" name="Cno" 		value="" placeholder="这里是课程号">				
+	</div>	
+	<div class="txtb">	
+		<input type="text" name="Cname" 	value="" placeholder="这里是课程名">				
+	</div>
+	<div class="txtb">
+		<input type="text" name="Tno" 		value="" placeholder="这里是任课教师教师号">				
+	</div>
+	<div class="txtb">
+		<input type="text" name="Tname" value="" placeholder="这里是任课教师教师姓名">				
+	</div>	
+		<div align="center">
+		<input class="input1" type="submit" value="提交" >
+		</div>
 
 </form>
 </body>

@@ -24,7 +24,7 @@
 	  <a href="${pageContext.request.contextPath}/clsMgmt/" target="ContentFrame">班级管理</a>
 	</div>
 	<div align="center">
-			<iframe name="ContentFrame" class="ContentFrame" src="${pageContext.request.contextPath}/welcome/" ></iframe>
+			<iframe name="ContentFrame" scrolling="no" class="ContentFrame" src="${pageContext.request.contextPath}/welcome/" ></iframe>
 	</div>
 </body>
 

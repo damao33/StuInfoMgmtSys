@@ -1,17 +1,20 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/sysMgmtStyle.css" />
 <body>
-
+<div class="select">
 <a href="${pageContext.request.contextPath}/view/addSysuser.jsp">增加用户</a>
 <a href="${pageContext.request.contextPath}/view/alterSysuser.jsp">修改密码</a>
 <a href="#" onclick="exitSys()">退出系统</a>
+</div>
 	<br>
 	${controllerMsg}
 	<table class="table1"  border="1">
