@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -7,7 +8,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-我是学生管理
 <br>
 	<a href="#" onclick="addStuInfo()">添加学生信息</a>
 <br>
@@ -21,6 +21,31 @@
 <br>
 	<a href="#" onclick="alterStuSchInfo()">修改学生学院信息</a>
 <br>
+	<table class="table1"  border="1">
+			<thead>
+				<th>学号</th>
+				<th>姓名</th>
+				<th>性别</th>
+				<th>出生日期</th>
+				<th>班级</th>		
+				<th>所在学院</th>		
+				<th>所在系部</th>		
+			</thead>
+		<tbody>
+		<c:forEach items="${studentlist.getList()}" var="student">			
+			<tr align = "center">			
+				<td> ${student.getSno()}</td>
+				<td> ${student.getSname()}</td>
+				<td> ${student.getSsex()}</td>
+				<td> ${student.getSbirthdayString()}</td>
+				<td> ${student.getClno()}</td>
+				<td> ${student.getSschool()}</td>
+				<td> ${student.getSfaculty()}</td>
+			</tr>		
+		</c:forEach>
+			</tbody>
+	</table>
+
 </body>
 
 <script>
