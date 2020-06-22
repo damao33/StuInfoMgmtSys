@@ -7,6 +7,27 @@
 <title>Insert title here</title>
 </head>
 <body>
-我是系统管理
+
+<a href="#" onclick="mgmtUser()">用户管理</a>
+<br>
+<a href="#" onclick="alterPw()">修改密码</a>
+<br>
+<a href="#" onclick="exitSys()">退出系统</a>
+<br>
 </body>
+<script>
+	function mgmtUser(){
+		//代码
+	}
+	
+	function alterPw(){
+		//代码
+	}
+	
+	function exitSys(){
+		//退出系统
+	}
+	
+	
+</script>
 </html>
