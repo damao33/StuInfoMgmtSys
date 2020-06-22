@@ -27,12 +27,12 @@
 				<th>班主任教师号</th>					
 			</thead>
 		<tbody>
-		<c:forEach items="${classlist.getList()}" var="class">			
+		<c:forEach items="${classlist.getList()}" var="cls">			
 			<tr align = "center">			
-				<td> ${class.getClno()}</td>
-				<td> ${class.getClname()}</td>
-				<td> ${class.getHtname()}</td>
-				<td> ${class.getHtno()}</td>								
+				<td> ${cls.getClno()}</td>
+				<td> ${cls.getClname()}</td>
+				<td> ${cls.getHtname()}</td>
+				<td> ${cls.getHtno()}</td>								
 			</tr>		
 		</c:forEach>
 			</tbody>

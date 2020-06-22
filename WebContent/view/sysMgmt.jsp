@@ -10,7 +10,7 @@
 <body>
 
 <a href="${pageContext.request.contextPath}/view/addSysuser.jsp">增加用户</a>
-<a href="#" onclick="alterPw()">修改密码</a>
+<a href="${pageContext.request.contextPath}/view/alterSysuser.jsp">修改密码</a>
 <a href="#" onclick="exitSys()">退出系统</a>
 	<br>
 	${controllerMsg}
@@ -31,7 +31,7 @@
 	<div class="passage">	
 	<a href="${pageContext.request.contextPath}/sysMgmt${mapname}?currentPage=${sysuserlist.getPrePage()}${attributeType}${attributeValue}" >上一页</a>		
 	<a href="${pageContext.request.contextPath}/sysMgmt${mapname}?currentPage=${sysuserlist.getNextPage()}${attributeType}${attributeValue}">下一页</a>
-	第${sysueserlist.getPageNum()}/${sysuserlist.getPages()}页
+	第${sysuserlist.getPageNum()}/${sysuserlist.getPages()}页
 	</div>
 </body>
 <script>
