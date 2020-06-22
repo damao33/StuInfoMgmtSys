@@ -53,23 +53,13 @@ public class SysMgmtController {
 	@RequestMapping("/account")
 	public ModelAndView selectSysuserByAccount(HttpServletRequest request)
 	{
-		int currentPage;
-		String cPage = request.getParameter("currentPage");
-		if(cPage==null||cPage.equals("")||cPage.equals("0"))currentPage=1;
-		else currentPage = Integer.parseInt(cPage);
-		PageHelper.startPage(currentPage, 4);
 		sqlSession = MyBatisUtil.getSqlSession();
 		SysuserDao = sqlSession.getMapper(SysuserMapper.class);
 		String account = request.getParameter("account");
 		if(account == null)account="";
 		Sysuser sysuser = SysuserDao.selectByPrimaryKey(account);
-		list.add(sysuser);
-		PageInfo<Sysuser> page = new PageInfo<>(list);
 		ModelAndView modelAndView = new ModelAndView("sysMgmt");
-		modelAndView.addObject("Sysuserlist", page);
-		modelAndView.addObject("mapname", "/account");
-		modelAndView.addObject("attributeType","&account=");
-		modelAndView.addObject("attributeValue", account);
+		modelAndView.addObject("Sysuser", sysuser);
 		MyBatisUtil.closeSqlSession();
 		return modelAndView;
 	}
