@@ -62,7 +62,13 @@ public class CozMgmtController {
 		sqlSession.commit();
 		ModelAndView modelAndView = new ModelAndView("cozMgmt");
 		modelAndView.addObject("num", num);
-		modelAndView.addObject("courselist",list);
+
+		PageHelper.startPage(1, 4);
+		CourseExample se = new CourseExample();
+		list = courseDao.selectByExample(se);
+		PageInfo<Course> page = new PageInfo<>(list);
+		modelAndView.addObject("courselist",page);
+		
 		MyBatisUtil.closeSqlSession();
 		return modelAndView;
 	}
@@ -85,7 +91,13 @@ public class CozMgmtController {
 		sqlSession.commit();
 		ModelAndView modelAndView = new ModelAndView("cozMgmt");
 		modelAndView.addObject("controllerMsg", "增加了"+num+"条用户信息");
-		modelAndView.addObject("courselist",list);
+
+		PageHelper.startPage(1, 4);
+		CourseExample se = new CourseExample();
+		list = courseDao.selectByExample(se);
+		PageInfo<Course> page = new PageInfo<>(list);
+		modelAndView.addObject("courselist",page);
+		
 		MyBatisUtil.closeSqlSession();
 		return modelAndView;
 	}
@@ -111,7 +123,13 @@ public class CozMgmtController {
 		sqlSession.commit();
 		ModelAndView modelAndView = new ModelAndView("alterCoz");
 		modelAndView.addObject("num", num);
-		modelAndView.addObject("courselist",list);
+
+		PageHelper.startPage(1, 4);
+		CourseExample s = new CourseExample();
+		list = courseDao.selectByExample(s);
+		PageInfo<Course> page = new PageInfo<>(list);
+		modelAndView.addObject("courselist",page);
+		
 		MyBatisUtil.closeSqlSession();
 		return modelAndView;
 	}
