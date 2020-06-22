@@ -40,6 +40,7 @@ public class SysMgmtController {
 		ModelAndView modelAndView = new ModelAndView("sysMgmt");
 		modelAndView.addObject("mapname", "/");
 		modelAndView.addObject("sysuserlist", page);
+		modelAndView.addObject("sysuserlist", list);
 		MyBatisUtil.closeSqlSession();
 		return modelAndView;
 	}
@@ -66,7 +67,7 @@ public class SysMgmtController {
 		int num=sysuserDao.deleteByPrimaryKey(account);
 		sqlSession.commit();
 		ModelAndView modelAndView = new ModelAndView("sysMgmt");
-		modelAndView.addObject("num", num);
+		modelAndView.addObject("controllerMsg", "删除了"+num+"条用户信息");
 		MyBatisUtil.closeSqlSession();
 		return modelAndView;
 	}
@@ -97,8 +98,8 @@ public class SysMgmtController {
 		Sysuser sysuser = new Sysuser(account,password);
 		int num = sysuserDao.updateByPrimaryKey(sysuser);
 		sqlSession.commit();
-		ModelAndView modelAndView = new ModelAndView("sysMgmt");
-		modelAndView.addObject("num", num);
+		ModelAndView modelAndView = new ModelAndView("alterSysuser");
+		modelAndView.addObject("controllerMsg", "修改了"+num+"条用户信息");
 		MyBatisUtil.closeSqlSession();
 		return modelAndView;
 	}

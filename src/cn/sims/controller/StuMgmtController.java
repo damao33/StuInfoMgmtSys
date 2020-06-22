@@ -44,6 +44,7 @@ public class StuMgmtController {
 		ModelAndView modelAndView = new ModelAndView("stuMgmt");
 		modelAndView.addObject("mapname", "/");//传回映射名
 		modelAndView.addObject("studentlist", page);//传回插件生成的页面信息PageInfo
+		modelAndView.addObject("studentlist", list);
 		//modelAndView.addObject("attributeType","");//返回变量类型，本方法为selectAll不需要参数，所以两个都为空
 		//modelAndView.addObject("arributeValue","");//返回变量值
 		MyBatisUtil.closeSqlSession();
@@ -74,7 +75,7 @@ public class StuMgmtController {
 		int num = studentDao.insert(student);
 		sqlSession.commit();
 		ModelAndView modelAndView = new ModelAndView("stuMgmt");
-		modelAndView.addObject("num", num);
+		modelAndView.addObject("controllerMsg", "增加了"+num+"条学生信息");
 		MyBatisUtil.closeSqlSession();
 		return modelAndView;
 	}
@@ -102,8 +103,8 @@ public class StuMgmtController {
 		student.setSfaculty(sfaculty);
 		int num = studentDao.updateByPrimaryKey(student);
 		sqlSession.commit();
-		ModelAndView modelAndView = new ModelAndView("sysMgmt");
-		modelAndView.addObject("num", num);
+		ModelAndView modelAndView = new ModelAndView("alterStu");
+		modelAndView.addObject("controllerMsg", "更新了"+num+"条学生信息");
 		MyBatisUtil.closeSqlSession();
 		return modelAndView;
 	}
