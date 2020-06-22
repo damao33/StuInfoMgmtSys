@@ -111,7 +111,13 @@ public class ScoreMgmtController {
 		sqlSession.commit();
 		ModelAndView modelAndView = new ModelAndView("scoreMgmt");
 		modelAndView.addObject("num", num);
-		modelAndView.addObject("courselist",list);
+
+		PageHelper.startPage(1, 4);
+		ScoreExample se = new ScoreExample();
+		list = scoreDao.selectByExample(se);
+		PageInfo<Score> page = new PageInfo<>(list);
+		modelAndView.addObject("scorelist",page);
+		
 		MyBatisUtil.closeSqlSession();
 		return modelAndView;
 	}
@@ -138,7 +144,13 @@ public class ScoreMgmtController {
 		sqlSession.commit();
 		ModelAndView modelAndView = new ModelAndView("scoreMgmt");
 		modelAndView.addObject("controllerMsg", "增加了"+num+"条用户信息");
-		modelAndView.addObject("courselist",list);
+
+		PageHelper.startPage(1, 4);
+		ScoreExample se = new ScoreExample();
+		list = scoreDao.selectByExample(se);
+		PageInfo<Score> page = new PageInfo<>(list);
+		modelAndView.addObject("scorelist",page);
+		
 		MyBatisUtil.closeSqlSession();
 		return modelAndView;
 	}
@@ -168,7 +180,13 @@ public class ScoreMgmtController {
 		sqlSession.commit();
 		ModelAndView modelAndView = new ModelAndView("alterScore");
 		modelAndView.addObject("num", num);
-		modelAndView.addObject("courselist",list);
+
+		PageHelper.startPage(1, 4);
+		ScoreExample s = new ScoreExample();
+		list = scoreDao.selectByExample(s);
+		PageInfo<Score> page = new PageInfo<>(list);
+		modelAndView.addObject("scorelist",page);
+		
 		MyBatisUtil.closeSqlSession();
 		return modelAndView;
 	}
