@@ -12,6 +12,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
+
 import cn.sims.util.MyBatisUtil;
 import cn.sims.dao.StudentMapper;
 import cn.sims.model.Student;
@@ -25,10 +28,26 @@ public class StuMgmtController {
 	private StudentMapper studentDao;
 	List<Student> list;
 	@RequestMapping("/")
-	public ModelAndView toStuMgmt()
+	public ModelAndView selectAllStudent(HttpServletRequest request)
 	{
-		ModelAndView modelAndView = new ModelAndView("stuMgmt");
-		return modelAndView;		
+		int currentPage;
+		String cPage = request.getParameter("currentPage");//获取request传来的当前页面
+		if(cPage==null||cPage.equals("")||cPage.equals("0"))currentPage=1;//如果当前页面不合法则设为1
+		else currentPage = Integer.parseInt(cPage);
+		PageHelper.startPage(currentPage, 4);//查询第几页，每页4条记录
+		
+		sqlSession = MyBatisUtil.getSqlSession();
+		studentDao = sqlSession.getMapper(StudentMapper.class);
+		StudentExample se = new StudentExample();
+		list = studentDao.selectByExample(se);
+		PageInfo<Student> page = new PageInfo<>(list);//根据查询得到的list来用插件生成PageInfo页面信息
+		ModelAndView modelAndView = new ModelAndView("stuInfo");
+		modelAndView.addObject("mapname", "/");//传回映射名
+		modelAndView.addObject("studentlist", page);//传回插件生成的页面信息PageInfo
+		//modelAndView.addObject("attributeType","");//返回变量类型，本方法为selectAll不需要参数，所以两个都为空
+		//modelAndView.addObject("arributeValue","");//返回变量值
+		MyBatisUtil.closeSqlSession();
+		return modelAndView;
 	}
 	@RequestMapping("/insert")
 	public ModelAndView insertStudentByAccount(HttpServletRequest request) 

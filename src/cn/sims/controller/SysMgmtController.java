@@ -24,14 +24,7 @@ public class SysMgmtController {
 	private SqlSession sqlSession;
 	private SysuserMapper SysuserDao;
 	List<Sysuser> list;
-	
 	@RequestMapping("/")
-	public ModelAndView tosysMgmt()
-	{
-		ModelAndView modelAndView = new ModelAndView("sysMgmt");
-		return modelAndView;		
-	}
-	@RequestMapping("/all")
 	public ModelAndView selectAllSysusers(HttpServletRequest request)
 	{	
 		int currentPage;
