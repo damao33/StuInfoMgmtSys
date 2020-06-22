@@ -8,16 +8,15 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
-<link rel="stylesheet" href="${pageContext.request.contextPath}/css/addStyle.css" / >
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/addStuStyle.css" / >
 <body>
-<br>
+
 	<div class="lable">
 	<a href="${pageContext.request.contextPath}/view/addStu.jsp">添加学生信息</a>
 	<a href="${pageContext.request.contextPath}/view/alterStu.jsp">修改学生信息</a>
 	</div>
-	<br>
 
-<form class="add-form" action="">
+<form class="add-form" action="" >
 <h1>
 请输入想要添加的学生信息
 </h1>
@@ -41,6 +40,7 @@
 </div>
 <div class="txtb">		
 	<input type="text" name="Sfaculty" value="" placeholder="这里是专业">	
+	
 </div>
 	<div align="center">
 		<input class="input1" type="submit" value="提交" >
