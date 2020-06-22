@@ -9,27 +9,30 @@
 </head>
 <body>
 
-<a href="#" onclick="mgmtUser()">用户管理</a>
-<br>
+<a href="${pageContext.request.contextPath}/view/addSysuser.jsp">增加用户</a>
 <a href="#" onclick="alterPw()">修改密码</a>
-<br>
 <a href="#" onclick="exitSys()">退出系统</a>
-<br>
+
 	<table class="table1"  border="1">
 			<thead>
 				<th>账户</th>
 				<th>密码</th>					
 			</thead>
 		<tbody>
-		<c:forEach items="${Sysuserlist.getList()}" var="Sysuser">			
+		<c:forEach items="${sysuserlist.getList()}" var="sysuser">			
 			<tr align = "center">			
-				<td> ${Sysuser.getAccount()}</td>
-				<td> ${Sysuser.getPassword()}</td>
+				<td> ${sysuser.getAccount()}</td>
+				<td> ${sysuser.getPassword()}</td>
 				
 			</tr>		
 		</c:forEach>
 			</tbody>
 	</table>
+	<div class="passage">	
+	<a href="${pageContext.request.contextPath}/sysMgmt${mapname}?currentPage=${sysuserlist.getPrePage()}${attributeType}${attributeValue}" >上一页</a>		
+	<a href="${pageContext.request.contextPath}/sysMgmt${mapname}?currentPage=${sysuserlist.getNextPage()}${attributeType}${attributeValue}">下一页</a>
+	第${sysueserlist.getPageNum()}/${sysuserlist.getPages()}页
+	</div>
 </body>
 <script>
 	function mgmtUser(){

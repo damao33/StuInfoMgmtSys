@@ -8,14 +8,10 @@
 <title>Insert title here</title>
 </head>
 <body>
-我是课程管理
 <br>
-	<a href="#" onclick="addCozInfo()">添加课程信息</a>
-<br>
+	<a href="${pageContext.request.contextPath}/view/addCoz.jsp">添加课程信息</a>
 	<a href="#" onclick="alterCozInfo()">修改课程信息</a>
-<br>
 	<a href="#" onclick="deleteCozInfo()">删除课程信息</a>
-<br>
 
 <table class="table1"  border="1">
 			<thead>
@@ -35,6 +31,11 @@
 		</c:forEach>
 			</tbody>
 	</table>
+	<div class="passage">	
+	<a href="${pageContext.request.contextPath}/stuInfo${mapname}?currentPage=${studentlist.getPrePage()}${attributeType}${attributeValue}" >上一页</a>		
+	<a href="${pageContext.request.contextPath}/stuInfo${mapname}?currentPage=${studentlist.getNextPage()}${attributeType}${attributeValue}">下一页</a>
+	第${studentlist.getPageNum()}/${studentlist.getPages()}页
+	</div>
 
 </body>
 <script>

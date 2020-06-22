@@ -21,6 +21,7 @@
 	<!-- 配置注解驱动 -->
 	<mvc:annotation-driven/>
 	<mvc:resources location="/css/" mapping="/css/**"/>
+	<mvc:resources location="/view/" mapping="/view/**"/>
 	
 	<!-- 配置视图解析器 -->
 	<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">

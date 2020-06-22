@@ -9,13 +9,9 @@
 </head>
 <body>
 
-<br>
-	<a href="#" onclick="addClassInfo()">添加班级信息</a>
-<br>
+	<a href="${pageContext.request.contextPath}/view/addClass.jsp">添加班级信息</a>
 	<a href="#" onclick="alterClassInfo()">修改班级信息</a>
-<br>
-	<a href="#" onclick="deleteClassInfo()">删除班级信息</a>
-<br>	
+	<a href="#" onclick="deleteClassInfo()">删除班级信息</a>	
 
 <table class="table1"  border="1">
 			<thead>
@@ -25,16 +21,21 @@
 				<th>班主任教师号</th>					
 			</thead>
 		<tbody>
-		<c:forEach items="${classlist.getList()}" var="class">			
+		<c:forEach items="${classlist.getList()}" var="cls">			
 			<tr align = "center">			
-				<td> ${class.getClno()}</td>
-				<td> ${class.getClname()}</td>
-				<td> ${class.getHtname()}</td>
-				<td> ${class.getHtno()}</td>								
+				<td> ${cls.getClno()}</td>
+				<td> ${cls.getClname()}</td>
+				<td> ${cls.getHtname()}</td>
+				<td> ${cls.getHtno()}</td>								
 			</tr>		
 		</c:forEach>
 			</tbody>
 	</table>
+	<div class="passage">	
+	<a href="${pageContext.request.contextPath}/clsMgmt${mapname}?currentPage=${classlist.getPrePage()}${attributeType}${attributeValue}" >上一页</a>		
+	<a href="${pageContext.request.contextPath}/clsMgmt${mapname}?currentPage=${classlist.getNextPage()}${attributeType}${attributeValue}">下一页</a>
+	第${classlist.getPageNum()}/${classlist.getPages()}页
+	</div>
 
 </body>
 <script>
