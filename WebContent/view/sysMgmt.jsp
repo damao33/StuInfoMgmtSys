@@ -21,10 +21,10 @@
 				<th>密码</th>					
 			</thead>
 		<tbody>
-		<c:forEach items="${Sysuserlist.getList()}" var="Sysuser">			
+		<c:forEach items="${sysuserlist.getList()}" var="sysuser">			
 			<tr align = "center">			
-				<td> ${Sysuser.getAccount()}</td>
-				<td> ${Sysuser.getPassword()}</td>
+				<td> ${sysuser.getAccount()}</td>
+				<td> ${sysuser.getPassword()}</td>
 				
 			</tr>		
 		</c:forEach>
