@@ -41,6 +41,7 @@ public class StuMgmtController {
 		sqlSession.commit();
 		ModelAndView modelAndView = new ModelAndView("stuMgmt");
 		modelAndView.addObject("num", num);
+		MyBatisUtil.closeSqlSession();
 		return modelAndView;
 	}
 	
