@@ -17,6 +17,7 @@ import cn.sims.dao.StudentMapper;
 import cn.sims.model.Student;
 import cn.sims.model.StudentExample;
 
+
 @Controller
 @RequestMapping("/stuMgmt")
 public class StuMgmtController {
@@ -30,18 +31,62 @@ public class StuMgmtController {
 		return modelAndView;		
 	}
 	@RequestMapping("/insert")
-	public ModelAndView insertUserByAccount(HttpServletRequest request) throws ParseException
+	public ModelAndView insertStudentByAccount(HttpServletRequest request) 
 	{
 		sqlSession = MyBatisUtil.getSqlSession();
 		studentDao = sqlSession.getMapper(StudentMapper.class);
-		Map<String, String[]>map=request.getParameterMap();
+		Map<String, ?> map=request.getParameterMap();
 		Student student = new Student();
-
+		String sno=(String)map.get("sno");
+		String sname=(String)map.get("sname");
+		String ssex=(String)map.get("ssex");
+		Date sbirthday=(Date)map.get("sbirthday");
+		String clno=(String)map.get("clno");
+		String sschool=(String)map.get("sschool");
+		String sfaculty=(String)map.get("sfaculty");
+		student.setSno(sno);
+		student.setSname(sname);
+		student.setSsex(ssex);
+		student.setSbirthday(sbirthday);
+		student.setClno(clno);
+		student.setSschool(sschool);
+		student.setSfaculty(sfaculty);
 		int num = studentDao.insert(student);
 		sqlSession.commit();
 		ModelAndView modelAndView = new ModelAndView("stuMgmt");
 		modelAndView.addObject("num", num);
+		MyBatisUtil.closeSqlSession();
 		return modelAndView;
 	}
+	@RequestMapping("/update")
+	public ModelAndView updateStudentByExample(HttpServletRequest request) throws ParseException
+	{
+		sqlSession = MyBatisUtil.getSqlSession();
+		studentDao = sqlSession.getMapper(StudentMapper.class);
+		String sno = request.getParameter("sno");
+		String sname = request.getParameter("sname");
+		String ssex = request.getParameter("ssex");
+		String sbirthday = request.getParameter("sbirthday");
+		String clno = request.getParameter("clno");
+		String sschool = request.getParameter("sschool");
+		String sfaculty = request.getParameter("sfaculty");
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+		Date birthday =  sdf.parse(sbirthday);
+		Student student = new Student();
+		student.setSno(sno);
+		student.setSname(sname);
+		student.setSsex(ssex);
+		student.setSbirthday(birthday);
+		student.setClno(clno);
+		student.setSschool(sschool);
+		student.setSfaculty(sfaculty);
+		int num = studentDao.updateByPrimaryKey(student);
+		sqlSession.commit();
+		ModelAndView modelAndView = new ModelAndView("sysMgmt");
+		modelAndView.addObject("num", num);
+		MyBatisUtil.closeSqlSession();
+		return modelAndView;
+	}
+
 	
 }
