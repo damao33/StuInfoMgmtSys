@@ -9,8 +9,14 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
+
 import cn.sims.util.MyBatisUtil;
+import cn.sims.dao.ClassMapper;
 import cn.sims.dao.CourseMapper;
+import cn.sims.model.Class;
+import cn.sims.model.ClassExample;
 import cn.sims.model.Course;
 import cn.sims.model.CourseExample;
 
@@ -25,11 +31,24 @@ public class CozMgmtController {
 	
 	
 	@RequestMapping("/")
-	public ModelAndView tocozMgmt()
+	public ModelAndView tocozMgmt(HttpServletRequest request)
 	{
+		int currentPage;
+		String cPage = request.getParameter("currentPage");//获取request传来的当前页面
+		if(cPage==null||cPage.equals("")||cPage.equals("0"))currentPage=1;//如果当前页面不合法则设为1
+		else currentPage = Integer.parseInt(cPage);
+		PageHelper.startPage(currentPage, 4);//查询第几页，每页4条记录
+		
+		sqlSession = MyBatisUtil.getSqlSession();
+		courseDao = sqlSession.getMapper(CourseMapper.class);
+		CourseExample se = new CourseExample();
+		list = courseDao.selectByExample(se);
+		PageInfo<Course> page = new PageInfo<>(list);//根据查询得到的list来用插件生成PageInfo页面信息
 		ModelAndView modelAndView = new ModelAndView("cozMgmt");
+		modelAndView.addObject("mapname", "/");//传回映射名
+		modelAndView.addObject("courselist", page);//传回插件生成的页面信息PageInfo
 		MyBatisUtil.closeSqlSession();
-		return modelAndView;		
+		return modelAndView;
 	}
 	
 	@RequestMapping("/delete")

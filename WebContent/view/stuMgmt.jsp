@@ -9,18 +9,12 @@
 </head>
 <body>
 <br>
-	<a href="#" onclick="addStuInfo()">添加学生信息</a>
-<br>
+	<a href="${pageContext.request.contextPath}/view/addStu.jsp">添加学生信息</a>
 	<a href="#" onclick="alterStuInfo()">修改学生信息</a>
-<br>
 	<a href="#" onclick="addStuFacInfo()">添加学生系部信息</a>
-<br>
 	<a href="#" onclick="alterStuFacInfo()">修改学生系部信息</a>
-<br>
 	<a href="#" onclick="addStuSchInfo()">添加学生学院信息</a>
-<br>
 	<a href="#" onclick="alterStuSchInfo()">修改学生学院信息</a>
-<br>
 	<table class="table1"  border="1">
 			<thead>
 				<th>学号</th>
@@ -45,7 +39,11 @@
 		</c:forEach>
 			</tbody>
 	</table>
-
+	<div class="passage">	
+	<a href="${pageContext.request.contextPath}/stuMgmt${mapname}?currentPage=${studentlist.getPrePage()}${attributeType}${attributeValue}" >上一页</a>		
+	<a href="${pageContext.request.contextPath}/stuMgmt${mapname}?currentPage=${studentlist.getNextPage()}${attributeType}${attributeValue}">下一页</a>
+	第${studentlist.getPageNum()}/${studentlist.getPages()}页
+	</div>
 </body>
 
 <script>
