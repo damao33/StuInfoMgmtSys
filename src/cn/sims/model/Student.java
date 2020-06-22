@@ -42,6 +42,11 @@ public class Student {
     public Date getSbirthday() {
         return sbirthday;
     }
+    
+    public String getSbirthdayString()
+    {
+    	return ModelUtil.dateToString(sbirthday);
+    }
 
     public void setSbirthday(Date sbirthday) {
         this.sbirthday = sbirthday;

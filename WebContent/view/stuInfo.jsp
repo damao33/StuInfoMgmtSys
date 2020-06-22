@@ -7,15 +7,41 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/selectStyle.css" />
 <body>
-	<a href="${pageContext.request.contextPath}/stuInfo/class">按班级查询</a>
+	<div class="select">
+	<a href="#" onclick="selectByClass()">按班级查询</a>
 	<a href="#" onclick="selectBySno()">按学号查询</a>
 	<a href="${pageContext.request.contextPath}/stuInfo/">查询所有</a>
-	
+	</div>
 	<br>
-	<c:forEach items="${studentlist}" var="student">
-		${student}<br>
-	</c:forEach>
+	<table class="table1"  border="1">
+			<thead>
+				<th>学号</th>
+				<th>姓名</th>
+				<th>性别</th>
+				<th>出生日期</th>
+				<th>班级</th>		
+			</thead>
+		<tbody>
+		<c:forEach items="${studentlist.getList()}" var="student">			
+			<tr align = "center">			
+				<td> ${student.getSno()}</td>
+				<td> ${student.getSname()}</td>
+				<td> ${student.getSsex()}</td>
+				<td> ${student.getSbirthdayString()}</td>
+				<td> ${student.getClno()}</td>
+			</tr>			
+		</c:forEach>
+		</tbody>
+	</table>
+	<div>
+	<a href="${pageContext.request.contextPath}/stuInfo${mapname}?currentPage=${studentlist.getPrePage()}${attributeType}${attributeValue}">上一页</a>		
+	<a href="${pageContext.request.contextPath}/stuInfo${mapname}?currentPage=${studentlist.getNextPage()}${attributeType}${attributeValue}">下一页</a>
+	第${studentlist.getPageNum()}/${studentlist.getPages()}页
+	</div>
+	
+	
 </body>
 <script>
 	function selectBySno()
