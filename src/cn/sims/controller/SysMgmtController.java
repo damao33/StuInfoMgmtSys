@@ -22,7 +22,7 @@ import cn.sims.model.SysuserExample;
 @RequestMapping("/sysMgmt")
 public class SysMgmtController {
 	private SqlSession sqlSession;
-	private SysuserMapper SysuserDao;
+	private SysuserMapper sysuserDao;
 	List<Sysuser> list;
 	@RequestMapping("/")
 	public ModelAndView selectAllSysusers(HttpServletRequest request)
@@ -33,13 +33,13 @@ public class SysMgmtController {
 		else currentPage = Integer.parseInt(cPage);
 		PageHelper.startPage(currentPage, 4);
 		sqlSession = MyBatisUtil.getSqlSession();
-		SysuserDao = sqlSession.getMapper(SysuserMapper.class);
+		sysuserDao = sqlSession.getMapper(SysuserMapper.class);
 		SysuserExample se = new SysuserExample();
-		list = SysuserDao.selectByExample(se);
+		list = sysuserDao.selectByExample(se);
 		PageInfo<Sysuser> page = new PageInfo<>(list);
 		ModelAndView modelAndView = new ModelAndView("sysMgmt");
 		modelAndView.addObject("mapname", "/");
-		modelAndView.addObject("studentlist", page);
+		modelAndView.addObject("sysuserlist", page);
 		MyBatisUtil.closeSqlSession();
 		return modelAndView;
 	}
@@ -47,10 +47,10 @@ public class SysMgmtController {
 	public ModelAndView selectSysuserByAccount(HttpServletRequest request)
 	{
 		sqlSession = MyBatisUtil.getSqlSession();
-		SysuserDao = sqlSession.getMapper(SysuserMapper.class);
+		sysuserDao = sqlSession.getMapper(SysuserMapper.class);
 		String account = request.getParameter("account");
 		if(account == null)account="";
-		Sysuser sysuser = SysuserDao.selectByPrimaryKey(account);
+		Sysuser sysuser = sysuserDao.selectByPrimaryKey(account);
 		ModelAndView modelAndView = new ModelAndView("sysMgmt");
 		modelAndView.addObject("Sysuser", sysuser);
 		MyBatisUtil.closeSqlSession();
@@ -60,10 +60,10 @@ public class SysMgmtController {
 	public ModelAndView deleteSysuserByAccount(HttpServletRequest request)
 	{
 		sqlSession = MyBatisUtil.getSqlSession();
-		SysuserDao = sqlSession.getMapper(SysuserMapper.class);
+		sysuserDao = sqlSession.getMapper(SysuserMapper.class);
 		String account = request.getParameter("account");
 		if(account == null)account="";
-		int num=SysuserDao.deleteByPrimaryKey(account);
+		int num=sysuserDao.deleteByPrimaryKey(account);
 		sqlSession.commit();
 		ModelAndView modelAndView = new ModelAndView("sysMgmt");
 		modelAndView.addObject("num", num);
@@ -74,12 +74,12 @@ public class SysMgmtController {
 	public ModelAndView insertSysuserByAccount(HttpServletRequest request)
 	{
 		sqlSession = MyBatisUtil.getSqlSession();
-		SysuserDao = sqlSession.getMapper(SysuserMapper.class);
+		sysuserDao = sqlSession.getMapper(SysuserMapper.class);
 		String account = request.getParameter("account");
 		String password = request.getParameter("password");
 		if(account == null)account="";
 		Sysuser sysuser = new Sysuser(account,password);
-		int num = SysuserDao.insert(sysuser);
+		int num = sysuserDao.insert(sysuser);
 		sqlSession.commit();
 		ModelAndView modelAndView = new ModelAndView("sysMgmt");
 		modelAndView.addObject("num", num);
@@ -90,12 +90,12 @@ public class SysMgmtController {
 	public ModelAndView updateSysuserByAccount(HttpServletRequest request)
 	{
 		sqlSession = MyBatisUtil.getSqlSession();
-		SysuserDao = sqlSession.getMapper(SysuserMapper.class);
+		sysuserDao = sqlSession.getMapper(SysuserMapper.class);
 		String account = request.getParameter("account");
 		String password = request.getParameter("password");
 		if(account == null)account="";
 		Sysuser sysuser = new Sysuser(account,password);
-		int num = SysuserDao.updateByPrimaryKey(sysuser);
+		int num = sysuserDao.updateByPrimaryKey(sysuser);
 		sqlSession.commit();
 		ModelAndView modelAndView = new ModelAndView("sysMgmt");
 		modelAndView.addObject("num", num);
