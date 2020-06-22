@@ -4,11 +4,12 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>welcome</title>
 </head>
-<body>
-<div align="center">
-我是欢迎页面
-</div>
-</body>
+	<link rel="stylesheet" href="${pageContext.request.contextPath}/css/welcomeStyle.css" />
+	<body>
+		<div class="div1">
+			<img  src="${pageContext.request.contextPath}/img/welcome.png"  />
+		</div>
+	</body>
 </html>

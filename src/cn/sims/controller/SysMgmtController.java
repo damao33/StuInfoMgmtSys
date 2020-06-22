@@ -82,7 +82,7 @@ public class SysMgmtController {
 		int num = sysuserDao.insert(sysuser);
 		sqlSession.commit();
 		ModelAndView modelAndView = new ModelAndView("sysMgmt");
-		modelAndView.addObject("num", num);
+		modelAndView.addObject("controllerMsg", "增加了"+num+"条用户信息");
 		MyBatisUtil.closeSqlSession();
 		return modelAndView;
 	}

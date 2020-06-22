@@ -8,7 +8,34 @@
 
 body{
 	min-height: 110vh;
-	background-image: linear-gradient(#3498db,#8e44ad);
+	background-image: linear-gradient(#cac6c5,#ffffff);
+}
+
+.addClass-form h1{
+	text-align: center;
+	margin-bottom: 60px;
+}
+
+.addClass-form{
+	width: 400px;
+	background-color: #f1f1f1;
+	height: 420px;
+	padding: 80px 40px;
+	border-radius: 10px;
+	position: absolute;
+	left:50%;
+	top: 50%;
+	transform: translate(-50%,-50%);
+}
+.input1{
+	min-height: 60px;
+	width: 80px;
+	height: 25px;
+}
+
+.login-form h1{
+	text-align: center;
+	margin-bottom: 60px;
 }
 
 .login-form{
@@ -29,7 +56,7 @@ body{
 }
 
 .txtb{
-	border-bottom: 2px solid #3498DB;
+	border-bottom: 2px solid #6da3c7;
 	position: relative;
 	margin: 30px 0;
 }

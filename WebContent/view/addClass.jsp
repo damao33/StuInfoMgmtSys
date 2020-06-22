@@ -1,28 +1,35 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-
-
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/loginStyle.css" />
+
 <body>
-<br>
 	<a href="${pageContext.request.contextPath}/view/addClass.jsp">添加班级信息</a>
 	<a href="#" onclick="alterClassInfo()">修改班级信息</a>
-	<a href="#" onclick="deleteClassInfo()">删除班级信息</a>	
-<br>
-<p>
-请输入想要添加的班级信息
-</p>
-<form action="">
-	班级号：<input type="text" name="Clno" value="">			<br><br>
-	班级名：<input type="text" name="Clname" value="">			<br><br>
-	班主姓名：<input type="text" name="Htname" value="">		<br><br>
-	班主任教师号：<input type="text" name="Htno" value="">		<br><br>	
-<input type="submit" value="提交">
-</form>
+	<a href="#" onclick="deleteClassInfo()">删除班级信息</a>
+	<form class="addClass-form" action="">
+		<h1>请输入想要添加的班级信息</h1>
+		<div class="txtb">
+			<input type="text" name="Clno" value="" placeholder="这里是班级号">				
+		</div>
+		<div class="txtb">
+			<input type="text" name="Clname" value="" placeholder="这里是班级名">			
+		</div>
+		<div class="txtb">
+			<input type="text" name="Htname" value="" placeholder="这里是班主任姓名">		
+		</div>
+		<div class="txtb">
+			<input type="text" name="Htno" value="" placeholder="这里是班主任教师号">		
+		</div>
+		<div align="center">
+		<input class="input1" type="submit" value="提交" >
+		</div>
+	</form>
 </body>
+	
 </html>

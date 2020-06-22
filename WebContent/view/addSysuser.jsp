@@ -17,11 +17,10 @@
 <p>
 请输入想要添加的管理员信息
 </p>
-<form action="">
-	账号：<input type="text" name="Account" value="">			<br><br>
-	密码：<input type="text" name="Password" value="">		<br><br>
-		<input type="submit" value="注册">
-
+<form action="${pageContext.request.contextPath}/sysMgmt/insert">
+	账号：<input type="text" name="account" value="">			<br><br>
+	密码：<input type="password" name="password" value="">		<br><br>
+		<input type="submit" value="添加">
 </form>
 </body>
 </html>

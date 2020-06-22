@@ -32,9 +32,9 @@
 			</tbody>
 	</table>
 	<div class="passage">	
-	<a href="${pageContext.request.contextPath}/stuInfo${mapname}?currentPage=${studentlist.getPrePage()}${attributeType}${attributeValue}" >上一页</a>		
-	<a href="${pageContext.request.contextPath}/stuInfo${mapname}?currentPage=${studentlist.getNextPage()}${attributeType}${attributeValue}">下一页</a>
-	第${studentlist.getPageNum()}/${studentlist.getPages()}页
+	<a href="${pageContext.request.contextPath}/cozMgmt${mapname}?currentPage=${courselist.getPrePage()}${attributeType}${attributeValue}" >上一页</a>		
+	<a href="${pageContext.request.contextPath}/cozMgmt${mapname}?currentPage=${courselist.getNextPage()}${attributeType}${attributeValue}">下一页</a>
+	第${courselist.getPageNum()}/${courselist.getPages()}页
 	</div>
 
 </body>
