@@ -21,24 +21,25 @@
 				<th>姓名</th>
 				<th>性别</th>
 				<th>出生日期</th>
-				<th>班级</th>		
+				<th>班级</th>			
 			</thead>
 		<tbody>
-		<c:forEach items="${studentlist}" var="student">			
+		<c:forEach items="${studentlist.getList()}" var="student">			
+			
 			<tr align = "center">			
 				<td> ${student.getSno()}</td>
 				<td> ${student.getSname()}</td>
 				<td> ${student.getSsex()}</td>
 				<td> ${student.getSbirthdayString()}</td>
 				<td> ${student.getClno()}</td>
-			</tr>			
+			</tr>		
 		</c:forEach>
-		</tbody>
+			</tbody>
 	</table>
-	<div>	
-	<button type="button">上一页</button>	
-	
-	<button type="button">下一页</button>	
+	<div class="passage">	
+	<a href="#">上一页</a>		
+	<a href="#">下一页</a>
+	第${currentPage}/${studentlist.getPages()}页
 	</div>
 	
 	
