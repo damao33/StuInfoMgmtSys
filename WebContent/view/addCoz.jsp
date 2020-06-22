@@ -10,9 +10,9 @@
 </head>
 <body>
 <br>
-	<a href="${pageContext.request.contextPath}/view/addCoz.jsp">添加课程信息</a>
-	<a href="#" onclick="alterCozInfo()">修改课程信息</a>
-	<a href="#" onclick="deleteCozInfo()">删除课程信息</a>
+		<a href="${pageContext.request.contextPath}/view/addCoz.jsp">添加课程信息</a>
+	<a href="${pageContext.request.contextPath}/view/alterCoz.jsp">修改课程信息</a>
+	<a href="${pageContext.request.contextPath}/view/delCoz.jsp">删除课程信息</a>
 <p>
 请输入想要添加的课程信息
 </p>

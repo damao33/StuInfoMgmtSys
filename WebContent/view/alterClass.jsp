@@ -11,8 +11,8 @@
 <body>
 <br>
 	<a href="${pageContext.request.contextPath}/view/addClass.jsp">添加班级信息</a>
-	<a href="#" onclick="alterClassInfo()">修改班级信息</a>
-	<a href="#" onclick="deleteClassInfo()">删除班级信息</a>	
+	<a href="${pageContext.request.contextPath}/view/alterClass.jsp">修改班级信息</a>
+	<a href="${pageContext.request.contextPath}/view/delClass.jsp">删除班级信息</a>	
 <br>
 	<form action="">
 		请输入想要修改的班级号：<input type="text" name="Cno" value="">			<br><br>
