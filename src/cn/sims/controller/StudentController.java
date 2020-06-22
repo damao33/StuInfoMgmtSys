@@ -43,7 +43,7 @@ public class StudentController {
 		ModelAndView modelAndView = new ModelAndView("stuInfo");
 		modelAndView.addObject("mapname", "/");//传回映射名
 		modelAndView.addObject("studentlist", page);//传回插件生成的页面信息PageInfo
-		modelAndView.addObject("studentlist", list);
+
 		//modelAndView.addObject("attributeType","");//返回变量类型，本方法为selectAll不需要参数，所以两个都为空
 		//modelAndView.addObject("arributeValue","");//返回变量值
 		MyBatisUtil.closeSqlSession();

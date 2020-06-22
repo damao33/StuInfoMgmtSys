@@ -40,7 +40,6 @@ public class SysMgmtController {
 		ModelAndView modelAndView = new ModelAndView("sysMgmt");
 		modelAndView.addObject("mapname", "/");
 		modelAndView.addObject("sysuserlist", page);
-		modelAndView.addObject("sysuserlist", list);
 		MyBatisUtil.closeSqlSession();
 		return modelAndView;
 	}
@@ -68,6 +67,11 @@ public class SysMgmtController {
 		sqlSession.commit();
 		ModelAndView modelAndView = new ModelAndView("sysMgmt");
 		modelAndView.addObject("controllerMsg", "删除了"+num+"条用户信息");
+		PageHelper.startPage(1,4);
+		SysuserExample se =new SysuserExample();
+		list=sysuserDao.selectByExample(se);
+		PageInfo<Sysuser> page = new PageInfo<>(list);
+		modelAndView.addObject("sysuserlist", page);
 		MyBatisUtil.closeSqlSession();
 		return modelAndView;
 	}
@@ -84,6 +88,11 @@ public class SysMgmtController {
 		sqlSession.commit();
 		ModelAndView modelAndView = new ModelAndView("sysMgmt");
 		modelAndView.addObject("controllerMsg", "增加了"+num+"条用户信息");
+		PageHelper.startPage(1,4);
+		SysuserExample se =new SysuserExample();
+		list=sysuserDao.selectByExample(se);
+		PageInfo<Sysuser> page = new PageInfo<>(list);
+		modelAndView.addObject("sysuserlist", page);
 		MyBatisUtil.closeSqlSession();
 		return modelAndView;
 	}
@@ -100,6 +109,11 @@ public class SysMgmtController {
 		sqlSession.commit();
 		ModelAndView modelAndView = new ModelAndView("alterSysuser");
 		modelAndView.addObject("controllerMsg", "修改了"+num+"条用户信息");
+		PageHelper.startPage(1,4);
+		SysuserExample se =new SysuserExample();
+		list=sysuserDao.selectByExample(se);
+		PageInfo<Sysuser> page = new PageInfo<>(list);
+		modelAndView.addObject("sysuserlist", page);
 		MyBatisUtil.closeSqlSession();
 		return modelAndView;
 	}

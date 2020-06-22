@@ -19,6 +19,8 @@ import cn.sims.util.MyBatisUtil;
 import cn.sims.dao.StudentMapper;
 import cn.sims.model.Student;
 import cn.sims.model.StudentExample;
+import cn.sims.model.Sysuser;
+import cn.sims.model.SysuserExample;
 
 
 @Controller
@@ -44,7 +46,6 @@ public class StuMgmtController {
 		ModelAndView modelAndView = new ModelAndView("stuMgmt");
 		modelAndView.addObject("mapname", "/");//传回映射名
 		modelAndView.addObject("studentlist", page);//传回插件生成的页面信息PageInfo
-		modelAndView.addObject("studentlist", list);
 		//modelAndView.addObject("attributeType","");//返回变量类型，本方法为selectAll不需要参数，所以两个都为空
 		//modelAndView.addObject("arributeValue","");//返回变量值
 		MyBatisUtil.closeSqlSession();
@@ -76,6 +77,11 @@ public class StuMgmtController {
 		sqlSession.commit();
 		ModelAndView modelAndView = new ModelAndView("stuMgmt");
 		modelAndView.addObject("controllerMsg", "增加了"+num+"条学生信息");
+		PageHelper.startPage(1,4);
+		StudentExample se =new StudentExample();
+		list=studentDao.selectByExample(se);
+		PageInfo<Student> page = new PageInfo<>(list);
+		modelAndView.addObject("studentlist", page);
 		MyBatisUtil.closeSqlSession();
 		return modelAndView;
 	}
@@ -105,6 +111,11 @@ public class StuMgmtController {
 		sqlSession.commit();
 		ModelAndView modelAndView = new ModelAndView("alterStu");
 		modelAndView.addObject("controllerMsg", "更新了"+num+"条学生信息");
+		PageHelper.startPage(1,4);
+		StudentExample se =new StudentExample();
+		list=studentDao.selectByExample(se);
+		PageInfo<Student> page = new PageInfo<>(list);
+		modelAndView.addObject("studentlist", page);
 		MyBatisUtil.closeSqlSession();
 		return modelAndView;
 	}
