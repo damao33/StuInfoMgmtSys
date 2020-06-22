@@ -63,7 +63,13 @@ public class ClsMgmtController {
 		sqlSession.commit();
 		ModelAndView modelAndView = new ModelAndView("clsMgmt");
 		modelAndView.addObject("num", num);
-		modelAndView.addObject("classlist",list);
+		
+		PageHelper.startPage(1, 4);
+		ClassExample se = new ClassExample();
+		list = classDao.selectByExample(se);
+		PageInfo<Class> page = new PageInfo<>(list);
+		modelAndView.addObject("classlist",page);
+		
 		MyBatisUtil.closeSqlSession();
 		return modelAndView;
 	}
@@ -86,7 +92,13 @@ public class ClsMgmtController {
 		sqlSession.commit();
 		ModelAndView modelAndView = new ModelAndView("clsMgmt");
 		modelAndView.addObject("controllerMsg", "增加了"+num+"条用户信息");
-		modelAndView.addObject("classlist",list);
+		
+		PageHelper.startPage(1, 4);
+		ClassExample se = new ClassExample();
+		list = classDao.selectByExample(se);
+		PageInfo<Class> page = new PageInfo<>(list);
+		modelAndView.addObject("classlist",page);
+		
 		MyBatisUtil.closeSqlSession();
 		return modelAndView;
 	}
@@ -112,7 +124,13 @@ public class ClsMgmtController {
 		sqlSession.commit();
 		ModelAndView modelAndView = new ModelAndView("alterClass");
 		modelAndView.addObject("num", num);
-		modelAndView.addObject("classlist",list);
+
+		PageHelper.startPage(1, 4);
+		ClassExample s = new ClassExample();
+		list = classDao.selectByExample(s);
+		PageInfo<Class> page = new PageInfo<>(list);
+		modelAndView.addObject("classlist",page);
+		
 		MyBatisUtil.closeSqlSession();
 		return modelAndView;
 	}
