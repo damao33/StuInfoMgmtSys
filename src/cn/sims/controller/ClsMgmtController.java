@@ -9,11 +9,16 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
+
 import cn.sims.util.MyBatisUtil;
 import cn.sims.dao.ClassMapper;
-
+import cn.sims.dao.StudentMapper;
 import cn.sims.model.Class;
 import cn.sims.model.ClassExample;
+import cn.sims.model.Student;
+import cn.sims.model.StudentExample;
 
 
 
@@ -27,11 +32,24 @@ public class ClsMgmtController {
 	
 	
 	@RequestMapping("/")
-	public ModelAndView toclsMgmt()
+	public ModelAndView toclsMgmt(HttpServletRequest request)
 	{
+		int currentPage;
+		String cPage = request.getParameter("currentPage");//获取request传来的当前页面
+		if(cPage==null||cPage.equals("")||cPage.equals("0"))currentPage=1;//如果当前页面不合法则设为1
+		else currentPage = Integer.parseInt(cPage);
+		PageHelper.startPage(currentPage, 4);//查询第几页，每页4条记录
+		
+		sqlSession = MyBatisUtil.getSqlSession();
+		classDao = sqlSession.getMapper(ClassMapper.class);
+		ClassExample se = new ClassExample();
+		list = classDao.selectByExample(se);
+		PageInfo<Class> page = new PageInfo<>(list);//根据查询得到的list来用插件生成PageInfo页面信息
 		ModelAndView modelAndView = new ModelAndView("clsMgmt");
+		modelAndView.addObject("mapname", "/");//传回映射名
+		modelAndView.addObject("classlist", page);//传回插件生成的页面信息PageInfo
 		MyBatisUtil.closeSqlSession();
-		return modelAndView;		
+		return modelAndView;
 	}
 	
 	@RequestMapping("/delete")
@@ -58,12 +76,12 @@ public class ClsMgmtController {
 		String htname  = request.getParameter("htname");
 		String htno = request.getParameter("htno");
 		if(clno == null)clno="";
-		Class class1=new Class();
-		class1.setClno(clno);
-		class1.setClname(clname);
-		class1.setHtno(htno);
-		class1.setHtname(htname);
-		int num = classDao.insert(class1);
+		Class cls=new Class();
+		cls.setClno(clno);
+		cls.setClname(clname);
+		cls.setHtno(htno);
+		cls.setHtname(htname);
+		int num = classDao.insert(cls);
 		sqlSession.commit();
 		ModelAndView modelAndView = new ModelAndView("clsMgmt");
 		modelAndView.addObject("num", num);
@@ -80,15 +98,15 @@ public class ClsMgmtController {
 		String htname  = request.getParameter("htname");
 		String htno = request.getParameter("htno");
 		if(clno == null)clno="";
-		Class class1 = new Class();
+		Class cls = new Class();
 		ClassExample se = new ClassExample();
 		ClassExample.Criteria c = se.createCriteria();
 		c.andClnoEqualTo(clno);
-		class1.setClno(clno);
-		class1.setClname(clname);
-		class1.setHtno(htno);
-		class1.setHtname(htname);
-		int num = classDao.updateByExample(class1,se);
+		cls.setClno(clno);
+		cls.setClname(clname);
+		cls.setHtno(htno);
+		cls.setHtname(htname);
+		int num = classDao.updateByExample(cls,se);
 		sqlSession.commit();
 		ModelAndView modelAndView = new ModelAndView("clsMgmt");
 		modelAndView.addObject("num", num);
