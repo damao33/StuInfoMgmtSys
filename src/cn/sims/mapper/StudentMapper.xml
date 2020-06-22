@@ -7,6 +7,8 @@
     <result column="Ssex" jdbcType="VARCHAR" property="ssex" />
     <result column="Sbirthday" jdbcType="DATE" property="sbirthday" />
     <result column="Clno" jdbcType="CHAR" property="clno" />
+    <result column="Sschool" jdbcType="VARCHAR" property="sschool" />
+    <result column="Sfaculty" jdbcType="VARCHAR" property="sfaculty" />
   </resultMap>
   <sql id="Example_Where_Clause">
     <where>
@@ -67,7 +69,7 @@
     </where>
   </sql>
   <sql id="Base_Column_List">
-    Sno, Sname, Ssex, Sbirthday, Clno
+    Sno, Sname, Ssex, Sbirthday, Clno, Sschool, Sfaculty
   </sql>
   <select id="selectByExample" parameterType="cn.sims.model.StudentExample" resultMap="BaseResultMap">
     select
@@ -101,9 +103,11 @@
   </delete>
   <insert id="insert" parameterType="cn.sims.model.Student">
     insert into student (Sno, Sname, Ssex, 
-      Sbirthday, Clno)
+      Sbirthday, Clno, Sschool, 
+      Sfaculty)
     values (#{sno,jdbcType=CHAR}, #{sname,jdbcType=VARCHAR}, #{ssex,jdbcType=VARCHAR}, 
-      #{sbirthday,jdbcType=DATE}, #{clno,jdbcType=CHAR})
+      #{sbirthday,jdbcType=DATE}, #{clno,jdbcType=CHAR}, #{sschool,jdbcType=VARCHAR}, 
+      #{sfaculty,jdbcType=VARCHAR})
   </insert>
   <insert id="insertSelective" parameterType="cn.sims.model.Student">
     insert into student
@@ -123,6 +127,12 @@
       <if test="clno != null">
         Clno,
       </if>
+      <if test="sschool != null">
+        Sschool,
+      </if>
+      <if test="sfaculty != null">
+        Sfaculty,
+      </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
       <if test="sno != null">
@@ -139,6 +149,12 @@
       </if>
       <if test="clno != null">
         #{clno,jdbcType=CHAR},
+      </if>
+      <if test="sschool != null">
+        #{sschool,jdbcType=VARCHAR},
+      </if>
+      <if test="sfaculty != null">
+        #{sfaculty,jdbcType=VARCHAR},
       </if>
     </trim>
   </insert>
@@ -166,6 +182,12 @@
       <if test="record.clno != null">
         Clno = #{record.clno,jdbcType=CHAR},
       </if>
+      <if test="record.sschool != null">
+        Sschool = #{record.sschool,jdbcType=VARCHAR},
+      </if>
+      <if test="record.sfaculty != null">
+        Sfaculty = #{record.sfaculty,jdbcType=VARCHAR},
+      </if>
     </set>
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
@@ -177,7 +199,9 @@
       Sname = #{record.sname,jdbcType=VARCHAR},
       Ssex = #{record.ssex,jdbcType=VARCHAR},
       Sbirthday = #{record.sbirthday,jdbcType=DATE},
-      Clno = #{record.clno,jdbcType=CHAR}
+      Clno = #{record.clno,jdbcType=CHAR},
+      Sschool = #{record.sschool,jdbcType=VARCHAR},
+      Sfaculty = #{record.sfaculty,jdbcType=VARCHAR}
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -197,6 +221,12 @@
       <if test="clno != null">
         Clno = #{clno,jdbcType=CHAR},
       </if>
+      <if test="sschool != null">
+        Sschool = #{sschool,jdbcType=VARCHAR},
+      </if>
+      <if test="sfaculty != null">
+        Sfaculty = #{sfaculty,jdbcType=VARCHAR},
+      </if>
     </set>
     where Sno = #{sno,jdbcType=CHAR}
   </update>
@@ -205,7 +235,9 @@
     set Sname = #{sname,jdbcType=VARCHAR},
       Ssex = #{ssex,jdbcType=VARCHAR},
       Sbirthday = #{sbirthday,jdbcType=DATE},
-      Clno = #{clno,jdbcType=CHAR}
+      Clno = #{clno,jdbcType=CHAR},
+      Sschool = #{sschool,jdbcType=VARCHAR},
+      Sfaculty = #{sfaculty,jdbcType=VARCHAR}
     where Sno = #{sno,jdbcType=CHAR}
   </update>
 </mapper>
