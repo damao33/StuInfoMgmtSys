@@ -51,7 +51,7 @@ public class SysMgmtController {
 		return modelAndView;
 	}
 	@RequestMapping("/account")
-	public ModelAndView selectStudentByClass(HttpServletRequest request)
+	public ModelAndView selectSysuserByAccount(HttpServletRequest request)
 	{
 		int currentPage;
 		String cPage = request.getParameter("currentPage");
@@ -104,7 +104,7 @@ public class SysMgmtController {
 		return modelAndView;
 	}
 	@RequestMapping("/update")
-	public ModelAndView updateSysuserByExample(HttpServletRequest request)
+	public ModelAndView updateSysuserByAccount(HttpServletRequest request)
 	{
 		sqlSession = MyBatisUtil.getSqlSession();
 		SysuserDao = sqlSession.getMapper(SysuserMapper.class);
@@ -112,10 +112,7 @@ public class SysMgmtController {
 		String password = request.getParameter("password");
 		if(account == null)account="";
 		Sysuser sysuser = new Sysuser(account,password);
-		SysuserExample se = new SysuserExample();
-		SysuserExample.Criteria c = se.createCriteria();
-		c.andAccountEqualTo(account);
-		int num = SysuserDao.updateByExample(sysuser,se);
+		int num = SysuserDao.updateByPrimaryKey(sysuser);
 		sqlSession.commit();
 		ModelAndView modelAndView = new ModelAndView("sysMgmt");
 		modelAndView.addObject("num", num);
