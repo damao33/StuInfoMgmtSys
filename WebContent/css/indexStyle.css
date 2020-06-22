@@ -19,12 +19,12 @@ body{
 	border: medium none;
 	margin-top: 30px;
 	width: 80%;
-	height: 750px;
+	height: 750px; 
 	overflow: none;
 	scrolling: no;
 }
 
-.Navigation{
+.Navigation{	
 	overflow: hidden;
 	background: rgba(0, 0, 0, 0.3); 
 }
