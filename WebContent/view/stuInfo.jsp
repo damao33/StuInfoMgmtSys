@@ -7,7 +7,7 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
-<link rel="stylesheet" href="css/selectStyle.css" />
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/selectStyle.css" />
 <body>
 	<div class="select">
 	<a href="#" onclick="selectByClass()">按班级查询</a>
@@ -25,7 +25,10 @@
 			</thead>
 		<tbody>
 		<c:forEach items="${studentlist.getList()}" var="student">			
+<<<<<<< HEAD
 			
+=======
+>>>>>>> refs/remotes/origin/master
 			<tr align = "center">			
 				<td> ${student.getSno()}</td>
 				<td> ${student.getSname()}</td>
@@ -36,10 +39,17 @@
 		</c:forEach>
 			</tbody>
 	</table>
+<<<<<<< HEAD
 	<div class="passage">	
 	<a href="#">上一页</a>		
 	<a href="#">下一页</a>
 	第${currentPage}/${studentlist.getPages()}页
+=======
+	<div>
+	<a href="${pageContext.request.contextPath}/stuInfo${mapname}?currentPage=${studentlist.getPrePage()}${attributeType}${attributeValue}">上一页</a>		
+	<a href="${pageContext.request.contextPath}/stuInfo${mapname}?currentPage=${studentlist.getNextPage()}${attributeType}${attributeValue}">下一页</a>
+	第${studentlist.getPageNum()}/${studentlist.getPages()}页
+>>>>>>> refs/remotes/origin/master
 	</div>
 	
 	
