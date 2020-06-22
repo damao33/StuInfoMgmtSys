@@ -11,9 +11,13 @@ public class Student {
 
     private String ssex;
 
-	private Date sbirthday;
+    private Date sbirthday;
 
     private String clno;
+
+    private String sschool;
+
+    private String sfaculty;
 
     public String getSno() {
         return sno;
@@ -59,10 +63,20 @@ public class Student {
     public void setClno(String clno) {
         this.clno = clno == null ? null : clno.trim();
     }
-    
-    @Override
-	public String toString() {
-		return "Student [sno=" + sno + ", sname=" + sname + ", ssex=" + ssex + ", sbirthday=" + ModelUtil.dateToString(sbirthday) + ", clno="
-				+ clno + "]";
-	}
+
+    public String getSschool() {
+        return sschool;
+    }
+
+    public void setSschool(String sschool) {
+        this.sschool = sschool == null ? null : sschool.trim();
+    }
+
+    public String getSfaculty() {
+        return sfaculty;
+    }
+
+    public void setSfaculty(String sfaculty) {
+        this.sfaculty = sfaculty == null ? null : sfaculty.trim();
+    }
 }

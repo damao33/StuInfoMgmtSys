@@ -30,6 +30,7 @@ public class ClsMgmtController {
 	public ModelAndView toclsMgmt()
 	{
 		ModelAndView modelAndView = new ModelAndView("clsMgmt");
+		MyBatisUtil.closeSqlSession();
 		return modelAndView;		
 	}
 	
@@ -44,6 +45,7 @@ public class ClsMgmtController {
 		sqlSession.commit();
 		ModelAndView modelAndView = new ModelAndView("clsMgmt");
 		modelAndView.addObject("num", num);
+		MyBatisUtil.closeSqlSession();
 		return modelAndView;
 	}
 	@RequestMapping("/insert")
@@ -65,6 +67,7 @@ public class ClsMgmtController {
 		sqlSession.commit();
 		ModelAndView modelAndView = new ModelAndView("clsMgmt");
 		modelAndView.addObject("num", num);
+		MyBatisUtil.closeSqlSession();
 		return modelAndView;
 	}
 	@RequestMapping("/update")
@@ -89,6 +92,7 @@ public class ClsMgmtController {
 		sqlSession.commit();
 		ModelAndView modelAndView = new ModelAndView("clsMgmt");
 		modelAndView.addObject("num", num);
+		MyBatisUtil.closeSqlSession();
 		return modelAndView;
 	}
 	

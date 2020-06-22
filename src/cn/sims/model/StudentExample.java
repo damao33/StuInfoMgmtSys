@@ -471,6 +471,146 @@ public class StudentExample {
             addCriterion("Clno not between", value1, value2, "clno");
             return (Criteria) this;
         }
+
+        public Criteria andSschoolIsNull() {
+            addCriterion("Sschool is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andSschoolIsNotNull() {
+            addCriterion("Sschool is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andSschoolEqualTo(String value) {
+            addCriterion("Sschool =", value, "sschool");
+            return (Criteria) this;
+        }
+
+        public Criteria andSschoolNotEqualTo(String value) {
+            addCriterion("Sschool <>", value, "sschool");
+            return (Criteria) this;
+        }
+
+        public Criteria andSschoolGreaterThan(String value) {
+            addCriterion("Sschool >", value, "sschool");
+            return (Criteria) this;
+        }
+
+        public Criteria andSschoolGreaterThanOrEqualTo(String value) {
+            addCriterion("Sschool >=", value, "sschool");
+            return (Criteria) this;
+        }
+
+        public Criteria andSschoolLessThan(String value) {
+            addCriterion("Sschool <", value, "sschool");
+            return (Criteria) this;
+        }
+
+        public Criteria andSschoolLessThanOrEqualTo(String value) {
+            addCriterion("Sschool <=", value, "sschool");
+            return (Criteria) this;
+        }
+
+        public Criteria andSschoolLike(String value) {
+            addCriterion("Sschool like", value, "sschool");
+            return (Criteria) this;
+        }
+
+        public Criteria andSschoolNotLike(String value) {
+            addCriterion("Sschool not like", value, "sschool");
+            return (Criteria) this;
+        }
+
+        public Criteria andSschoolIn(List<String> values) {
+            addCriterion("Sschool in", values, "sschool");
+            return (Criteria) this;
+        }
+
+        public Criteria andSschoolNotIn(List<String> values) {
+            addCriterion("Sschool not in", values, "sschool");
+            return (Criteria) this;
+        }
+
+        public Criteria andSschoolBetween(String value1, String value2) {
+            addCriterion("Sschool between", value1, value2, "sschool");
+            return (Criteria) this;
+        }
+
+        public Criteria andSschoolNotBetween(String value1, String value2) {
+            addCriterion("Sschool not between", value1, value2, "sschool");
+            return (Criteria) this;
+        }
+
+        public Criteria andSfacultyIsNull() {
+            addCriterion("Sfaculty is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andSfacultyIsNotNull() {
+            addCriterion("Sfaculty is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andSfacultyEqualTo(String value) {
+            addCriterion("Sfaculty =", value, "sfaculty");
+            return (Criteria) this;
+        }
+
+        public Criteria andSfacultyNotEqualTo(String value) {
+            addCriterion("Sfaculty <>", value, "sfaculty");
+            return (Criteria) this;
+        }
+
+        public Criteria andSfacultyGreaterThan(String value) {
+            addCriterion("Sfaculty >", value, "sfaculty");
+            return (Criteria) this;
+        }
+
+        public Criteria andSfacultyGreaterThanOrEqualTo(String value) {
+            addCriterion("Sfaculty >=", value, "sfaculty");
+            return (Criteria) this;
+        }
+
+        public Criteria andSfacultyLessThan(String value) {
+            addCriterion("Sfaculty <", value, "sfaculty");
+            return (Criteria) this;
+        }
+
+        public Criteria andSfacultyLessThanOrEqualTo(String value) {
+            addCriterion("Sfaculty <=", value, "sfaculty");
+            return (Criteria) this;
+        }
+
+        public Criteria andSfacultyLike(String value) {
+            addCriterion("Sfaculty like", value, "sfaculty");
+            return (Criteria) this;
+        }
+
+        public Criteria andSfacultyNotLike(String value) {
+            addCriterion("Sfaculty not like", value, "sfaculty");
+            return (Criteria) this;
+        }
+
+        public Criteria andSfacultyIn(List<String> values) {
+            addCriterion("Sfaculty in", values, "sfaculty");
+            return (Criteria) this;
+        }
+
+        public Criteria andSfacultyNotIn(List<String> values) {
+            addCriterion("Sfaculty not in", values, "sfaculty");
+            return (Criteria) this;
+        }
+
+        public Criteria andSfacultyBetween(String value1, String value2) {
+            addCriterion("Sfaculty between", value1, value2, "sfaculty");
+            return (Criteria) this;
+        }
+
+        public Criteria andSfacultyNotBetween(String value1, String value2) {
+            addCriterion("Sfaculty not between", value1, value2, "sfaculty");
+            return (Criteria) this;
+        }
     }
 
     public static class Criteria extends GeneratedCriteria {

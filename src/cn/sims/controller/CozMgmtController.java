@@ -28,6 +28,7 @@ public class CozMgmtController {
 	public ModelAndView tocozMgmt()
 	{
 		ModelAndView modelAndView = new ModelAndView("cozMgmt");
+		MyBatisUtil.closeSqlSession();
 		return modelAndView;		
 	}
 	
@@ -42,6 +43,7 @@ public class CozMgmtController {
 		sqlSession.commit();
 		ModelAndView modelAndView = new ModelAndView("cozMgmt");
 		modelAndView.addObject("num", num);
+		MyBatisUtil.closeSqlSession();
 		return modelAndView;
 	}
 	@RequestMapping("/insert")
@@ -63,6 +65,7 @@ public class CozMgmtController {
 		sqlSession.commit();
 		ModelAndView modelAndView = new ModelAndView("cozMgmt");
 		modelAndView.addObject("num", num);
+		MyBatisUtil.closeSqlSession();
 		return modelAndView;
 	}
 	@RequestMapping("/update")
@@ -87,6 +90,7 @@ public class CozMgmtController {
 		sqlSession.commit();
 		ModelAndView modelAndView = new ModelAndView("cozMgmt");
 		modelAndView.addObject("num", num);
+		MyBatisUtil.closeSqlSession();
 		return modelAndView;
 	}
 	
