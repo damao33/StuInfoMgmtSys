@@ -38,7 +38,7 @@ public class SysMgmtController {
 		list = SysuserDao.selectByExample(se);
 		PageInfo<Sysuser> page = new PageInfo<>(list);
 		ModelAndView modelAndView = new ModelAndView("sysMgmt");
-		modelAndView.addObject("mapname", "/all");
+		modelAndView.addObject("mapname", "/");
 		modelAndView.addObject("studentlist", page);
 		MyBatisUtil.closeSqlSession();
 		return modelAndView;
