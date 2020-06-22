@@ -8,16 +8,11 @@
 <title>Insert title here</title>
 </head>
 <body>
-
-<br>	
+	
 	<a href="${pageContext.request.contextPath}/ScoreInfo/">查询所有成绩信息</a>
-<br>
 	<a href="#" onclick="alterScore()">成绩修改</a>
-<br>
-	<a href="#" onclick="addScore()">成绩添加</a>
-<br>
+	<a href="${pageContext.request.contextPath}/view/addScore.jsp">成绩添加</a>
 	<a href="#" onclick="deleteScore()">成绩删除</a>
-<br>
 
 <table class="table1"  border="1">
 			<thead>
@@ -40,6 +35,11 @@
 		</c:forEach>
 			</tbody>
 	</table>
+	<div class="passage">	
+	<a href="${pageContext.request.contextPath}/scoreMgmt${mapname}?currentPage=${scorelist.getPrePage()}${attributeType}${attributeValue}" >上一页</a>		
+	<a href="${pageContext.request.contextPath}/scoreMgmt${mapname}?currentPage=${scorelist.getNextPage()}${attributeType}${attributeValue}">下一页</a>
+	第${scorelist.getPageNum()}/${scorelist.getPages()}页
+	</div>
 
 </body>
 <script>
