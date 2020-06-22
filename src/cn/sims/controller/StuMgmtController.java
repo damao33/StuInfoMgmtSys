@@ -34,7 +34,7 @@ public class StuMgmtController {
 	{
 		sqlSession = MyBatisUtil.getSqlSession();
 		studentDao = sqlSession.getMapper(StudentMapper.class);
-		Map<String, String[]>map=request.getParameterMap();
+		Map<String,String[]>map=request.getParameterMap();
 		Student student = new Student();
 
 		int num = studentDao.insert(student);
