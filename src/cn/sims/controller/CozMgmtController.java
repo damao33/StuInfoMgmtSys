@@ -13,10 +13,7 @@ import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 
 import cn.sims.util.MyBatisUtil;
-import cn.sims.dao.ClassMapper;
 import cn.sims.dao.CourseMapper;
-import cn.sims.model.Class;
-import cn.sims.model.ClassExample;
 import cn.sims.model.Course;
 import cn.sims.model.CourseExample;
 
@@ -68,7 +65,7 @@ public class CozMgmtController {
 		list = courseDao.selectByExample(se);
 		PageInfo<Course> page = new PageInfo<>(list);
 		modelAndView.addObject("courselist",page);
-		
+		modelAndView.addObject("mapname","/delete");		
 		MyBatisUtil.closeSqlSession();
 		return modelAndView;
 	}
@@ -129,7 +126,7 @@ public class CozMgmtController {
 		list = courseDao.selectByExample(s);
 		PageInfo<Course> page = new PageInfo<>(list);
 		modelAndView.addObject("courselist",page);
-		
+		modelAndView.addObject("mapname","/update");		
 		MyBatisUtil.closeSqlSession();
 		return modelAndView;
 	}

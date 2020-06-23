@@ -69,6 +69,7 @@ public class ClsMgmtController {
 		list = classDao.selectByExample(se);
 		PageInfo<Class> page = new PageInfo<>(list);
 		modelAndView.addObject("classlist",page);
+		modelAndView.addObject("mapname","/delete");
 		
 		MyBatisUtil.closeSqlSession();
 		return modelAndView;
@@ -98,6 +99,7 @@ public class ClsMgmtController {
 		list = classDao.selectByExample(se);
 		PageInfo<Class> page = new PageInfo<>(list);
 		modelAndView.addObject("classlist",page);
+		modelAndView.addObject("mapname","/insert");
 		
 		MyBatisUtil.closeSqlSession();
 		return modelAndView;
@@ -130,6 +132,7 @@ public class ClsMgmtController {
 		list = classDao.selectByExample(s);
 		PageInfo<Class> page = new PageInfo<>(list);
 		modelAndView.addObject("classlist",page);
+		modelAndView.addObject("mapname","/update");
 		
 		MyBatisUtil.closeSqlSession();
 		return modelAndView;
