@@ -57,9 +57,11 @@
 	
 	function deleteScore(){
         var sno = prompt("输入学号","");		
+        var cno = prompt("输入课程号","");	
+    	var cno1=cno.replace("-","%2D");
 		if(sno)
 			{
-			window.location.href("${pageContext.request.contextPath}/scoreMgmt/delete?sno="+sno);
+			window.location.href("${pageContext.request.contextPath}/scoreMgmt/delete?sno="+sno+"&cno="+cno1);
 			}
 		
 		//跳转
