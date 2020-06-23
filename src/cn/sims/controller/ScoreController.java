@@ -82,7 +82,7 @@ public class ScoreController {
 		String  sno = request.getParameter("sno");
 		ScoreExample se = new ScoreExample();
 		ScoreExample.Criteria c = se.createCriteria();
-		c.andCnoEqualTo(sno);
+		c.andSnoEqualTo(sno);
 		list = scoreDao.selectByExample(se);
 		ModelAndView modelAndView = new ModelAndView("scoreInfo");
 		PageInfo<Score> page = new PageInfo<>(list);//根据查询得到的list来用插件生成PageInfo页面信息
