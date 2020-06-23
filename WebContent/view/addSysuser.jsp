@@ -35,7 +35,6 @@
 </form>
 </body>
 <script>
-<<<<<<< HEAD
 	function deleteSysuser(){
 		var account = prompt("输入账号","");
 		
@@ -45,7 +44,6 @@
 			}
 		//代码	
 	}
-=======
 function deleteSysuser(){
 	var account = prompt("输入账号","");
 	
