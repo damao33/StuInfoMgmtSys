@@ -40,9 +40,9 @@ function deleteSysuser(){
 	
 	if(account)
 		{
-			alert("account："+account);
+			window.location.href("${pageContext.request.contextPath}/sysMgmt/delete?account="+account);
 		}
-	window.location.href("${pageContext.request.contextPath}/sysMgmt/delete?account="+account);
+
 	//代码	
 }
 </script>

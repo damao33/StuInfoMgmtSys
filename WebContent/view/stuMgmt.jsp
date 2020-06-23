@@ -83,9 +83,9 @@
 		
 		if(sno)
 			{
-				alert("sno："+sno);
+			window.location.href("${pageContext.request.contextPath}/stuMgmt/delete?sno="+sno);
 			}
-		window.location.href("${pageContext.request.contextPath}/stuMgmt/delete?sno="+sno);
+		
 		//代码	
 	}
 

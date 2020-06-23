@@ -53,15 +53,44 @@
 </table>
 </body>
 <script>
-function deleteSysuser(){
-	var account = prompt("输入账号","");
-	
-	if(account)
+	function addStuInfo()//-添加-学生信息
+	{
+		var sno = prompt("输入学号","学号"),
+			sname = prompt("输入姓名","姓名"),
+			ssex = prompt("输入性别","性别"),
+			sbirth = prompt("输入出生日期","出生日期"),
+			sclass = prompt("输入班级","班级");
+		if(sno)
 		{
-			alert("account："+account);
+			alert("学号为："+sno+"的信息已输入");
 		}
-	window.location.href("${pageContext.request.contextPath}/sysMgmt/delete?account="+account);
-	//代码	
-}
+		//代码
+		  
+	}
+	
+	function alterStuInfo()//-更改-学生信息
+	{
+		var sno = prompt("输入学号","学号"),
+			sname = prompt("输入姓名","姓名");			
+			
+		if(sno)
+		{
+			//代码
+		}
+		else
+		{
+			alert("系统中不存在该学生");//代码
+		}		
+	}
+	function deleteStudent(){
+		var sno= prompt("输入学号","");
+		
+		if(sno)
+			{
+			window.location.href("${pageContext.request.contextPath}/stuMgmt/delete?sno="+sno);
+			}
+		
+		//代码	
+	}
 </script>
 </html>
