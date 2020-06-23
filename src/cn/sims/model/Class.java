@@ -8,7 +8,7 @@ public class Class {
     private String htname;
 
     private String htno;
-
+    
     public String getClno() {
         return clno;
     }
