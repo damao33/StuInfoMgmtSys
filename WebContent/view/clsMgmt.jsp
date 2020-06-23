@@ -67,6 +67,6 @@ function deleteClass()//-删除-班级信息
 		window.location.href("${pageContext.request.contextPath}/clsMgmt/delete?clno="+clno);
 		}
 	//代码	  
-}}
+}
 </script>
 </html>
