@@ -27,6 +27,7 @@
 	</form>
 <table class="table1" border="1">
 	<br><br>
+	${controllerMsg}
 	<thead>
 				<th>学号</th>
 				<th>姓名</th>
@@ -38,11 +39,11 @@
 	<tbody>
 		<c:forEach items="${scorelist.getList()}" var="score">	
 			<tr align = "center">			
-				<td> ${score.getSno()}<a href="#">修改</a></td>
-				<td> ${score.getSname()}<a href="#">修改</a></td>
-				<td> ${score.getCno()}<a href="#">修改</a></td>
-				<td> ${score.getCname()}<a href="#">修改</a></td>
-				<td> ${score.getDegrees()}<a href="#">修改</a></td>
+				<td> ${score.getSno()}</td>
+				<td> ${score.getSname()}</td>
+				<td> ${score.getCno()}</td>
+				<td> ${score.getCname()}</td>
+				<td> ${score.getDegrees()}<a href="#"onclick="alterDegrees()">修改</a></td>
 			</tr>		
 	</c:forEach>	
 	</tbody>
@@ -58,13 +59,18 @@ function deleteScore(){
 		
 		//跳转
 	}
-function alterSno()
+
+function alterDegrees()
 {
-	var sno = prompt("输入学号","");		
-	if(sno)
+	var cno = prompt("输入课程号","");	
+	var cno1=cno.replace("-","%2D");
+	var degrees = prompt("输入要将该成绩修改为：","");
+	if(degrees)
 		{
-		window.location.href("${pageContext.request.contextPath}/scoreMgmt/update?sno="+sno);
+		window.location.href("${pageContext.request.contextPath}/scoreMgmt/update?sno=${sno}&cno="+cno1+"&degrees="+degrees);
 		}
 }
+
+
 </script>
 </html>
