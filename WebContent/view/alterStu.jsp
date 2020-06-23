@@ -10,6 +10,7 @@
 </head>
 <body>
 <br>
+	<a href="${pageContext.request.contextPath}/stuInfo/">查询所有学生</a>
 	<a href="${pageContext.request.contextPath}/view/addStu.jsp">添加学生信息</a>
 	<a href="${pageContext.request.contextPath}/view/alterStu.jsp">修改学生信息</a>
 

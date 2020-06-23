@@ -19,6 +19,7 @@
 
 <form class="add-form" action="" >
 <h1>
+<p>
 请输入想要添加的学生信息
 </h1>
 <div class="txtb">	

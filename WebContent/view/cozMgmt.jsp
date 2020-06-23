@@ -10,6 +10,7 @@
 <body>
 <br>
 	${controllerMsg}
+	<a href="${pageContext.request.contextPath}/cozMgmt/">查询所有课程信息</a>
 	<a href="${pageContext.request.contextPath}/view/addCoz.jsp">添加课程信息</a>
 	<a href="${pageContext.request.contextPath}/view/alterCoz.jsp">修改课程信息</a>
 	<a href="${pageContext.request.contextPath}/view/delCoz.jsp">删除课程信息</a>
