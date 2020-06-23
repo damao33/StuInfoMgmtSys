@@ -40,7 +40,7 @@ public class ScoreMgmtController {
 		String cPage = request.getParameter("currentPage");//获取request传来的当前页面
 		if(cPage==null||cPage.equals("")||cPage.equals("0"))currentPage=1;//如果当前页面不合法则设为1
 		else currentPage = Integer.parseInt(cPage);
-		PageHelper.startPage(currentPage, 4);//查询第几页，每页4条记录
+		PageHelper.startPage(currentPage, 7);//查询第几页，每页4条记录
 		
 		sqlSession = MyBatisUtil.getSqlSession();
 		scoreDao = sqlSession.getMapper(ScoreMapper.class);
@@ -60,7 +60,7 @@ public class ScoreMgmtController {
 		String cPage = request.getParameter("currentPage");//获取request传来的当前页面
 		if(cPage==null||cPage.equals("")||cPage.equals("0"))currentPage=1;//如果当前页面不合法则设为1
 		else currentPage = Integer.parseInt(cPage);
-		PageHelper.startPage(currentPage, 4);//查询第几页，每页4条记录
+		PageHelper.startPage(currentPage, 7);//查询第几页，每页4条记录
 		sqlSession = MyBatisUtil.getSqlSession();
 		scoreDao = sqlSession.getMapper(ScoreMapper.class);
 		ScoreExample se = new ScoreExample();
@@ -81,7 +81,7 @@ public class ScoreMgmtController {
 		String cPage = request.getParameter("currentPage");
 		if(cPage==null||cPage.equals("")||cPage.equals("0"))currentPage=1;
 		else currentPage = Integer.parseInt(cPage);
-		PageHelper.startPage(currentPage, 4);
+		PageHelper.startPage(currentPage, 7);
 		sqlSession = MyBatisUtil.getSqlSession();
 		scoreDao = sqlSession.getMapper(ScoreMapper.class);
 		String sno = request.getParameter("sno");
@@ -91,8 +91,9 @@ public class ScoreMgmtController {
 		c.andSnoEqualTo(sno);
 		list = scoreDao.selectByExample(se);
 		PageInfo<Score> page = new PageInfo<>(list);
-		ModelAndView modelAndView = new ModelAndView("alterScore");
+		ModelAndView modelAndView = new ModelAndView("alterScore");      
 		modelAndView.addObject("scorelist", page);
+		modelAndView.addObject("sno", sno);
 		modelAndView.addObject("mapname", "/sno");
 		modelAndView.addObject("attributeType","&sno=");
 		modelAndView.addObject("attributeValue", sno);
@@ -106,7 +107,7 @@ public class ScoreMgmtController {
 		String cPage = request.getParameter("currentPage");
 		if(cPage==null||cPage.equals("")||cPage.equals("0"))currentPage=1;
 		else currentPage = Integer.parseInt(cPage);
-		PageHelper.startPage(currentPage, 4);
+		PageHelper.startPage(currentPage, 7);
 		sqlSession = MyBatisUtil.getSqlSession();
 		scoreDao = sqlSession.getMapper(ScoreMapper.class);
 		String sno = request.getParameter("sno");
@@ -118,6 +119,7 @@ public class ScoreMgmtController {
 		PageInfo<Score> page = new PageInfo<>(list);
 		ModelAndView modelAndView = new ModelAndView("delScore");
 		modelAndView.addObject("scorelist", page);
+		modelAndView.addObject("sno", sno);
 		modelAndView.addObject("mapname", "/sno");
 		modelAndView.addObject("attributeType","&sno=");
 		modelAndView.addObject("attributeValue", sno);
@@ -136,19 +138,18 @@ public class ScoreMgmtController {
 		ScoreExample.Criteria c = scoreexample.createCriteria();
 		c.andCnoEqualTo(cno);
 		c.andSnoEqualTo(sno);
-		int num=scoreDao.deleteByExample(scoreexample);
+		System.out.println(cno);
+		System.out.println(sno);
+		int num=scoreDao.deleteByExample(scoreexample);   
 		sqlSession.commit();
 		ModelAndView modelAndView = new ModelAndView("delScore");
 		modelAndView.addObject("controllerMsg", "删除了"+num+"条记录");
 
-		PageHelper.startPage(1, 4);
+		PageHelper.startPage(1, 7);
 		ScoreExample se = new ScoreExample();
 		list = scoreDao.selectByExample(se);
 		PageInfo<Score> page = new PageInfo<>(list);
 		modelAndView.addObject("scorelist",page);
-		modelAndView.addObject("mapname","/sno2");
-		modelAndView.addObject("attributeType","sno");//返回变量类型，本方法为selectAll不需要参数，所以两个都为空
-		modelAndView.addObject("arributeValue",sno);//返回变量值
 		
 		MyBatisUtil.closeSqlSession();
 		return modelAndView;
@@ -177,7 +178,7 @@ public class ScoreMgmtController {
 		ModelAndView modelAndView = new ModelAndView("scoreMgmt");
 		modelAndView.addObject("controllerMsg", "增加了"+num+"条用户信息");
 
-		PageHelper.startPage(1, 4);
+		PageHelper.startPage(1, 7);
 		ScoreExample se = new ScoreExample();
 		list = scoreDao.selectByExample(se);
 		PageInfo<Score> page = new PageInfo<>(list);
@@ -190,37 +191,45 @@ public class ScoreMgmtController {
 	@RequestMapping("/update")
 	public ModelAndView updateScoreByExample(HttpServletRequest request)
 	{
-		sqlSession = MyBatisUtil.getSqlSession();
+		SqlSession sqlSession = MyBatisUtil.getSqlSession();
 		scoreDao = sqlSession.getMapper(ScoreMapper.class);
 		String sno = request.getParameter("sno");
 		String sname = request.getParameter("sname");
 		String cno = request.getParameter("cno");
+		System.out.println(cno);
+		System.out.println(sno);
 		String cname = request.getParameter("cname");
 		String degrees = request.getParameter("degrees");
 		if(sno == null)sno="";
-		if(degrees == null||degrees =="")degrees="0";
+		if(degrees == null||degrees =="")degrees="0"; 
+		if(sname==null)sname="";
+		if(cno==null)cno="";
+		if(cname==null)cname="";               
 		Score score = new Score();
 		ScoreExample se = new ScoreExample();
 		ScoreExample.Criteria c = se.createCriteria();
 		c.andSnoEqualTo(sno);
-		score.setSno(sno);
-		score.setSname(sname);
-		score.setCno(cno);
-		score.setCname(cname);
-		BigDecimal degree=new BigDecimal(degrees);
-		score.setDegrees(degree);
-		int num = scoreDao.updateByExample(score,se);
+		c.andCnoEqualTo(cno);   
+		BigDecimal degree=new BigDecimal(degrees);                 
+		if(sno!=null)score.setSno(sno);
+		if(sname!=null)score.setSname(sname);
+		if(cno!=null)score.setCno(cno);
+		if(cname!=null)score.setCname(cname);
+		if(degree!=null)score.setDegrees(degree);
+		System.out.println(degree);
+		System.out.println(degrees);
+		scoreDao.updateBySnoCno(score);  
 		sqlSession.commit();
-		ModelAndView modelAndView = new ModelAndView("alterScore");
-		modelAndView.addObject("num", num);
-
-		PageHelper.startPage(1, 4);
-		ScoreExample s = new ScoreExample();
+		ModelAndView modelAndView = new ModelAndView("alterScore");         
+		PageHelper.startPage(1, 7);
+		ScoreExample s = new ScoreExample();  
+		ScoreExample.Criteria ce = se.createCriteria();  
+		ce.andSnoEqualTo(sno); 
+	
 		list = scoreDao.selectByExample(s);
-		PageInfo<Score> page = new PageInfo<>(list);
+		PageInfo<Score> page = new PageInfo<>(list);    
 		modelAndView.addObject("scorelist",page);
-		modelAndView.addObject("mapname","/update");
-		
+
 		MyBatisUtil.closeSqlSession();
 		return modelAndView;
 	}
