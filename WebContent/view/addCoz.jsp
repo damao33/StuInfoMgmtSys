@@ -14,7 +14,7 @@
 	<a href="${pageContext.request.contextPath}/cozMgmt/">查询所有课程</a>
 	<a href="${pageContext.request.contextPath}/view/addCoz.jsp">添加课程信息</a>
 	<a href="${pageContext.request.contextPath}/view/alterCoz.jsp">修改课程信息</a>
-	<a href="${pageContext.request.contextPath}/view/delCoz.jsp">删除课程信息</a>
+	<a href="#" onclick="deleteCoz()">删除课程信息</a>
 	</div>
 
 <form class="add-form" action="${pageContext.request.contextPath}/cozMgmt/insert">
@@ -37,4 +37,14 @@
 
 </form>
 </body>
+<script>
+function deleteCoz()	//-删除-课程信息
+	{
+		var cno = prompt("输入课程号","")
+		var cno_new=cno.replace("-","%2D")
+		if(cno){
+			window.location.href("${pageContext.request.contextPath}/cozMgmt/delete?cno="+cno_new);
+		} 
+	}
+</script>
 </html>
