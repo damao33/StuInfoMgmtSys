@@ -14,7 +14,9 @@
 					<input type="text" placeholder="这里是账号" name="account"/>
 					<span data-placeholder="account" ></span>
 					<br>
-					${loginMsg}
+				</div>
+				<div>
+				${loginMsg}
 				</div>
 				<div class="txtb" >
 					<input type="password"   placeholder="这里是密码" name="password"/>
