@@ -83,18 +83,31 @@ public class SysMgmtController {
 		String account = request.getParameter("account");
 		String password = request.getParameter("password");
 		if(account == null)account="";
+		PageHelper.startPage(1,4);
+		SysuserExample se =new SysuserExample();
+		SysuserExample.Criteria c = se.createCriteria();
+		c.andAccountEqualTo(account);
+		list=sysuserDao.selectByExample(se);
+		ModelAndView modelAndView = new ModelAndView("sysMgmt");
+		if(list.size()>0)
+		{
+			PageInfo<Sysuser> page = new PageInfo<>(list);
+			modelAndView.addObject("controllerMsg", "账号已存在！");
+			modelAndView.addObject("mapname", "/");
+			modelAndView.addObject("sysuserlist", page);
+			return modelAndView;
+		}
 		Sysuser sysuser = new Sysuser(account,password);
 		int num = sysuserDao.insert(sysuser);
 		sqlSession.commit();
-		ModelAndView modelAndView = new ModelAndView("sysMgmt");
+		
 		modelAndView.addObject("controllerMsg", "插入了"+num+"条记录");
-		PageHelper.startPage(1,4);
-		SysuserExample se =new SysuserExample();
-		list=sysuserDao.selectByExample(se);
-		PageInfo<Sysuser> page = new PageInfo<>(list);
+		
+		SysuserExample se1 =new SysuserExample();
+		list=sysuserDao.selectByExample(se1);
+		PageInfo<Sysuser> page1 = new PageInfo<>(list);
 		modelAndView.addObject("mapname", "/");
-		modelAndView.addObject("sysuserlist", page);
-		modelAndView.addObject("mapname", "/");
+		modelAndView.addObject("sysuserlist", page1);
 		MyBatisUtil.closeSqlSession();
 		return modelAndView;
 	}

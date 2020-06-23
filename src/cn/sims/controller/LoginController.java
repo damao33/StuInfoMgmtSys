@@ -41,7 +41,8 @@ public class LoginController {
 			modelAndView.addObject("user", user);
 		}else
 		{
-			modelAndView = new ModelAndView("loginfail");			
+			modelAndView = new ModelAndView("../login");
+			modelAndView.addObject("loginMsg", "’À∫≈ªÚ√‹¬Î¥ÌŒÛ£°");						
 		}		
 		return modelAndView;
 	}

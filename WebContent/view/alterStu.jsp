@@ -25,8 +25,11 @@
 		<input class="input1" type="submit" value="提交">
 		</div>
 	</form>
+
 	<table class="table1" border="1">
-	<br><br>
+	<br>
+	<br>
+	${controllerMsg}
 	<thead>
 				<th>学号</th>
 				<th>姓名</th>
@@ -37,18 +40,17 @@
 				<th>所在系部 </th>	
 				
 	</thead>
-	<tbody>
-		<c:forEach items="${studentlist.getList()}" var="student">			
+	<tbody>	
 			<tr align = "center">			
-				<td> ${student.getSno()} 			<a href="#">修改</a></td>
-				<td> ${student.getSname()} 			<a href="#">修改</a></td>
-				<td> ${student.getSsex()} 			<a href="#">修改</a></td>
-				<td> ${student.getSbirthdayString()} <a href="#">修改</a></td>
-				<td> ${student.getClno()}			 <a href="#">修改</a></td>
-				<td> ${student.getSschool()} 		<a href="#">修改</a></td>
-				<td> ${student.getSfaculty()}		 <a href="#">修改</a></td>
+				<td> ${student.getSno()} 			</td>
+				<td> ${student.getSname()} 			<a href="#"onclick="alterSname()" >修改</a></td>
+				<td> ${student.getSsex()} 			<a href="#"onclick="alterSsex()">修改</a></td>
+				<td> ${student.getSbirthdayString()} <a href="#"onclick="alterSbirthday()">修改</a></td>
+				<td> ${student.getClno()}			 <a href="#"onclick="alterClno()">修改</a></td>
+				<td> ${student.getSschool()} 		<a href="#"onclick="alterSschool()">修改</a></td>
+				<td> ${student.getSfaculty()}		 <a href="#"onclick="alterSfaculty()">修改</a></td>
 			</tr>		
-		</c:forEach>
+
 	</tbody>
 </table>
 </body>
@@ -79,7 +81,7 @@
 		}
 		else
 		{
-			alert("系统中不存在该学生");//代码
+			alert("系统中不存在该学生");
 		}		
 	}
 	function deleteStudent(){
@@ -89,8 +91,80 @@
 			{
 			window.location.href("${pageContext.request.contextPath}/stuMgmt/delete?sno="+sno);
 			}
+	}
+	function alterSname(){
+
+
+		var sname= prompt("输入要将姓名修改为","");
+
+		
+		if(sname)
+			{
+				var ssname=encodeURI(sname);
+				window.location.href("${pageContext.request.contextPath}/stuMgmt/update?sno=${student.getSno()}&sname="+ssname);
+			}
 		
 		//代码	
 	}
+	function alterSsex(){
+
+
+		var ssex= prompt("输入要将性别修改为","");
+
+		
+		if(ssex)
+			{
+				var sssex=encodeURI(ssex);
+				window.location.href("${pageContext.request.contextPath}/stuMgmt/update?sno=${student.getSno()}&ssex="+sssex);
+			}
+
+	}
+	function alterSbirthday(){
+
+
+		var sbirthday= prompt("输入要将生日修改为","");
+
+		
+		if(sbirthday){
+		
+			var ssbirthday=encodeURI(sbirthday);
+				window.location.href("${pageContext.request.contextPath}/stuMgmt/update?sno=${student.getSno()}&sbirthday="+ssbirthday);
+			}
+		}
+
+	function alterClno(){
+
+		var clno= prompt("输入要将班级号修改为","");
+		
+		if(clno)
+			{
+				var sclno=encodeURI(clno);
+				window.location.href("${pageContext.request.contextPath}/stuMgmt/update?sno=${student.getSno()}&clno="+sclno);
+			}
+	}	
+	function alterSschool(){
+
+
+		var sschool= prompt("输入要将学院修改为","");
+		
+		if(sschool)
+			{
+				var ssschool=encodeURI(sschool);
+				window.location.href("${pageContext.request.contextPath}/stuMgmt/update?sno=${student.getSno()}&sschool="+ssschool);
+			}	
+	}	
+	function alterSfaculty(){
+		
+		var sfaculty= prompt("输入要将专业修改为","");
+
+		if(sfaculty)
+			{
+				var ssfaculty=encodeURI(sfaculty);
+				window.location.href("${pageContext.request.contextPath}/stuMgmt/update?sno=${student.getSno()}&sfaculty="+ssfaculty);
+			}
+
+	}
+	
+	
 </script>
 </html>
