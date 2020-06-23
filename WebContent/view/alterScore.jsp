@@ -17,9 +17,9 @@
 	<a href="#" onclick="deleteScore()">成绩删除</a>
 </div>
 	
-	<form action="">
+	<form action="${pageContext.request.contextPath}/scoreMgmt/sno">
 	<div class="txtb"   >
-		<input type="text" name="Sno" value="" placeholder="请输入想要修改的学号">			<br><br>
+		<input type="text" name="sno" value="" placeholder="请输入想要修改的学号">			<br><br>
 	</div>	
 	<div align="center">
 		<input class="input1"  type="submit" value="提交">
@@ -36,16 +36,15 @@
 				
 	</thead>
 	<tbody>
-		<c:forEach items="${scorelist.getList()}" var="score">			
+		<c:forEach items="${scorelist.getList()}" var="score">	
 			<tr align = "center">			
-				<td> ${score.getSno()}</td>
-				<td> ${score.getSname()}</td>
-				<td> ${score.getCno()}</td>
-				<td> ${score.getCname()}</td>
-				<td> ${score.getDegrees()}</td>
-				
+				<td> ${score.getSno()}<a href="#">修改</a></td>
+				<td> ${score.getSname()}<a href="#">修改</a></td>
+				<td> ${score.getCno()}<a href="#">修改</a></td>
+				<td> ${score.getCname()}<a href="#">修改</a></td>
+				<td> ${score.getDegrees()}<a href="#">修改</a></td>
 			</tr>		
-		</c:forEach>
+	</c:forEach>	
 	</tbody>
 </table>
 </body>
@@ -59,5 +58,13 @@ function deleteScore(){
 		
 		//跳转
 	}
+function alterSno()
+{
+	var sno = prompt("输入学号","");		
+	if(sno)
+		{
+		window.location.href("${pageContext.request.contextPath}/scoreMgmt/update?sno="+sno);
+		}
+}
 </script>
 </html>
