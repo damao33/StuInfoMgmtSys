@@ -19,4 +19,6 @@ public interface ScoreMapper {
     int updateByExampleSelective(@Param("record") Score record, @Param("example") ScoreExample example);
 
     int updateByExample(@Param("record") Score record, @Param("example") ScoreExample example);
+    
+    void updateBySnoCno(Score record);
 }
