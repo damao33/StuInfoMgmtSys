@@ -35,6 +35,7 @@
 </form>
 </body>
 <script>
+<<<<<<< HEAD
 	function deleteSysuser(){
 		var account = prompt("输入账号","");
 		
@@ -44,5 +45,17 @@
 			}
 		//代码	
 	}
+=======
+function deleteSysuser(){
+	var account = prompt("输入账号","");
+	
+	if(account)
+		{
+			window.location.href("${pageContext.request.contextPath}/sysMgmt/delete?account="+account);
+		}
+
+	//代码	
+}
+>>>>>>> refs/remotes/origin/zh
 </script>
 </html>
