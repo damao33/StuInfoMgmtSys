@@ -16,9 +16,9 @@
 	<a href="${pageContext.request.contextPath}/view/alterCoz.jsp">修改课程信息</a>
 	<a href="#" onclick="deleteCoz()">删除课程信息</a>
 </div>
-	<form action="">
+	<form action="${pageContext.request.contextPath}/cozMgmt/cno">
 	<div class="txtb"   >
-		<input type="text" name="Cno" value="" placeholder="请输入想要修改的课程号">			<br><br>
+		<input type="text" name="cno" value="" placeholder="请输入想要修改的课程号">			<br><br>
 	</div>	
 	<div align="center">
 		<input  class="input1" type="submit" value="提交">
@@ -32,14 +32,14 @@
 				<th>任课教师姓名</th>				
 	</thead>
 	<tbody>
-		<c:forEach items="${courselist.getList()}" var="course">			
+				
 			<tr align = "center">			
-				<td> ${course.getCno()}		<a herf="">修改</a></td>
-				<td> ${course.getCname()}	<a herf="">修改</a></td>
-				<td> ${course.getTno()}		<a herf="">修改</a></td>
-				<td> ${course.getTname()}	<a herf="">修改</a></td>				
+				<td> ${course.getCno()}		<a href="#">修改</a></td>
+				<td> ${course.getCname()}	<a href="#">修改</a></td>
+				<td> ${course.getTno()}		<a href="#">修改</a></td>
+				<td> ${course.getTname()}	<a href="#">修改</a></td>				
 			</tr>		
-		</c:forEach>
+		
 			</tbody>
 </table>
 </body>
@@ -52,5 +52,6 @@ function deleteCoz()	//-删除-课程信息
 			window.location.href("${pageContext.request.contextPath}/cozMgmt/delete?cno="+cno_new);
 		} 
 	}
+
 </script>
 </html>

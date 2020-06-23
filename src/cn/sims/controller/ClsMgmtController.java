@@ -15,10 +15,12 @@ import com.github.pagehelper.PageInfo;
 import cn.sims.util.MyBatisUtil;
 import cn.sims.dao.ClassMapper;
 import cn.sims.dao.StudentMapper;
+import cn.sims.dao.SysuserMapper;
 import cn.sims.model.Class;
 import cn.sims.model.ClassExample;
 import cn.sims.model.Student;
 import cn.sims.model.StudentExample;
+import cn.sims.model.Sysuser;
 
 
 
@@ -51,7 +53,19 @@ public class ClsMgmtController {
 		MyBatisUtil.closeSqlSession();
 		return modelAndView;
 	}
-	
+	@RequestMapping("/clno")
+	public ModelAndView selectClassByClno(HttpServletRequest request)
+	{
+		sqlSession = MyBatisUtil.getSqlSession();
+		classDao = sqlSession.getMapper(ClassMapper.class);
+		String clno = request.getParameter("clno");
+		if(clno == null)clno="";
+		Class cls = classDao.selectByPrimaryKey(clno);
+		ModelAndView modelAndView = new ModelAndView("alterClass");
+		modelAndView.addObject("cls", cls);
+		MyBatisUtil.closeSqlSession();
+		return modelAndView;
+	}
 	@RequestMapping("/delete")
 	public ModelAndView deleteClassByClno(HttpServletRequest request)
 	{
@@ -125,7 +139,7 @@ public class ClsMgmtController {
 		int num = classDao.updateByExample(cls,se);
 		sqlSession.commit();
 		ModelAndView modelAndView = new ModelAndView("alterClass");
-		modelAndView.addObject("num", num);
+		modelAndView.addObject("controllerMsg", "更新了"+num+"条记录");
 
 		PageHelper.startPage(1, 4);
 		ClassExample s = new ClassExample();

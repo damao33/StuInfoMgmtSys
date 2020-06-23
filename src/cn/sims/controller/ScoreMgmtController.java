@@ -91,7 +91,7 @@ public class ScoreMgmtController {
 		c.andSnoEqualTo(sno);
 		list = scoreDao.selectByExample(se);
 		PageInfo<Score> page = new PageInfo<>(list);
-		ModelAndView modelAndView = new ModelAndView("scoreMgmt");
+		ModelAndView modelAndView = new ModelAndView("alterScore");
 		modelAndView.addObject("scorelist", page);
 		modelAndView.addObject("mapname", "/sno");
 		modelAndView.addObject("attributeType","&sno=");
