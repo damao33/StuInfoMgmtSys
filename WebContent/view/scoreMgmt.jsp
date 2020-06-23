@@ -59,9 +59,9 @@
         var sno = prompt("输入学号","");		
 		if(sno)
 			{
-				alert("sno："+sno);
+			window.location.href("${pageContext.request.contextPath}/scoreMgmt/delete?sno="+sno);
 			}
-		window.location.href("${pageContext.request.contextPath}/scoreMgmt/delete?sno="+sno);
+		
 		//跳转
 	}
 </script>
