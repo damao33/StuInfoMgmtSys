@@ -17,6 +17,7 @@ import com.github.pagehelper.PageInfo;
 
 import cn.sims.util.MyBatisUtil;
 import cn.sims.dao.StudentMapper;
+import cn.sims.dao.SysuserMapper;
 import cn.sims.model.Student;
 import cn.sims.model.StudentExample;
 import cn.sims.model.Sysuser;
@@ -121,6 +122,7 @@ public class StuMgmtController {
 		MyBatisUtil.closeSqlSession();
 		return modelAndView;
 	}
+
 
 	
 }
