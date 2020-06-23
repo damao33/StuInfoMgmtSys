@@ -50,7 +50,7 @@ public class SysMgmtController {
 		String account = request.getParameter("account");
 		if(account == null)account="";
 		Sysuser sysuser = sysuserDao.selectByPrimaryKey(account);
-		ModelAndView modelAndView = new ModelAndView("sysMgmt");
+		ModelAndView modelAndView = new ModelAndView("alterSysuser");
 		modelAndView.addObject("Sysuser", sysuser);
 		MyBatisUtil.closeSqlSession();
 		return modelAndView;

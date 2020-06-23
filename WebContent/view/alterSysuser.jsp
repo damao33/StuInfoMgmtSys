@@ -17,9 +17,9 @@
 <a href="${pageContext.request.contextPath}/view/alterSysuser.jsp">修改密码</a>
 <a href="#" onclick="exitSys()">退出系统</a>
 </div>
-	<form action="">
+	<form action="${pageContext.request.contextPath}/sysMgmt/account">
 	<div class="txtb"   >
-		<input type="text" name="Account" value="" placeholder="请输入想要修改的账号">	<br><br>		
+		<input type="text" name="account" value="" placeholder="请输入想要修改的账号">	<br><br>		
 			</div>
 		<div align="center">
 		<input class="input1" type="submit" value="提交">
@@ -29,30 +29,37 @@
 <table class="table1" border="1">
 	<br><br>
 	<thead>
-				<th>账户</th>
-				<th>密码</th>				
+		<th>账号</th>
+		<th>密码</th>				
 	</thead>
-	<tbody>
-		<c:forEach items="${Sysuserlist.getList()}" var="Sysuser">			
-			<tr align = "center">			
-				<td> ${Sysuser.getAccount()}	<a herf="#">修改</a></td>
-				<td> ${Sysuser.getPassword()}	<a herf="#">修改</a></td>
-				
-			</tr>		
-		</c:forEach>
-			</tbody>
+	<tbody>		
+		<tr align = "center">			
+			<td> ${Sysuser.getAccount()}	<a href="#">修改</a></td>
+			<td> ${Sysuser.getPassword()}	<a href="#">修改</a></td>				
+		</tr>		
+	</tbody>
 </table>
 </body>
 <script>
-function deleteSysuser(){
-	var account = prompt("输入账号","");
+	function deleteSysuser(){
+		var account = prompt("输入账号","");
+		
+		if(account)
+			{
+				window.location.href("${pageContext.request.contextPath}/sysMgmt/delete?account="+account);
+			}
 	
-	if(account)
-		{
-			window.location.href("${pageContext.request.contextPath}/sysMgmt/delete?account="+account);
-		}
-
-	//代码	
-}
+		//代码	
+	}
+	function alterAccount()
+	{
+		var account = prompt("输入账号","");
+		
+		if(account)
+			{
+				window.location.href("${pageContext.request.contextPath}/sysMgmt/update?account="+account+"&");
+			}
+	}
+	
 </script>
 </html>
