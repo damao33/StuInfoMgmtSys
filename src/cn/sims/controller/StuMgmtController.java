@@ -99,26 +99,29 @@ public class StuMgmtController {
 		String clno = request.getParameter("clno");
 		String sschool = request.getParameter("sschool");
 		String sfaculty = request.getParameter("sfaculty");
-		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-		Date birthday =  sdf.parse(sbirthday);
 		Student student = new Student();
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+		Date birthday = new Date();
+		if(sbirthday!=null) {
+			birthday =  sdf.parse(sbirthday);student.setSbirthday(birthday);
+		}
+		
+		if(sno == null) sno="";
 		student.setSno(sno);
 		student.setSname(sname);
 		student.setSsex(ssex);
-		student.setSbirthday(birthday);
 		student.setClno(clno);
+		student.setSbirthday(birthday);
 		student.setSschool(sschool);
 		student.setSfaculty(sfaculty);
-		int num = studentDao.updateByPrimaryKey(student);
+		StudentExample se = new StudentExample();
+		StudentExample.Criteria c = se.createCriteria();
+		c.andSnoEqualTo(sno);
+		int num = studentDao.updateByExampleSelective(student,se);
 		sqlSession.commit();
 		ModelAndView modelAndView = new ModelAndView("alterStu");
 		modelAndView.addObject("controllerMsg", "更新了"+num+"条记录");
-		PageHelper.startPage(1,4);
-		StudentExample se =new StudentExample();
-		list=studentDao.selectByExample(se);
-		PageInfo<Student> page = new PageInfo<>(list);
-		modelAndView.addObject("studentlist", page);
-		modelAndView.addObject("mapname", "/");
+		modelAndView.addObject("student", student);
 		MyBatisUtil.closeSqlSession();
 		return modelAndView;
 	}
@@ -145,25 +148,14 @@ public class StuMgmtController {
 	@RequestMapping("/ssno")
 	public ModelAndView selectStuBySno(HttpServletRequest request)
 	{
-		int currentPage;
-		String cPage = request.getParameter("currentPage");
-		if(cPage==null||cPage.equals("")||cPage.equals("0"))currentPage=1;
-		else currentPage = Integer.parseInt(cPage);
-		PageHelper.startPage(currentPage, 4);
+
 		sqlSession = MyBatisUtil.getSqlSession();
 		studentDao = sqlSession.getMapper(StudentMapper.class);
 		String sno = request.getParameter("sno");
 		if(sno == null)sno="";
-		StudentExample se = new StudentExample();
-		StudentExample.Criteria c = se.createCriteria();
-		c.andSnoEqualTo(sno);
-		list = studentDao.selectByExample(se);
-		PageInfo<Student> page = new PageInfo<>(list);
+		Student student = studentDao.selectByPrimaryKey(sno);
 		ModelAndView modelAndView = new ModelAndView("alterStu");
-		modelAndView.addObject("studentlist", page);
-		modelAndView.addObject("mapname", "/ssno");
-		modelAndView.addObject("attributeType","&sno=");
-		modelAndView.addObject("attributeValue", sno);
+		modelAndView.addObject("student", student);
 		MyBatisUtil.closeSqlSession();
 		return modelAndView;
 	}
