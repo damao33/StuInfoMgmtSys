@@ -34,21 +34,21 @@ public class StuMgmtController {
 	public ModelAndView selectAllStudent(HttpServletRequest request)
 	{
 		int currentPage;
-		String cPage = request.getParameter("currentPage");//锟斤拷取request锟斤拷锟斤拷锟侥碉拷前页锟斤拷
-		if(cPage==null||cPage.equals("")||cPage.equals("0"))currentPage=1;//锟斤拷锟斤拷锟角耙筹拷娌伙拷戏锟斤拷锟斤拷锟轿�1
+		String cPage = request.getParameter("currentPage");//
+		if(cPage==null||cPage.equals("")||cPage.equals("0"))currentPage=1;//
 		else currentPage = Integer.parseInt(cPage);
-		PageHelper.startPage(currentPage, 4);//锟斤拷询锟节硷拷页锟斤拷每页4锟斤拷锟斤拷录
+		PageHelper.startPage(currentPage, 4);//
 		
 		sqlSession = MyBatisUtil.getSqlSession();
 		studentDao = sqlSession.getMapper(StudentMapper.class);
 		StudentExample se = new StudentExample();
 		list = studentDao.selectByExample(se);
-		PageInfo<Student> page = new PageInfo<>(list);//锟斤拷锟捷诧拷询锟矫碉拷锟斤拷list锟斤拷锟矫诧拷锟斤拷锟斤拷锟�PageInfo页锟斤拷锟斤拷息
+		PageInfo<Student> page = new PageInfo<>(list);//
 		ModelAndView modelAndView = new ModelAndView("stuMgmt");
-		modelAndView.addObject("mapname", "/");//锟斤拷锟斤拷映锟斤拷锟斤拷
-		modelAndView.addObject("studentlist", page);//锟斤拷锟截诧拷锟斤拷锟斤拷傻锟揭筹拷锟斤拷锟较�PageInfo
-		//modelAndView.addObject("attributeType","");//锟斤拷锟截憋拷锟斤拷锟斤拷锟酵ｏ拷锟斤拷锟斤拷锟斤拷为selectAll锟斤拷锟斤拷要锟斤拷锟斤拷锟斤拷锟斤拷锟斤拷锟斤拷锟斤拷锟斤拷为锟斤拷
-		//modelAndView.addObject("arributeValue","");//锟斤拷锟截憋拷锟斤拷值
+		modelAndView.addObject("mapname", "/");//
+		modelAndView.addObject("studentlist", page);//
+		//modelAndView.addObject("attributeType","");//
+		//modelAndView.addObject("arributeValue","");//
 		MyBatisUtil.closeSqlSession();
 		return modelAndView;
 	}
@@ -77,7 +77,7 @@ public class StuMgmtController {
 		int num = studentDao.insert(student);
 		sqlSession.commit();
 		ModelAndView modelAndView = new ModelAndView("stuMgmt");
-		modelAndView.addObject("controllerMsg", "插入了"+num+"个学生信息");
+		modelAndView.addObject("controllerMsg", "������"+num+"����¼");
 		PageHelper.startPage(1,4);
 		StudentExample se =new StudentExample();
 		list=studentDao.selectByExample(se);
@@ -112,7 +112,7 @@ public class StuMgmtController {
 		int num = studentDao.updateByPrimaryKey(student);
 		sqlSession.commit();
 		ModelAndView modelAndView = new ModelAndView("alterStu");
-		modelAndView.addObject("controllerMsg", "更新了"+num+"个学生信息");
+		modelAndView.addObject("controllerMsg", "������"+num+"���û�");
 		PageHelper.startPage(1,4);
 		StudentExample se =new StudentExample();
 		list=studentDao.selectByExample(se);
@@ -132,7 +132,7 @@ public class StuMgmtController {
 		int num=studentDao.deleteByPrimaryKey(sno);
 		sqlSession.commit();
 		ModelAndView modelAndView = new ModelAndView("stuMgmt");
-		modelAndView.addObject("controllerMsg", "删除了"+num+"个学生信息");
+		modelAndView.addObject("controllerMsg", "ɾ����"+num+"���û�");
 		PageHelper.startPage(1,4);
 		StudentExample se =new StudentExample();
 		list=studentDao.selectByExample(se);
