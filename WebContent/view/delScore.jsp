@@ -9,6 +9,14 @@
 </head>
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/alterStyle.css" / >
 <body>
+	<form action="${pageContext.request.contextPath}/scoreMgmt/sno2">
+	<div class="txtb"   >
+		<input type="text" name="sno" value="" placeholder="请输入要搜索的学号">	<br><br>		
+			</div>
+		<div align="center">
+		<input class="input1" type="submit" value="搜索">
+		</div>
+	</form>
 <div class="select">
 	<a href="${pageContext.request.contextPath}/scoreMgmt/">查询所有成绩</a>
 	<a href="${pageContext.request.contextPath}/view/alterScore.jsp">成绩修改</a>
@@ -16,6 +24,7 @@
 	<a href="${pageContext.request.contextPath}/view/delScore.jsp">成绩删除</a>
 </div>
 <br>
+	${controllerMsg }
 <table class="table1"  border="1">
 			<thead>
 				<th>学号</th>
@@ -32,7 +41,7 @@
 				<td> ${score.getCno()}</td>
 				<td> ${score.getCname()}</td>
 				<td> ${score.getDegrees()}</td>
-				
+				<td> <a href="#" onclick="deleteScore()">删除</a> </td>
 			</tr>		
 		</c:forEach>
 			</tbody>
@@ -54,7 +63,12 @@ function addScore(){
 }
 
 function deleteScore(){
-	//跳转
+	var confirm = prompt("是否删除","");
+	if(confirm)
+	{
+		window.location.href("${pageContext.request.contextPath}/scoreMgmt/delete?sno=${score.getSno()}&cno=${score.getCno()}");
+	}
+	
 }
 </script>
 </html>
