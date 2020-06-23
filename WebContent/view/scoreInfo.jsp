@@ -12,6 +12,7 @@
 	<div class="select">
 		<a href="${pageContext.request.contextPath}/scoreInfo/">查询所有成绩</a>
 		<a href="#" onclick="selectByCno()">按课程查询成绩</a>
+		<a href="#" onclick="selectBySno()">按学号查询成绩</a>
 	</div>	
 	<table class="table1"  border="1">
 			<thead>
@@ -46,6 +47,13 @@
 		if(cno)
 			{
 			window.location.href("${pageContext.request.contextPath}/scoreInfo/cno?cno="+cno);
+			}
+	}
+	function selectBySno(){
+        var sno = prompt("输入学号：","");		
+		if(sno)
+			{
+			window.location.href("${pageContext.request.contextPath}/scoreInfo/sno?sno="+sno);
 			}
 	}
 </script>
