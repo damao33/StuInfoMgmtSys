@@ -75,7 +75,7 @@ public class ScoreMgmtController {
 		return modelAndView;
 	}
 	@RequestMapping("/sno")
-	public ModelAndView selectScoreBySno(HttpServletRequest request)
+	public ModelAndView selectScoreBySno1(HttpServletRequest request)
 	{
 		int currentPage;
 		String cPage = request.getParameter("currentPage");
@@ -99,17 +99,46 @@ public class ScoreMgmtController {
 		MyBatisUtil.closeSqlSession();
 		return modelAndView;
 	}
+	@RequestMapping("/sno2")
+	public ModelAndView selectScoreBySno2(HttpServletRequest request)
+	{
+		int currentPage;
+		String cPage = request.getParameter("currentPage");
+		if(cPage==null||cPage.equals("")||cPage.equals("0"))currentPage=1;
+		else currentPage = Integer.parseInt(cPage);
+		PageHelper.startPage(currentPage, 4);
+		sqlSession = MyBatisUtil.getSqlSession();
+		scoreDao = sqlSession.getMapper(ScoreMapper.class);
+		String sno = request.getParameter("sno");
+		if(sno == null)sno="";
+		ScoreExample se = new ScoreExample();
+		ScoreExample.Criteria c = se.createCriteria();
+		c.andSnoEqualTo(sno);
+		list = scoreDao.selectByExample(se);
+		PageInfo<Score> page = new PageInfo<>(list);
+		ModelAndView modelAndView = new ModelAndView("delScore");
+		modelAndView.addObject("scorelist", page);
+		modelAndView.addObject("mapname", "/sno");
+		modelAndView.addObject("attributeType","&sno=");
+		modelAndView.addObject("attributeValue", sno);
+		MyBatisUtil.closeSqlSession();
+		return modelAndView;
+	}
 	@RequestMapping("/delete")
 	public ModelAndView deleteScoreBySno(HttpServletRequest request)
 	{
 		sqlSession = MyBatisUtil.getSqlSession();
 		scoreDao = sqlSession.getMapper(ScoreMapper.class);
 		String sno = request.getParameter("sno");
+		String cno = request.getParameter("cno");
 		if(sno == null)sno="";
 		ScoreExample scoreexample = new ScoreExample();
+		ScoreExample.Criteria c = scoreexample.createCriteria();
+		c.andCnoEqualTo(cno);
+		c.andSnoEqualTo(sno);
 		int num=scoreDao.deleteByExample(scoreexample);
 		sqlSession.commit();
-		ModelAndView modelAndView = new ModelAndView("scoreMgmt");
+		ModelAndView modelAndView = new ModelAndView("delScore");
 		modelAndView.addObject("controllerMsg", "删除了"+num+"条记录");
 
 		PageHelper.startPage(1, 4);
@@ -117,7 +146,9 @@ public class ScoreMgmtController {
 		list = scoreDao.selectByExample(se);
 		PageInfo<Score> page = new PageInfo<>(list);
 		modelAndView.addObject("scorelist",page);
-		modelAndView.addObject("mapname","/");
+		modelAndView.addObject("mapname","/sno2");
+		modelAndView.addObject("attributeType","sno");//返回变量类型，本方法为selectAll不需要参数，所以两个都为空
+		modelAndView.addObject("arributeValue",sno);//返回变量值
 		
 		MyBatisUtil.closeSqlSession();
 		return modelAndView;
