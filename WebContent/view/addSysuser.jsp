@@ -10,7 +10,6 @@
 </head>
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/addStyle.css" / >
 <body>
-<br>
 <div class="lable">
 <a href="${pageContext.request.contextPath}/sysMgmt/">查询所有用户</a>
 <a href="${pageContext.request.contextPath}/view/addSysuser.jsp">增加用户</a>

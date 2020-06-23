@@ -8,10 +8,14 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
-<br>
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/alterStyle.css" / >
+<body>
+<div class="select">
 		<a href="${pageContext.request.contextPath}/view/addStu.jsp">添加学生信息</a>
 	<a href="${pageContext.request.contextPath}/view/alterStu.jsp">修改学生信息</a>
 	<a href="${pageContext.request.contextPath}/stuInfo/" target="ContentFrame">查询所有学生</a>
+</div>
+<br>	
 	<table class="table1"  border="1">
 			<thead>
 				<th>学号</th>

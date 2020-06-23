@@ -7,11 +7,14 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/selectStyle.css" />
 <body>
+<div class="select">
 	<a href="${pageContext.request.contextPath}/clsMgmt/">查询所有班级</a>
 	<a href="${pageContext.request.contextPath}/view/addClass.jsp">添加班级信息</a>
 	<a href="${pageContext.request.contextPath}/view/alterClass.jsp">修改班级信息</a>
 	<a href="${pageContext.request.contextPath}/view/delClass.jsp">删除班级信息</a>	
+</div>
 	<br>
 	${controllerMsg}
 	<table class="table1"  border="1">

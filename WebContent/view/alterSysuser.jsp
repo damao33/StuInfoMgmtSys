@@ -8,19 +8,25 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/alterStyle.css" / >
 <body>
-<br>
+<div class="select"   >
 <a href="${pageContext.request.contextPath}/sysMgmt/">查询所有用户</a>
 <a href="${pageContext.request.contextPath}/view/addSysuser.jsp">增加用户</a>
 <a href="${pageContext.request.contextPath}/view/alterSysuser.jsp">修改密码</a>
 <a href="#" onclick="exitSys()">退出系统</a>
-<br>
+</div>
 	<form action="">
-		请输入想要修改的账号：<input type="text" name="Account" value="">			<br><br>
-			
-		<input type="submit" value="提交">
+	<div class="txtb"   >
+		<input type="text" name="Account" value="" placeholder="请输入想要修改的账号">	<br><br>		
+			</div>
+		<div align="center">
+		<input class="input1" type="submit" value="提交">
+		</div>
 	</form>
+	
 <table class="table1" border="1">
+	<br><br>
 	<thead>
 				<th>账户</th>
 				<th>密码</th>				

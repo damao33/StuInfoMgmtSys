@@ -7,11 +7,14 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/selectStyle.css" />
 <body>
-<br>
+<div class="select">
 	<a href="${pageContext.request.contextPath}/stuMgmt/">查询所有学生</a>
 	<a href="${pageContext.request.contextPath}/view/addStu.jsp">添加学生信息</a>
 	<a href="${pageContext.request.contextPath}/view/alterStu.jsp">修改学生信息</a>
+</div>
+<br>
 	<table class="table1"  border="1">
 			<thead>
 				<th>学号</th>

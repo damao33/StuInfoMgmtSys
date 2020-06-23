@@ -10,7 +10,6 @@
 </head>
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/addStyle.css" / >
 <body>
-<br>
 	<div class="lable">
 	<a href="${pageContext.request.contextPath}/cozMgmt/">查询所有课程</a>
 	<a href="${pageContext.request.contextPath}/view/addCoz.jsp">添加课程信息</a>

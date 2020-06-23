@@ -8,17 +8,21 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/alterStyle.css" / >
 <body>
-<br>
+<div class="select">
 	<a href="${pageContext.request.contextPath}/cozMgmt/">查询所有课程</a>
 	<a href="${pageContext.request.contextPath}/view/addCoz.jsp">添加课程信息</a>
 	<a href="${pageContext.request.contextPath}/view/alterCoz.jsp">修改课程信息</a>
 	<a href="${pageContext.request.contextPath}/view/delCoz.jsp">删除课程信息</a>
-	<br>
+</div>
 	<form action="">
-		请输入想要修改的课程号：<input type="text" name="Cno" value="">			<br><br>
-			
-		<input type="submit" value="提交">
+	<div class="txtb"   >
+		<input type="text" name="Cno" value="" placeholder="请输入想要修改的课程号">			<br><br>
+	</div>	
+	<div align="center">
+		<input  class="input1" type="submit" value="提交">
+	</div>
 	</form>
 <table class="table1" border="1">
 	<thead>
