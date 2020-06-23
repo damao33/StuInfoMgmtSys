@@ -45,20 +45,9 @@
 		
 		if(account)
 			{
-				alert("account："+account);
+				window.location.href("${pageContext.request.contextPath}/sysMgmt/delete?account="+account);
 			}
-		window.location.href("${pageContext.request.contextPath}/sysMgmt/delete?account="+account);
 		//代码	
 	}
-	
-	function alterPw(){
-		//代码
-	}
-	
-	function exitSys(){
-		//退出系统
-	}
-	
-	
 </script>
 </html>
