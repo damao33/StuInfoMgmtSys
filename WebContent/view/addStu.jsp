@@ -12,7 +12,7 @@
 <br>
 	<a href="${pageContext.request.contextPath}/view/addStu.jsp">添加学生信息</a>
 	<a href="${pageContext.request.contextPath}/view/alterStu.jsp">修改学生信息</a>
-
+<a href="${pageContext.request.contextPath}/stuInfo/" target="ContentFrame">查询所有</a>
 	<br>
 <p>
 请输入想要添加的学生信息
