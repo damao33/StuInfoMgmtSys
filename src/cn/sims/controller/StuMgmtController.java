@@ -142,6 +142,30 @@ public class StuMgmtController {
 		MyBatisUtil.closeSqlSession();
 		return modelAndView;
 	}
-
+	@RequestMapping("/ssno")
+	public ModelAndView selectStuBySno(HttpServletRequest request)
+	{
+		int currentPage;
+		String cPage = request.getParameter("currentPage");
+		if(cPage==null||cPage.equals("")||cPage.equals("0"))currentPage=1;
+		else currentPage = Integer.parseInt(cPage);
+		PageHelper.startPage(currentPage, 4);
+		sqlSession = MyBatisUtil.getSqlSession();
+		studentDao = sqlSession.getMapper(StudentMapper.class);
+		String sno = request.getParameter("sno");
+		if(sno == null)sno="";
+		StudentExample se = new StudentExample();
+		StudentExample.Criteria c = se.createCriteria();
+		c.andSnoEqualTo(sno);
+		list = studentDao.selectByExample(se);
+		PageInfo<Student> page = new PageInfo<>(list);
+		ModelAndView modelAndView = new ModelAndView("alterStu");
+		modelAndView.addObject("studentlist", page);
+		modelAndView.addObject("mapname", "/ssno");
+		modelAndView.addObject("attributeType","&sno=");
+		modelAndView.addObject("attributeValue", sno);
+		MyBatisUtil.closeSqlSession();
+		return modelAndView;
+	}
 	
 }

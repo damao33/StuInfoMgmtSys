@@ -17,9 +17,9 @@
 		<a href="#" onclick="deleteStudent()">删除学生信息</a>
 	</div>	
 	<br>
-	<form action="">
+	<form action="${pageContext.request.contextPath}/stuMgmt/ssno">
 		<div class="txtb"   >
-		<input type="text" name="Sno" value="" placeholder="请输入想要修改的学号">			<br><br>
+		<input type="text" name="sno" value="" placeholder="请输入想要修改的学号">			<br><br>
 			</div>
 		<div align="center">
 		<input class="input1" type="submit" value="提交">
