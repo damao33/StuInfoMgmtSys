@@ -36,7 +36,7 @@ public class CozMgmtController {
 		String cPage = request.getParameter("currentPage");//获取request传来的当前页面
 		if(cPage==null||cPage.equals("")||cPage.equals("0"))currentPage=1;//如果当前页面不合法则设为1
 		else currentPage = Integer.parseInt(cPage);
-		PageHelper.startPage(currentPage, 4);//查询第几页，每页4条记录
+		PageHelper.startPage(currentPage, 7);//查询第几页，每页4条记录
 		
 		sqlSession = MyBatisUtil.getSqlSession();
 		courseDao = sqlSession.getMapper(CourseMapper.class);
@@ -73,7 +73,7 @@ public class CozMgmtController {
 		sqlSession.commit();
 		ModelAndView modelAndView = new ModelAndView("cozMgmt");
 		modelAndView.addObject("controllerMsg", "删除了"+num+"条记录");
-		PageHelper.startPage(1, 4);
+		PageHelper.startPage(1, 7);
 		CourseExample se = new CourseExample();
 		list = courseDao.selectByExample(se);
 		PageInfo<Course> page = new PageInfo<>(list);
@@ -102,7 +102,7 @@ public class CozMgmtController {
 		ModelAndView modelAndView = new ModelAndView("cozMgmt");
 		modelAndView.addObject("controllerMsg", "增加了"+num+"条用户信息");
 
-		PageHelper.startPage(1, 4);
+		PageHelper.startPage(1, 7);
 		CourseExample se = new CourseExample();
 		list = courseDao.selectByExample(se);
 		PageInfo<Course> page = new PageInfo<>(list);
@@ -129,17 +129,11 @@ public class CozMgmtController {
 		course.setCname(cname);
 		course.setTno(tno);
 		course.setTname(tname);
-		int num = courseDao.updateByExample(course,se);
+		int num = courseDao.updateByExampleSelective(course, se);
 		sqlSession.commit();
 		ModelAndView modelAndView = new ModelAndView("alterCoz");
-		modelAndView.addObject("num", num);
-
-		PageHelper.startPage(1, 4);
-		CourseExample s = new CourseExample();
-		list = courseDao.selectByExample(s);
-		PageInfo<Course> page = new PageInfo<>(list);
-		modelAndView.addObject("courselist",page);
-		modelAndView.addObject("mapname","/update");		
+		modelAndView.addObject("controllerMsg", "更新了"+num+"条记录");
+		modelAndView.addObject("course",course);	
 		MyBatisUtil.closeSqlSession();
 		return modelAndView;
 	}
