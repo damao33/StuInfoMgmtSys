@@ -112,7 +112,7 @@ public class StuMgmtController {
 		int num = studentDao.updateByPrimaryKey(student);
 		sqlSession.commit();
 		ModelAndView modelAndView = new ModelAndView("alterStu");
-		modelAndView.addObject("controllerMsg", "更新了"+num+"条用户");
+		modelAndView.addObject("controllerMsg", "更新了"+num+"条记录");
 		PageHelper.startPage(1,4);
 		StudentExample se =new StudentExample();
 		list=studentDao.selectByExample(se);
@@ -123,7 +123,7 @@ public class StuMgmtController {
 		return modelAndView;
 	}
 	@RequestMapping("/delete")
-	public ModelAndView deleteSysuserByAccount(HttpServletRequest request)
+	public ModelAndView deleteStudentBySno(HttpServletRequest request)
 	{
 		sqlSession = MyBatisUtil.getSqlSession();
 		studentDao = sqlSession.getMapper(StudentMapper.class);
@@ -132,7 +132,7 @@ public class StuMgmtController {
 		int num=studentDao.deleteByPrimaryKey(sno);
 		sqlSession.commit();
 		ModelAndView modelAndView = new ModelAndView("stuMgmt");
-		modelAndView.addObject("controllerMsg", "删除了"+num+"条用户");
+		modelAndView.addObject("controllerMsg", "删除了"+num+"条记录");
 		PageHelper.startPage(1,4);
 		StudentExample se =new StudentExample();
 		list=studentDao.selectByExample(se);
