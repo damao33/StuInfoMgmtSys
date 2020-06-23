@@ -121,7 +121,8 @@ public class StuMgmtController {
 		sqlSession.commit();
 		ModelAndView modelAndView = new ModelAndView("alterStu");
 		modelAndView.addObject("controllerMsg", "更新了"+num+"条记录");
-		modelAndView.addObject("student", student);
+		Student lstudent = studentDao.selectByPrimaryKey(sno);
+		modelAndView.addObject("student", lstudent);
 		MyBatisUtil.closeSqlSession();
 		return modelAndView;
 	}
