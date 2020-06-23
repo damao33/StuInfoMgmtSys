@@ -33,7 +33,7 @@ public class StudentController {
 		String cPage = request.getParameter("currentPage");//获取request传来的当前页面
 		if(cPage==null||cPage.equals("")||cPage.equals("0"))currentPage=1;//如果当前页面不合法则设为1
 		else currentPage = Integer.parseInt(cPage);
-		PageHelper.startPage(currentPage, 4);//查询第几页，每页4条记录
+		PageHelper.startPage(currentPage, 7);//查询第几页，每页7条记录
 		
 		sqlSession = MyBatisUtil.getSqlSession();
 		studentDao = sqlSession.getMapper(StudentMapper.class);
@@ -55,7 +55,7 @@ public class StudentController {
 		String cPage = request.getParameter("currentPage");
 		if(cPage==null||cPage.equals("")||cPage.equals("0"))currentPage=1;
 		else currentPage = Integer.parseInt(cPage);
-		PageHelper.startPage(currentPage, 4);
+		PageHelper.startPage(currentPage, 7);
 		sqlSession = MyBatisUtil.getSqlSession();
 		studentDao = sqlSession.getMapper(StudentMapper.class);
 		String sno = request.getParameter("sno");
@@ -80,7 +80,7 @@ public class StudentController {
 		String cPage = request.getParameter("currentPage");
 		if(cPage==null||cPage.equals("")||cPage.equals("0"))currentPage=1;
 		else currentPage = Integer.parseInt(cPage);
-		PageHelper.startPage(currentPage, 4);
+		PageHelper.startPage(currentPage, 7);
 		sqlSession = MyBatisUtil.getSqlSession();
 		studentDao = sqlSession.getMapper(StudentMapper.class);
 		String cls = request.getParameter("cls");
