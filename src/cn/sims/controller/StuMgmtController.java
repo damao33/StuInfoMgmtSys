@@ -82,6 +82,7 @@ public class StuMgmtController {
 		list=studentDao.selectByExample(se);
 		PageInfo<Student> page = new PageInfo<>(list);
 		modelAndView.addObject("studentlist", page);
+		modelAndView.addObject("mapname", "/insert");
 		MyBatisUtil.closeSqlSession();
 		return modelAndView;
 	}
@@ -116,6 +117,7 @@ public class StuMgmtController {
 		list=studentDao.selectByExample(se);
 		PageInfo<Student> page = new PageInfo<>(list);
 		modelAndView.addObject("studentlist", page);
+		modelAndView.addObject("mapname", "/update");
 		MyBatisUtil.closeSqlSession();
 		return modelAndView;
 	}

@@ -71,6 +71,7 @@ public class SysMgmtController {
 		list=sysuserDao.selectByExample(se);
 		PageInfo<Sysuser> page = new PageInfo<>(list);
 		modelAndView.addObject("sysuserlist", page);
+		modelAndView.addObject("mapname", "/delete");
 		MyBatisUtil.closeSqlSession();
 		return modelAndView;
 	}
@@ -93,6 +94,7 @@ public class SysMgmtController {
 		PageInfo<Sysuser> page = new PageInfo<>(list);
 		modelAndView.addObject("mapname", "/");
 		modelAndView.addObject("sysuserlist", page);
+		modelAndView.addObject("mapname", "/insert");
 		MyBatisUtil.closeSqlSession();
 		return modelAndView;
 	}
@@ -114,6 +116,7 @@ public class SysMgmtController {
 		list=sysuserDao.selectByExample(se);
 		PageInfo<Sysuser> page = new PageInfo<>(list);
 		modelAndView.addObject("sysuserlist", page);
+		modelAndView.addObject("mapname", "/update");
 		MyBatisUtil.closeSqlSession();
 		return modelAndView;
 	}
