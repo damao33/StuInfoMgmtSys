@@ -7,12 +7,14 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/selectStyle.css" />
 <body>
-<br>
-	<a href="${pageContext.request.contextPath}/stuMgmt/">查询所有学生</a>
-	<a href="${pageContext.request.contextPath}/view/addStu.jsp">添加学生信息</a>
-	<a href="${pageContext.request.contextPath}/view/alterStu.jsp">修改学生信息</a>
-	<a href="#" onclick="deleteStudent()">删除学生信息</a>	
+	<div class="select">
+		<a href="${pageContext.request.contextPath}/stuMgmt/">查询所有学生</a>
+		<a href="${pageContext.request.contextPath}/view/addStu.jsp">添加学生信息</a>
+		<a href="${pageContext.request.contextPath}/view/alterStu.jsp">修改学生信息</a>
+		<a href="#" onclick="deleteStudent()">删除学生信息</a>	
+	</div>
 	<br>
 	${controllerMsg}
 	<table class="table1"  border="1">

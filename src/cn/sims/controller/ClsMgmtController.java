@@ -69,8 +69,8 @@ public class ClsMgmtController {
 		list = classDao.selectByExample(se);
 		PageInfo<Class> page = new PageInfo<>(list);
 		modelAndView.addObject("classlist",page);
-		modelAndView.addObject("mapname","/delete");
-		
+		modelAndView.addObject("mapname","/");
+		modelAndView.addObject("controllerMsg","É¾³ýÁË"+num+"Ìõ¼ÇÂ¼");
 		MyBatisUtil.closeSqlSession();
 		return modelAndView;
 	}

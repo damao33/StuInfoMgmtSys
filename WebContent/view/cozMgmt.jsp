@@ -7,13 +7,14 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/selectStyle.css" />
 <body>
-<br>
-	<a href="${pageContext.request.contextPath}/cozMgmt/">查询所有课程</a>
-	<a href="${pageContext.request.contextPath}/view/addCoz.jsp">添加课程信息</a>
-	<a href="${pageContext.request.contextPath}/view/alterCoz.jsp">修改课程信息</a>
-	<a href="#" onclick="deleteCoz()">删除课程信息</a>
-	<br>
+	<div class="select">
+		<a href="${pageContext.request.contextPath}/cozMgmt/">查询所有课程</a>
+		<a href="${pageContext.request.contextPath}/view/addCoz.jsp">添加课程信息</a>
+		<a href="${pageContext.request.contextPath}/view/alterCoz.jsp">修改课程信息</a>
+		<a href="#" onclick="deleteCoz()">删除课程信息</a>
+	</div>
 	${controllerMsg}
 	<table class="table1"  border="1">
 			<thead>
@@ -41,38 +42,33 @@
 
 </body>
 <script>
-function addCozInfo()//-添加-课程信息
-{
-	var Cno   = prompt("输入课程号",""),
-		Cname = prompt("输入课程名称",""),
-		Tno   = prompt("输入任课教师名称",""),
-		Tname = prompt("输入任课教师编号","");	
-	//代码	  
-}
-
-function alterCozInfo()//-修改-课程信息
-{
-	var Cno = prompt("输入课程号","")
-	var r = confirm("您确定修改课程号为"+Cno+"的信息吗？")	
-	if (r == true) 
-		{	
-		//代码	
-		}   
-}
-
-function deleteCoz()	//-删除-课程信息
-{
-	var cno = prompt("输入课程号","")
-	var cno_new=cno.replace("-","%2D")
-	if(cno){
-			alert(cno);
-	} 
-	window.location.href("${pageContext.request.contextPath}/cozMgmt/delete?cno="+cno_new);
-}
+	function addCozInfo()//-添加-课程信息
+	{
+		var Cno   = prompt("输入课程号",""),
+			Cname = prompt("输入课程名称",""),
+			Tno   = prompt("输入任课教师名称",""),
+			Tname = prompt("输入任课教师编号","");	
+		//代码	  
+	}
 	
+	function alterCozInfo()//-修改-课程信息
+	{
+		var Cno = prompt("输入课程号","")
+		var r = confirm("您确定修改课程号为"+Cno+"的信息吗？")	
+		if (r == true) 
+			{	
+			//代码	
+			}   
+	}
 	
-
-
-
+	function deleteCoz()	//-删除-课程信息
+	{
+		var cno = prompt("输入课程号","")
+		var cno_new=cno.replace("-","%2D")
+		if(cno){
+				alert(cno);
+		} 
+		window.location.href("${pageContext.request.contextPath}/cozMgmt/delete?cno="+cno_new);
+	}
 </script>
 </html>

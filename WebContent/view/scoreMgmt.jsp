@@ -7,15 +7,17 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/selectStyle.css" />
 <body>
-	
-	<a href="${pageContext.request.contextPath}/scoreMgmt/">查询所有成绩</a>
-	<a href="${pageContext.request.contextPath}/view/alterScore.jsp">成绩修改</a>
-	<a href="${pageContext.request.contextPath}/view/addScore.jsp">成绩添加</a>
-	<a href="#" onclick="deleteScore()">成绩删除</a>
-	<br>
-	${controllerMsg}
-<table class="table1"  border="1">
+	<div class="select">
+		<a href="${pageContext.request.contextPath}/scoreMgmt/">查询所有成绩</a>
+		<a href="${pageContext.request.contextPath}/view/alterScore.jsp">成绩修改</a>
+		<a href="${pageContext.request.contextPath}/view/addScore.jsp">成绩添加</a>
+		<a href="#" onclick="deleteScore()">成绩删除</a>
+		<br>
+		${controllerMsg}
+	</div>	
+	<table class="table1"  border="1">
 			<thead>
 				<th>学号</th>
 				<th>姓名</th>

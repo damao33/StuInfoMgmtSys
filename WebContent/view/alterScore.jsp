@@ -8,20 +8,25 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/alterStyle.css" / >
 <body>
-<br>
+<div class="select">
 		<a href="${pageContext.request.contextPath}/scoreMgmt/">查询所有成绩</a>
 	<a href="${pageContext.request.contextPath}/view/alterScore.jsp">成绩修改</a>
 	<a href="${pageContext.request.contextPath}/view/addScore.jsp">成绩添加</a>
 	<a href="${pageContext.request.contextPath}/view/delScore.jsp">成绩删除</a>
-	<br>
+</div>
 	
 	<form action="">
-		请输入想要修改的学号：<input type="text" name="Sno" value="">			<br><br>
-			
-		<input type="submit" value="提交">
+	<div class="txtb"   >
+		<input type="text" name="Sno" value="" placeholder="请输入想要修改的学号">			<br><br>
+	</div>	
+	<div align="center">
+		<input class="input1"  type="submit" value="提交">
+	</div>
 	</form>
 <table class="table1" border="1">
+	<br><br>
 	<thead>
 				<th>学号</th>
 				<th>姓名</th>

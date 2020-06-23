@@ -10,7 +10,6 @@
 </head>
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/addStyle.css" / >
 <body>
-<br>
 <div class="lable">
 <a href="${pageContext.request.contextPath}/sysMgmt/">查询所有用户</a>
 <a href="${pageContext.request.contextPath}/view/addSysuser.jsp">增加用户</a>
@@ -35,4 +34,16 @@
 		</div>
 </form>
 </body>
+<script>
+function deleteSysuser(){
+	var account = prompt("输入账号","");
+	
+	if(account)
+		{
+			alert("account："+account);
+		}
+	window.location.href("${pageContext.request.contextPath}/sysMgmt/delete?account="+account);
+	//代码	
+}
+</script>
 </html>

@@ -8,19 +8,25 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/alterStyle.css" / >
 <body>
-<br>
-	<a href="${pageContext.request.contextPath}/stuInfo/">查询所有学生</a>
-	<a href="${pageContext.request.contextPath}/view/addStu.jsp">添加学生信息</a>
-	<a href="${pageContext.request.contextPath}/view/alterStu.jsp">修改学生信息</a>
-	<a href="#" onclick="deleteStudent()">删除学生信息</a>
+	<div class="select">
+		<a href="${pageContext.request.contextPath}/stuMgmt/">查询所有学生</a>
+		<a href="${pageContext.request.contextPath}/view/addStu.jsp">添加学生信息</a>
+		<a href="${pageContext.request.contextPath}/view/alterStu.jsp">修改学生信息</a>
+		<a href="#" onclick="deleteStudent()">删除学生信息</a>
+	</div>	
 	<br>
 	<form action="">
-		请输入想要修改的学号：<input type="text" name="Sno" value="">			<br><br>
-			
-		<input type="submit" value="提交">
+		<div class="txtb"   >
+		<input type="text" name="Sno" value="" placeholder="请输入想要修改的学号">			<br><br>
+			</div>
+		<div align="center">
+		<input class="input1" type="submit" value="提交">
+		</div>
 	</form>
-<table class="table1" border="1">
+	<table class="table1" border="1">
+	<br><br>
 	<thead>
 				<th>学号</th>
 				<th>姓名</th>
@@ -46,4 +52,16 @@
 	</tbody>
 </table>
 </body>
+<script>
+function deleteSysuser(){
+	var account = prompt("输入账号","");
+	
+	if(account)
+		{
+			alert("account："+account);
+		}
+	window.location.href("${pageContext.request.contextPath}/sysMgmt/delete?account="+account);
+	//代码	
+}
+</script>
 </html>

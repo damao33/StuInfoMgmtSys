@@ -7,13 +7,15 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/alterStyle.css" / >
 <body>
-<br>
+<div class="select">
 <a href="${pageContext.request.contextPath}/sysMgmt/">查询所有用户</a>
 <a href="${pageContext.request.contextPath}/view/addSysuser.jsp">增加用户</a>
 <a href="#" onclick="deleteSysuser()">删除用户</a>	
 <a href="${pageContext.request.contextPath}/view/alterSysuser.jsp">修改密码</a>
 <a href="#" onclick="exitSys()">退出系统</a>
+</div>
 <br>
 	<table class="table1"  border="1">
 			<thead>
@@ -37,18 +39,15 @@
 	</div>
 </body>
 <script>
-	function mgmtUser(){
-		//代码
-	}
+function deleteSysuser(){
+	var account = prompt("输入账号","");
 	
-	function alterPw(){
-		//代码
-	}
-	
-	function exitSys(){
-		//退出系统
-	}
-	
-	
+	if(account)
+		{
+			alert("account："+account);
+		}
+	window.location.href("${pageContext.request.contextPath}/sysMgmt/delete?account="+account);
+	//代码	
+}
 </script>
 </html>

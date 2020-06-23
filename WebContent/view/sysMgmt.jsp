@@ -8,7 +8,7 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
-<link rel="stylesheet" href="${pageContext.request.contextPath}/css/sysMgmtStyle.css" />
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/selectStyle.css" />
 <body>
 <div class="select">
 <a href="${pageContext.request.contextPath}/sysMgmt/">查询所有用户</a>

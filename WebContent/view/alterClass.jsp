@@ -10,14 +10,12 @@
 </head>
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/alterStyle.css" / >
 <body>
-<br>
 <div class="select">
 	<a href="${pageContext.request.contextPath}/clsMgmt/">查询所有班级</a>
 	<a href="${pageContext.request.contextPath}/view/addClass.jsp">添加班级信息</a>
 	<a href="${pageContext.request.contextPath}/view/alterClass.jsp">修改班级信息</a>
 	<a href="${pageContext.request.contextPath}/view/delClass.jsp">删除班级信息</a>	
 </div>
-<br>
 	<form  action="">
 		<div class="txtb"   >
 		<input type="text"  name="Cno" value="" placeholder="请输入想要修改的班级号">			<br><br>
