@@ -34,7 +34,7 @@
 	</thead>
 	<tbody>		
 		<tr align = "center">			
-			<td> ${Sysuser.getAccount()}	<a href="#">修改</a></td>
+			<td> ${Sysuser.getAccount()}	<a href="#" onclick="alterAccount()">修改</a></td>
 			<td> ${Sysuser.getPassword()}	<a href="#">修改</a></td>				
 		</tr>		
 	</tbody>
@@ -53,11 +53,11 @@
 	}
 	function alterAccount()
 	{
-		var account = prompt("输入账号","");
-		
+		var account = prompt("输入账号","");		
 		if(account)
 			{
-				window.location.href("${pageContext.request.contextPath}/sysMgmt/update?account="+account+"&");
+				window.location.href("${pageContext.request.contextPath}/sysMgmt/update?account=${Sysuser.getAccount()}&");
+				//alert("${Sysuser.getAccount()}");
 			}
 	}
 	
