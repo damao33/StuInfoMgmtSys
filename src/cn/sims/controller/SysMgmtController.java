@@ -104,19 +104,15 @@ public class SysMgmtController {
 		sqlSession = MyBatisUtil.getSqlSession();
 		sysuserDao = sqlSession.getMapper(SysuserMapper.class);
 		String account = request.getParameter("account");
-		String password = request.getParameter("password");
-		if(account == null)account="";
-		Sysuser sysuser = new Sysuser(account,password);
+		String newpassword = request.getParameter("newpassword");
+		Sysuser sysuser = new Sysuser(account,newpassword);
 		int num = sysuserDao.updateByPrimaryKey(sysuser);
 		sqlSession.commit();
 		ModelAndView modelAndView = new ModelAndView("alterSysuser");
 		modelAndView.addObject("controllerMsg", "更新了"+num+"条记录");
-		PageHelper.startPage(1,4);
 		SysuserExample se =new SysuserExample();
 		list=sysuserDao.selectByExample(se);
-		PageInfo<Sysuser> page = new PageInfo<>(list);
-		modelAndView.addObject("sysuserlist", page);
-		modelAndView.addObject("mapname", "/");
+		modelAndView.addObject("sysuser", sysuser);
 		MyBatisUtil.closeSqlSession();
 		return modelAndView;
 	}

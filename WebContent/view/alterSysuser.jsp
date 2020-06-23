@@ -27,15 +27,16 @@
 	</form>
 	
 <table class="table1" border="1">
-	<br><br>
+	<br>
+	${controllerMsg}
 	<thead>
 		<th>账号</th>
 		<th>密码</th>				
 	</thead>
 	<tbody>		
 		<tr align = "center">						
-			<td> ${sysuser.getAccount()}	<a href="#">修改</a></td>
-			<td> ${sysuser.getPassword()}	<a href="#">修改</a></td>				
+			<td> ${sysuser.getAccount()}	</td>
+			<td> ${sysuser.getPassword()}	<a href="#" onclick="alterPassword()">修改</a></td>				
 		</tr>		
 	</tbody>
 </table>
@@ -51,13 +52,12 @@
 	
 		//代码	
 	}
-	function alterAccount()
+	function alterPassword()
 	{
-		var account = prompt("输入账号","");		
-		if(account)
+		var password = prompt("输入要将密码修改为：","");
+		if(password)
 			{
-				window.location.href("${pageContext.request.contextPath}/sysMgmt/update?account=${Sysuser.getAccount()}&");
-				//alert("${Sysuser.getAccount()}");
+				window.location.href("${pageContext.request.contextPath}/sysMgmt/update?account=${sysuser.getAccount()}&newpassword="+password);
 			}
 	}
 	
