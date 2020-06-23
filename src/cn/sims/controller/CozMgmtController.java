@@ -68,6 +68,7 @@ public class CozMgmtController {
 		list = courseDao.selectByExample(se);
 		PageInfo<Course> page = new PageInfo<>(list);
 		modelAndView.addObject("courselist",page);
+		modelAndView.addObject("mapname","/delete");
 		
 		MyBatisUtil.closeSqlSession();
 		return modelAndView;
@@ -97,6 +98,7 @@ public class CozMgmtController {
 		list = courseDao.selectByExample(se);
 		PageInfo<Course> page = new PageInfo<>(list);
 		modelAndView.addObject("courselist",page);
+		modelAndView.addObject("mapname","/insert");
 		
 		MyBatisUtil.closeSqlSession();
 		return modelAndView;
@@ -129,6 +131,7 @@ public class CozMgmtController {
 		list = courseDao.selectByExample(s);
 		PageInfo<Course> page = new PageInfo<>(list);
 		modelAndView.addObject("courselist",page);
+		modelAndView.addObject("mapname","/update");
 		
 		MyBatisUtil.closeSqlSession();
 		return modelAndView;
