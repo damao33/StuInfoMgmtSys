@@ -17,9 +17,9 @@
 		<a href="#" onclick="deleteStudent()">删除学生信息</a>
 	</div>	
 	<br>
-	<form action="">
+	<form action="${pageContext.request.contextPath}/stuMgmt/ssno">
 		<div class="txtb"   >
-		<input type="text" name="Sno" value="" placeholder="请输入想要修改的学号">			<br><br>
+		<input type="text" name="sno" value="" placeholder="请输入想要修改的学号">			<br><br>
 			</div>
 		<div align="center">
 		<input class="input1" type="submit" value="提交">
@@ -40,13 +40,13 @@
 	<tbody>
 		<c:forEach items="${studentlist.getList()}" var="student">			
 			<tr align = "center">			
-				<td> ${student.getSno()} 			<a herf="">修改</a></td>
-				<td> ${student.getSname()} 			<a herf="">修改</a></td>
-				<td> ${student.getSsex()} 			<a herf="">修改</a></td>
-				<td> ${student.getSbirthdayString()} <a herf="">修改</a></td>
-				<td> ${student.getClno()}			 <a herf="">修改</a></td>
-				<td> ${student.getSschool()} 		<a herf="">修改</a></td>
-				<td> ${student.getSfaculty()}		 <a herf="">修改</a></td>
+				<td> ${student.getSno()} 			<a href="#">修改</a></td>
+				<td> ${student.getSname()} 			<a href="#">修改</a></td>
+				<td> ${student.getSsex()} 			<a href="#">修改</a></td>
+				<td> ${student.getSbirthdayString()} <a href="#">修改</a></td>
+				<td> ${student.getClno()}			 <a href="#">修改</a></td>
+				<td> ${student.getSschool()} 		<a href="#">修改</a></td>
+				<td> ${student.getSfaculty()}		 <a href="#">修改</a></td>
 			</tr>		
 		</c:forEach>
 	</tbody>

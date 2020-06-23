@@ -33,9 +33,9 @@
 		<th>密码</th>				
 	</thead>
 	<tbody>		
-		<tr align = "center">			
-			<td> ${Sysuser.getAccount()}	<a href="#" onclick="alterAccount()">修改</a></td>
-			<td> ${Sysuser.getPassword()}	<a href="#">修改</a></td>				
+		<tr align = "center">						
+			<td> ${sysuser.getAccount()}	<a href="#">修改</a></td>
+			<td> ${sysuser.getPassword()}	<a href="#">修改</a></td>				
 		</tr>		
 	</tbody>
 </table>
