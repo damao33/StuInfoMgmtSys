@@ -12,7 +12,7 @@
 	<div class="select">
 	<a href="#" onclick="selectByClass()">按班级查询</a>
 	<a href="#" onclick="selectBySno()">按学号查询</a>
-	<a href="${pageContext.request.contextPath}/stuInfo/" target="ContentFrame">查询所有</a>
+	<a href="${pageContext.request.contextPath}/stuInfo/" target="ContentFrame">查询所有学生</a>
 	</div>
 	<br>
 	<table class="table1"  border="1">
