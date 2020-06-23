@@ -37,7 +37,7 @@ public class StuMgmtController {
 		String cPage = request.getParameter("currentPage");//
 		if(cPage==null||cPage.equals("")||cPage.equals("0"))currentPage=1;//
 		else currentPage = Integer.parseInt(cPage);
-		PageHelper.startPage(currentPage, 4);//
+		PageHelper.startPage(currentPage, 7);//
 		
 		sqlSession = MyBatisUtil.getSqlSession();
 		studentDao = sqlSession.getMapper(StudentMapper.class);
@@ -78,7 +78,7 @@ public class StuMgmtController {
 		sqlSession.commit();
 		ModelAndView modelAndView = new ModelAndView("stuMgmt");
 		modelAndView.addObject("controllerMsg", "插入了"+num+"条记录");
-		PageHelper.startPage(1,4);
+		PageHelper.startPage(1,7);
 		StudentExample se =new StudentExample();
 		list=studentDao.selectByExample(se);
 		PageInfo<Student> page = new PageInfo<>(list);
@@ -137,7 +137,7 @@ public class StuMgmtController {
 		sqlSession.commit();
 		ModelAndView modelAndView = new ModelAndView("stuMgmt");
 		modelAndView.addObject("controllerMsg", "删除了"+num+"条记录");
-		PageHelper.startPage(1,4);
+		PageHelper.startPage(1,7);
 		StudentExample se =new StudentExample();
 		list=studentDao.selectByExample(se);
 		PageInfo<Student> page = new PageInfo<>(list);

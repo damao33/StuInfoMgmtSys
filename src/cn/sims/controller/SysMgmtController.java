@@ -30,7 +30,7 @@ public class SysMgmtController {
 		String cPage = request.getParameter("currentPage");
 		if(cPage==null||cPage.equals("")||cPage.equals("0"))currentPage=1;
 		else currentPage = Integer.parseInt(cPage);
-		PageHelper.startPage(currentPage, 4);
+		PageHelper.startPage(currentPage, 7);
 		sqlSession = MyBatisUtil.getSqlSession();
 		sysuserDao = sqlSession.getMapper(SysuserMapper.class);
 		SysuserExample se = new SysuserExample();
@@ -66,7 +66,7 @@ public class SysMgmtController {
 		sqlSession.commit();
 		ModelAndView modelAndView = new ModelAndView("sysMgmt");
 		modelAndView.addObject("controllerMsg", "É¾³ýÁË"+num+"Ìõ¼ÇÂ¼");
-		PageHelper.startPage(1,4);
+		PageHelper.startPage(1,7);
 		SysuserExample se =new SysuserExample();
 		list=sysuserDao.selectByExample(se);
 		PageInfo<Sysuser> page = new PageInfo<>(list);
@@ -83,7 +83,7 @@ public class SysMgmtController {
 		String account = request.getParameter("account");
 		String password = request.getParameter("password");
 		if(account == null)account="";
-		PageHelper.startPage(1,4);
+		PageHelper.startPage(1,7);
 		SysuserExample se =new SysuserExample();
 		SysuserExample.Criteria c = se.createCriteria();
 		c.andAccountEqualTo(account);
