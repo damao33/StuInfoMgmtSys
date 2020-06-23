@@ -13,7 +13,9 @@ import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 
 import cn.sims.util.MyBatisUtil;
+import cn.sims.dao.ClassMapper;
 import cn.sims.dao.CourseMapper;
+import cn.sims.model.Class;
 import cn.sims.model.Course;
 import cn.sims.model.CourseExample;
 
@@ -47,7 +49,19 @@ public class CozMgmtController {
 		MyBatisUtil.closeSqlSession();
 		return modelAndView;
 	}
-	
+	@RequestMapping("/cno")
+	public ModelAndView selectCourseByCno(HttpServletRequest request)
+	{
+		sqlSession = MyBatisUtil.getSqlSession();
+		courseDao = sqlSession.getMapper(CourseMapper.class);
+		String cno = request.getParameter("cno");
+		if(cno == null)cno="";
+		Course course = courseDao.selectByPrimaryKey(cno);
+		ModelAndView modelAndView = new ModelAndView("alterCoz");
+		modelAndView.addObject("course", course);
+		MyBatisUtil.closeSqlSession();
+		return modelAndView;
+	}
 	@RequestMapping("/delete")
 	public ModelAndView deleteCourseByCno(HttpServletRequest request)
 	{
