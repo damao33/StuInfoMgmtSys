@@ -16,32 +16,33 @@
 	<a href="${pageContext.request.contextPath}/view/addStu.jsp">添加学生信息</a>
 	<a href="${pageContext.request.contextPath}/view/alterStu.jsp">修改学生信息</a>
 	</div>
-
-<form class="add-form" action="" >
+	<br>
+	${controllerMsg}
+<form class="add-form" action="${pageContext.request.contextPath}/stuMgmt/insert" >
 <h1>
 <p>
 请输入想要添加的学生信息
 </h1>
 <div class="txtb">	
-	<input type="text" name="Sno" value="" placeholder="这里是学号">			
+	<input type="text" name="sno" value="" placeholder="这里是学号">			
 </div>
 <div class="txtb">		
-	<input type="text" name="Sname" value="" placeholder="这里是姓名">		
+	<input type="text" name="sname" value="" placeholder="这里是姓名">		
 </div>	
 <div class="txtb">		
-	<input type="text" name="SSex" value="" placeholder="这里是性别">		
+	<input type="text" name="ssex" value="" placeholder="这里是性别">		
 </div>	
 <div class="txtb">		
-	<input type="text" name="Sbirthday" value="" placeholder="这里是出生日期">
+	<input type="text" name="sbirthday" value="" placeholder="这里是出生日期">
 </div>	
 <div class="txtb">		
-	<input type="text" name="Clno" value="" placeholder="这里是班级">		
+	<input type="text" name="clno" value="" placeholder="这里是班级">		
 </div>
 <div class="txtb">	
-	<input type="text" name="Sschool" value="" placeholder="这里是学院">		
+	<input type="text" name="sschool" value="" placeholder="这里是学院">		
 </div>
 <div class="txtb">		
-	<input type="text" name="Sfaculty" value="" placeholder="这里是专业">	
+	<input type="text" name="sfaculty" value="" placeholder="这里是专业">	
 	
 </div>
 	<div align="center">
