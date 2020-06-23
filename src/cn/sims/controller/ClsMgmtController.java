@@ -40,7 +40,7 @@ public class ClsMgmtController {
 		String cPage = request.getParameter("currentPage");//获取request传来的当前页面
 		if(cPage==null||cPage.equals("")||cPage.equals("0"))currentPage=1;//如果当前页面不合法则设为1
 		else currentPage = Integer.parseInt(cPage);
-		PageHelper.startPage(currentPage, 4);//查询第几页，每页4条记录
+		PageHelper.startPage(currentPage, 7);//查询第几页，每页4条记录
 		
 		sqlSession = MyBatisUtil.getSqlSession();
 		classDao = sqlSession.getMapper(ClassMapper.class);
@@ -78,7 +78,7 @@ public class ClsMgmtController {
 		ModelAndView modelAndView = new ModelAndView("clsMgmt");
 		modelAndView.addObject("num", num);
 		
-		PageHelper.startPage(1, 4);
+		PageHelper.startPage(1, 7);
 		ClassExample se = new ClassExample();
 		list = classDao.selectByExample(se);
 		PageInfo<Class> page = new PageInfo<>(list);
@@ -108,7 +108,7 @@ public class ClsMgmtController {
 		ModelAndView modelAndView = new ModelAndView("clsMgmt");
 		modelAndView.addObject("controllerMsg", "增加了"+num+"条用户信息");
 		
-		PageHelper.startPage(1, 4);
+		PageHelper.startPage(1, 7);
 		ClassExample se = new ClassExample();
 		list = classDao.selectByExample(se);
 		PageInfo<Class> page = new PageInfo<>(list);
@@ -132,21 +132,17 @@ public class ClsMgmtController {
 		ClassExample se = new ClassExample();
 		ClassExample.Criteria c = se.createCriteria();
 		c.andClnoEqualTo(clno);
+		//c.andClnameEqualTo(clname);
 		cls.setClno(clno);
 		cls.setClname(clname);
 		cls.setHtno(htno);
 		cls.setHtname(htname);
-		int num = classDao.updateByExample(cls,se);
+		int num = classDao.updateByExampleSelective(cls, se);
 		sqlSession.commit();
 		ModelAndView modelAndView = new ModelAndView("alterClass");
 		modelAndView.addObject("controllerMsg", "更新了"+num+"条记录");
 
-		PageHelper.startPage(1, 4);
-		ClassExample s = new ClassExample();
-		list = classDao.selectByExample(s);
-		PageInfo<Class> page = new PageInfo<>(list);
-		modelAndView.addObject("classlist",page);
-		modelAndView.addObject("mapname","/update");
+		modelAndView.addObject("cls",cls);
 		
 		MyBatisUtil.closeSqlSession();
 		return modelAndView;
