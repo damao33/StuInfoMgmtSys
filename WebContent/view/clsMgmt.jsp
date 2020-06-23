@@ -64,10 +64,9 @@ function deleteClass()//-删除-班级信息
 	var clno = prompt("输入班级号","");	
 	if(clno)
 		{
-			alert(clno);
+		window.location.href("${pageContext.request.contextPath}/clsMgmt/delete?clno="+clno);
 		}
-	window.location.href("${pageContext.request.contextPath}/clsMgmt/delete?clno="+clno);
 	//代码	  
-}
+}}
 </script>
 </html>
