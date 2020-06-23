@@ -13,7 +13,7 @@
 	<a href="${pageContext.request.contextPath}/view/alterScore.jsp">成绩修改</a>
 	<a href="${pageContext.request.contextPath}/view/addScore.jsp">成绩添加</a>
 	<a href="${pageContext.request.contextPath}/view/delScore.jsp">成绩删除</a>
-
+${controllerMsg}
 <table class="table1"  border="1">
 			<thead>
 				<th>学号</th>
