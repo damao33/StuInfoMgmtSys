@@ -14,19 +14,19 @@
 	<a href="${pageContext.request.contextPath}/view/alterClass.jsp">修改班级信息</a>
 	<a href="${pageContext.request.contextPath}/view/delClass.jsp">删除班级信息</a>	
 	</div>
-	<form class="add-form" action="">
+	<form class="add-form" action="${pageContext.request.contextPath}/clsMgmt/insert">
 		<h1>请输入想要添加的班级信息</h1>
 		<div class="txtb">
-			<input type="text" name="Clno" value="" placeholder="这里是班级号">				
+			<input type="text" name="clno" value="" placeholder="这里是班级号">				
 		</div>
 		<div class="txtb">
-			<input type="text" name="Clname" value="" placeholder="这里是班级名">			
+			<input type="text" name="clname" value="" placeholder="这里是班级名">			
 		</div>
 		<div class="txtb">
-			<input type="text" name="Htname" value="" placeholder="这里是班主任姓名">		
+			<input type="text" name="htname" value="" placeholder="这里是班主任姓名">		
 		</div>
 		<div class="txtb">
-			<input type="text" name="Htno" value="" placeholder="这里是班主任教师号">		
+			<input type="text" name="htno" value="" placeholder="这里是班主任教师号">		
 		</div>
 		<div align="center">
 		<input class="input1" type="submit" value="提交" >

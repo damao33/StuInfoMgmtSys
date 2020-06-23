@@ -99,7 +99,7 @@ public class ClsMgmtController {
 		list = classDao.selectByExample(se);
 		PageInfo<Class> page = new PageInfo<>(list);
 		modelAndView.addObject("classlist",page);
-		modelAndView.addObject("mapname","/insert");
+		modelAndView.addObject("mapname","/");
 		
 		MyBatisUtil.closeSqlSession();
 		return modelAndView;
