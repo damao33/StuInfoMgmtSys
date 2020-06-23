@@ -54,18 +54,17 @@ public class CozMgmtController {
 		sqlSession = MyBatisUtil.getSqlSession();
 		courseDao = sqlSession.getMapper(CourseMapper.class);
 		String cno = request.getParameter("cno");
-		if(cno == null)cno="";
+		if(cno == null||cno.equals(""))cno="";
 		int num=courseDao.deleteByPrimaryKey(cno);
 		sqlSession.commit();
 		ModelAndView modelAndView = new ModelAndView("cozMgmt");
-		modelAndView.addObject("num", num);
-
+		modelAndView.addObject("controllerMsg", "É¾³ýÁË"+num+"Ìõ¼ÇÂ¼");
 		PageHelper.startPage(1, 4);
 		CourseExample se = new CourseExample();
 		list = courseDao.selectByExample(se);
 		PageInfo<Course> page = new PageInfo<>(list);
 		modelAndView.addObject("courselist",page);
-		modelAndView.addObject("mapname","/delete");		
+		modelAndView.addObject("mapname","/");
 		MyBatisUtil.closeSqlSession();
 		return modelAndView;
 	}

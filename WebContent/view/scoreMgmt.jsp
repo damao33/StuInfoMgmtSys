@@ -12,8 +12,9 @@
 	<a href="${pageContext.request.contextPath}/scoreMgmt/">查询所有成绩</a>
 	<a href="${pageContext.request.contextPath}/view/alterScore.jsp">成绩修改</a>
 	<a href="${pageContext.request.contextPath}/view/addScore.jsp">成绩添加</a>
-	<a href="${pageContext.request.contextPath}/view/delScore.jsp">成绩删除</a>
-
+	<a href="#" onclick="deleteScore()">成绩删除</a>
+	<br>
+	${controllerMsg}
 <table class="table1"  border="1">
 			<thead>
 				<th>学号</th>
@@ -53,6 +54,12 @@
 	}
 	
 	function deleteScore(){
+        var sno = prompt("输入学号","");		
+		if(sno)
+			{
+				alert("sno："+sno);
+			}
+		window.location.href("${pageContext.request.contextPath}/scoreMgmt/delete?sno="+sno);
 		//跳转
 	}
 </script>
