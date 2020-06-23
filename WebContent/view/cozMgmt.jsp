@@ -66,9 +66,8 @@
 		var cno = prompt("输入课程号","")
 		var cno_new=cno.replace("-","%2D")
 		if(cno){
-				alert(cno);
+			window.location.href("${pageContext.request.contextPath}/cozMgmt/delete?cno="+cno_new);
 		} 
-		window.location.href("${pageContext.request.contextPath}/cozMgmt/delete?cno="+cno_new);
 	}
 </script>
 </html>
