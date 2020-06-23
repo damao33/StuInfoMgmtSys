@@ -30,10 +30,10 @@
 	<tbody>
 		<c:forEach items="${courselist.getList()}" var="course">			
 			<tr align = "center">			
-				<td> ${course.getCno()}		<a herf="">修改</a></td>
-				<td> ${course.getCname()}	<a herf="">修改</a></td>
-				<td> ${course.getTno()}		<a herf="">修改</a></td>
-				<td> ${course.getTname()}	<a herf="">修改</a></td>				
+				<td> ${course.getCno()}		<a href="#">修改</a></td>
+				<td> ${course.getCname()}	<a href="#">修改</a></td>
+				<td> ${course.getTno()}		<a href="#">修改</a></td>
+				<td> ${course.getTname()}	<a href="#">修改</a></td>				
 			</tr>		
 		</c:forEach>
 			</tbody>

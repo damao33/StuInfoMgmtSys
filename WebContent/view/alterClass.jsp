@@ -39,10 +39,10 @@
 		<tbody>
 		<c:forEach items="${classlist.getList()}" var="cls">			
 			<tr align = "center">			
-				<td> ${cls.getClno()}</td>
-				<td> ${cls.getClname()}</td>
-				<td> ${cls.getHtname()}</td>
-				<td> ${cls.getHtno()}</td>								
+				<td> ${cls.getClno()}	<a href="#">修改</a></td>
+				<td> ${cls.getClname()}	<a href="#">修改</a></td>
+				<td> ${cls.getHtname()}	<a href="#">修改</a></td>
+				<td> ${cls.getHtno()}	<a href="#">修改</a></td>								
 			</tr>		
 		</c:forEach>
 			</tbody>
