@@ -18,24 +18,24 @@
 	<a href="${pageContext.request.contextPath}/view/delScore.jsp">成绩删除</a>
 </div>
 
-<form class="add-form" action="">
+<form class="add-form" action="${pageContext.request.contextPath}/scoreMgmt/insert">
 <h1>
 请输入想要添加的成绩信息
 </h1>
 <div class="txtb">	
-	<input type="text" name="Sno" value="" placeholder="这里是学号" >	
+	<input type="text" name="sno" value="" placeholder="这里是学号" >	
 	</div>	
 <div class="txtb">		
-	<input type="text" name="Sname" value="" placeholder="这里是姓名">		
+	<input type="text" name="sname" value="" placeholder="这里是姓名">		
 	</div>	
 <div class="txtb">		
-	<input type="text" name="Cno" value="" placeholder="这里是课程号">		
+	<input type="text" name="cno" value="" placeholder="这里是课程号">		
 </div>	
 <div class="txtb">	
-	<input type="text" name="Cname" value="" placeholder="这里是课程名">		
+	<input type="text" name="cname" value="" placeholder="这里是课程名">		
 </div>		
 <div class="txtb">		
-	<input type="text" name="Degrees" value="" placeholder="这里是成绩">		
+	<input type="text" name="degrees" value="" placeholder="这里是成绩">		
 </div>		
 	<div align="center">
 		<input class="input1" type="submit" value="提交" >
