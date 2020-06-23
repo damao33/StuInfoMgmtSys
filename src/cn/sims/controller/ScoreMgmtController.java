@@ -151,7 +151,7 @@ public class ScoreMgmtController {
 		list = scoreDao.selectByExample(se);
 		PageInfo<Score> page = new PageInfo<>(list);
 		modelAndView.addObject("scorelist",page);
-		modelAndView.addObject("mapname","/insert");
+		modelAndView.addObject("mapname","/");
 		
 		MyBatisUtil.closeSqlSession();
 		return modelAndView;
