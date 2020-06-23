@@ -14,16 +14,9 @@ import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 
 import cn.sims.util.MyBatisUtil;
-import cn.sims.dao.CourseMapper;
 import cn.sims.dao.ScoreMapper;
-import cn.sims.model.Course;
-import cn.sims.model.CourseExample;
 import cn.sims.model.Score;
 import cn.sims.model.ScoreExample;
-
-
-
-
 
 @Controller
 @RequestMapping("/scoreMgmt")
