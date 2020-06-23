@@ -28,8 +28,8 @@
 
 	</form>
 	<table class="table1" border="1">
-		<br>
-		<br>
+		<br> 
+		${controllerMsg}
 
 		<thead>
 			<th>班级号</th>
@@ -40,10 +40,10 @@
 		<tbody>
 
 			<tr align="center">
-				<td>${cls.getClno()}<a href="#">修改</a></td>
-				<td>${cls.getClname()}<a href="#">修改</a></td>
-				<td>${cls.getHtname()}<a href="#">修改</a></td>
-				<td>${cls.getHtno()}<a href="#">修改</a></td>
+				<td>${cls.getClno()}</td>
+				<td>${cls.getClname()}<a href="#"onclick="alterClname()">修改</a></td>
+				<td>${cls.getHtname()}<a href="#"onclick="alterHtname()">修改</a></td>
+				<td>${cls.getHtno()}<a href="#"onclick="alterHtno()">修改</a></td>
 			</tr>
 
 		</tbody>
@@ -59,12 +59,28 @@ function deleteClass()//-删除-班级信息
 		}
 	//代码	  
 }
-function alterClno()
+function alterClname()
 {
-	var clno = prompt("输入班级号","");	
-	if(clno)
+	var clname = prompt("输入要将班级名修改为：","");	
+	if(clname)
 		{
-		window.location.href("${pageContext.request.contextPath}/clsMgmt/update?clno="+clno);
+		window.location.href("${pageContext.request.contextPath}/clsMgmt/update?clno=${cls.getClno()}&clname="+clname);
+		}
+}
+function alterHtno()
+{
+	var htno = prompt("输入要将教师号修改为：","");	
+	if(htno)
+		{
+		window.location.href("${pageContext.request.contextPath}/clsMgmt/update?clno=${cls.getClno()}&htno="+htno);
+		}
+}
+function alterHtname()
+{
+	var htname = prompt("输入要将教师姓名修改为：","");	
+	if(htname)
+		{
+		window.location.href("${pageContext.request.contextPath}/clsMgmt/update?clno=${cls.getClno()}&htname="+htname);
 		}
 }
 </script>
