@@ -13,7 +13,7 @@
 	<a href="${pageContext.request.contextPath}/stuInfo/">查询所有学生</a>
 	<a href="${pageContext.request.contextPath}/view/addStu.jsp">添加学生信息</a>
 	<a href="${pageContext.request.contextPath}/view/alterStu.jsp">修改学生信息</a>
-
+	<a href="#" onclick="deleteStudent()">删除学生信息</a>
 	<br>
 	<form action="">
 		请输入想要修改的学号：<input type="text" name="Sno" value="">			<br><br>

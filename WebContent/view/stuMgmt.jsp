@@ -12,6 +12,9 @@
 	<a href="${pageContext.request.contextPath}/stuMgmt/">查询所有学生</a>
 	<a href="${pageContext.request.contextPath}/view/addStu.jsp">添加学生信息</a>
 	<a href="${pageContext.request.contextPath}/view/alterStu.jsp">修改学生信息</a>
+	<a href="#" onclick="deleteStudent()">删除学生信息</a>	
+	<br>
+	${controllerMsg}
 	<table class="table1"  border="1">
 			<thead>
 				<th>学号</th>
@@ -72,6 +75,16 @@
 		{
 			alert("系统中不存在该学生");//代码
 		}		
+	}
+	function deleteStudent(){
+		var sno= prompt("输入学号","");
+		
+		if(sno)
+			{
+				alert("sno："+sno);
+			}
+		window.location.href("${pageContext.request.contextPath}/stuMgmt/delete?sno="+sno);
+		//代码	
 	}
 
 	
