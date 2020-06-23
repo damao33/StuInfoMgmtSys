@@ -69,4 +69,28 @@ public class ScoreController {
 		MyBatisUtil.closeSqlSession();
 		return modelAndView;
 	}
+	@RequestMapping("/sno")
+	public ModelAndView selectScoreBySno(HttpServletRequest request)
+	{
+		int currentPage;
+		String cPage = request.getParameter("currentPage");//获取request传来的当前页面
+		if(cPage==null||cPage.equals("")||cPage.equals("0"))currentPage=1;//如果当前页面不合法则设为1
+		else currentPage = Integer.parseInt(cPage);
+		PageHelper.startPage(currentPage, 7);//查询第几页，每页7条记录
+		sqlSession = MyBatisUtil.getSqlSession();
+		scoreDao = sqlSession.getMapper(ScoreMapper.class);
+		String  sno = request.getParameter("sno");
+		ScoreExample se = new ScoreExample();
+		ScoreExample.Criteria c = se.createCriteria();
+		c.andCnoEqualTo(sno);
+		list = scoreDao.selectByExample(se);
+		ModelAndView modelAndView = new ModelAndView("scoreInfo");
+		PageInfo<Score> page = new PageInfo<>(list);//根据查询得到的list来用插件生成PageInfo页面信息
+		modelAndView.addObject("mapname", "/sno");//传回映射名
+		modelAndView.addObject("scorelist", page);//传回插件生成的页面信息PageInfo
+		modelAndView.addObject("attributeType","&sno=");
+		modelAndView.addObject("attributeValue", sno);
+		MyBatisUtil.closeSqlSession();
+		return modelAndView;
+	}
 }
