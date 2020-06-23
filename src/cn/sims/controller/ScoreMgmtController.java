@@ -110,14 +110,14 @@ public class ScoreMgmtController {
 		int num=scoreDao.deleteByExample(scoreexample);
 		sqlSession.commit();
 		ModelAndView modelAndView = new ModelAndView("scoreMgmt");
-		modelAndView.addObject("num", num);
+		modelAndView.addObject("controllerMsg", "É¾³ýÁË"+num+"Ìõ¼ÇÂ¼");
 
 		PageHelper.startPage(1, 4);
 		ScoreExample se = new ScoreExample();
 		list = scoreDao.selectByExample(se);
 		PageInfo<Score> page = new PageInfo<>(list);
 		modelAndView.addObject("scorelist",page);
-		modelAndView.addObject("mapname","/delete");
+		modelAndView.addObject("mapname","/");
 		
 		MyBatisUtil.closeSqlSession();
 		return modelAndView;
