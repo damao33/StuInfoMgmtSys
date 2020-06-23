@@ -65,7 +65,7 @@ public class SysMgmtController {
 		int num=sysuserDao.deleteByPrimaryKey(account);
 		sqlSession.commit();
 		ModelAndView modelAndView = new ModelAndView("sysMgmt");
-		modelAndView.addObject("controllerMsg", "É¾³ıÁË"+num+"ÌõÓÃ»§ĞÅÏ¢");
+		modelAndView.addObject("controllerMsg", "åˆ é™¤äº†"+num+"æ¡ç”¨æˆ·ä¿¡æ¯");
 		PageHelper.startPage(1,4);
 		SysuserExample se =new SysuserExample();
 		list=sysuserDao.selectByExample(se);
@@ -87,7 +87,7 @@ public class SysMgmtController {
 		int num = sysuserDao.insert(sysuser);
 		sqlSession.commit();
 		ModelAndView modelAndView = new ModelAndView("sysMgmt");
-		modelAndView.addObject("controllerMsg", "Ôö¼ÓÁË"+num+"ÌõÓÃ»§ĞÅÏ¢");
+		modelAndView.addObject("controllerMsg", "æ’å…¥äº†"+num+"æ¡ç”¨æˆ·ä¿¡æ¯");
 		PageHelper.startPage(1,4);
 		SysuserExample se =new SysuserExample();
 		list=sysuserDao.selectByExample(se);
@@ -110,7 +110,7 @@ public class SysMgmtController {
 		int num = sysuserDao.updateByPrimaryKey(sysuser);
 		sqlSession.commit();
 		ModelAndView modelAndView = new ModelAndView("alterSysuser");
-		modelAndView.addObject("controllerMsg", "ĞŞ¸ÄÁË"+num+"ÌõÓÃ»§ĞÅÏ¢");
+		modelAndView.addObject("controllerMsg", "æ›´æ–°äº†"+num+"æ¡ç”¨æˆ·ä¿¡æ¯");
 		PageHelper.startPage(1,4);
 		SysuserExample se =new SysuserExample();
 		list=sysuserDao.selectByExample(se);
