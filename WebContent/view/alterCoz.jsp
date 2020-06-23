@@ -24,6 +24,7 @@
 		<input  class="input1" type="submit" value="提交">
 	</div>
 	</form>
+	${controllerMsg}
 <table class="table1" border="1">
 	<thead>
 				<th>课程号</th>
@@ -34,10 +35,10 @@
 	<tbody>
 				
 			<tr align = "center">			
-				<td> ${course.getCno()}		<a href="#">修改</a></td>
-				<td> ${course.getCname()}	<a href="#">修改</a></td>
-				<td> ${course.getTno()}		<a href="#">修改</a></td>
-				<td> ${course.getTname()}	<a href="#">修改</a></td>				
+				<td> ${course.getCno()}		</td>
+				<td> ${course.getCname()}	<a href="#"onclick="alterCname()">修改</a></td>
+				<td> ${course.getTno()}		<a href="#"onclick="alterTno()">修改</a></td>
+				<td> ${course.getTname()}	<a href="#"onclick="alterTname()">修改</a></td>		
 			</tr>		
 		
 			</tbody>
@@ -53,5 +54,38 @@ function deleteCoz()	//-删除-课程信息
 		} 
 	}
 
+function alterCname()
+{
+	var cname = prompt("输入要将课程名修改为：","");	
+	var cno="${course.getCno()}";
+	var cno1=cno.replace("-","%2D");
+	var url=encodeURI("${pageContext.request.contextPath}/cozMgmt/update?cno="+cno1+"&cname="+cname);
+	if(cname)
+		{
+		//alert(url);
+		//window.location.href(url);
+		window.location.href("${pageContext.request.contextPath}/cozMgmt/update?cno="+cno1+"&cname="+cname);
+		}
+}
+function alterTno()
+{
+	var tno = prompt("输入要将教师号修改为：","");	
+	var cno="${course.getCno()}";
+	var cno1=cno.replace("-","%2D");
+	if(tno)
+		{
+		window.location.href("${pageContext.request.contextPath}/cozMgmt/update?cno="+cno1+"&tno="+tno);
+		}
+}
+function alterTname()
+{
+	var tname = prompt("输入要将教师姓名修改为：","");	
+	var cno="${course.getCno()}";
+	var cno1=cno.replace("-","%2D");
+	if(tname)
+		{
+		window.location.href("${pageContext.request.contextPath}/cozMgmt/update?cno="+cno1+"&tname="+tname);
+		}
+}
 </script>
 </html>
