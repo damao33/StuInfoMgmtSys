@@ -12,7 +12,7 @@
 <body>
 <br>
 <div class="lable">
-	<a href="${pageContext.request.contextPath}/scoreMgmt/">查询所有成绩信息</a>
+	<a href="${pageContext.request.contextPath}/scoreMgmt/">查询所有成绩</a>
 	<a href="${pageContext.request.contextPath}/view/alterScore.jsp">成绩修改</a>
 	<a href="${pageContext.request.contextPath}/view/addScore.jsp">成绩添加</a>
 	<a href="${pageContext.request.contextPath}/view/delScore.jsp">成绩删除</a>
