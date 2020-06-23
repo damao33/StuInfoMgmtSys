@@ -117,6 +117,7 @@ public class ScoreMgmtController {
 		list = scoreDao.selectByExample(se);
 		PageInfo<Score> page = new PageInfo<>(list);
 		modelAndView.addObject("scorelist",page);
+		modelAndView.addObject("mapname","/delete");
 		
 		MyBatisUtil.closeSqlSession();
 		return modelAndView;
@@ -150,6 +151,7 @@ public class ScoreMgmtController {
 		list = scoreDao.selectByExample(se);
 		PageInfo<Score> page = new PageInfo<>(list);
 		modelAndView.addObject("scorelist",page);
+		modelAndView.addObject("mapname","/insert");
 		
 		MyBatisUtil.closeSqlSession();
 		return modelAndView;
@@ -186,6 +188,7 @@ public class ScoreMgmtController {
 		list = scoreDao.selectByExample(s);
 		PageInfo<Score> page = new PageInfo<>(list);
 		modelAndView.addObject("scorelist",page);
+		modelAndView.addObject("mapname","/update");
 		
 		MyBatisUtil.closeSqlSession();
 		return modelAndView;
