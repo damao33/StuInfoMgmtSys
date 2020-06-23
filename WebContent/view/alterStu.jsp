@@ -40,13 +40,13 @@
 	<tbody>
 		<c:forEach items="${studentlist.getList()}" var="student">			
 			<tr align = "center">			
-				<td> ${student.getSno()} 			<a herf="">修改</a></td>
-				<td> ${student.getSname()} 			<a herf="">修改</a></td>
-				<td> ${student.getSsex()} 			<a herf="">修改</a></td>
-				<td> ${student.getSbirthdayString()} <a herf="">修改</a></td>
-				<td> ${student.getClno()}			 <a herf="">修改</a></td>
-				<td> ${student.getSschool()} 		<a herf="">修改</a></td>
-				<td> ${student.getSfaculty()}		 <a herf="">修改</a></td>
+				<td> ${student.getSno()} 			<a herf="#">修改</a></td>
+				<td> ${student.getSname()} 			<a herf="#">修改</a></td>
+				<td> ${student.getSsex()} 			<a herf="#">修改</a></td>
+				<td> ${student.getSbirthdayString()} <a herf="#">修改</a></td>
+				<td> ${student.getClno()}			 <a herf="#">修改</a></td>
+				<td> ${student.getSschool()} 		<a herf="#">修改</a></td>
+				<td> ${student.getSfaculty()}		 <a herf="#">修改</a></td>
 			</tr>		
 		</c:forEach>
 	</tbody>
