@@ -62,14 +62,14 @@ public class ClsMgmtController {
 		int num=classDao.deleteByPrimaryKey(clno);
 		sqlSession.commit();
 		ModelAndView modelAndView = new ModelAndView("clsMgmt");
-		modelAndView.addObject("num", num);
+		modelAndView.addObject("controllerMsg", "É¾³ýÁË"+num+"Ìõ¼ÇÂ¼");
 		
 		PageHelper.startPage(1, 4);
 		ClassExample se = new ClassExample();
 		list = classDao.selectByExample(se);
 		PageInfo<Class> page = new PageInfo<>(list);
 		modelAndView.addObject("classlist",page);
-		modelAndView.addObject("mapname","/delete");
+		modelAndView.addObject("mapname","/");
 		
 		MyBatisUtil.closeSqlSession();
 		return modelAndView;

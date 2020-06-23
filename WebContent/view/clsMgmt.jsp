@@ -11,7 +11,7 @@
 	<a href="${pageContext.request.contextPath}/clsMgmt/">查询所有班级</a>
 	<a href="${pageContext.request.contextPath}/view/addClass.jsp">添加班级信息</a>
 	<a href="${pageContext.request.contextPath}/view/alterClass.jsp">修改班级信息</a>
-	<a href="${pageContext.request.contextPath}/view/delClass.jsp">删除班级信息</a>	
+	<a href="#" onclick="deleteClass()">删除班级信息</a>	
 	<br>
 	${controllerMsg}
 	<table class="table1"  border="1">
@@ -40,31 +40,22 @@
 
 </body>
 <script>
-function addStuInfo()//-添加-班级信息
-{
-	var Cno = prompt("输入班级号",""),
-		Cname = prompt("输入班级名称",""),
-		Htname = prompt("输入班主任名称",""),
-		Htno = prompt("输入班主任教师号","");
+	function alterClassInfo()//-修改-班级信息
+	{
+		var Cno = prompt("输入班级号","");
+		//代码	  
+	}
 	
-	//代码	  
-}
-
-function alterClassInfo()//-修改-班级信息
-{
-	var Cno = prompt("输入班级号","");
-	//代码	  
-}
-
-function deleteClassInfo()//-删除-班级信息
-{
-	var Cno = prompt("输入班级号","");
-	
-	if(cno)
-		{
-			alert("是否确认删除学号为"+cno+"的班级");
-		}
-	//代码	  
-}
+	function deleteClass()//-删除-班级信息
+	{
+		var clno = prompt("输入班级号","");
+		
+		if(clno)
+			{
+				alert("clno："+clno);
+			}
+		window.location.href("${pageContext.request.contextPath}/clsMgmt/delete?clno="+clno);
+		//代码	  
+	}
 </script>
 </html>
