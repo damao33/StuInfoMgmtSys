@@ -33,21 +33,21 @@ public class StuMgmtController {
 	public ModelAndView selectAllStudent(HttpServletRequest request)
 	{
 		int currentPage;
-		String cPage = request.getParameter("currentPage");//»ñÈ¡request´«À´µÄµ±Ç°Ò³Ãæ
-		if(cPage==null||cPage.equals("")||cPage.equals("0"))currentPage=1;//Èç¹ûµ±Ç°Ò³Ãæ²»ºÏ·¨ÔòÉèÎª1
+		String cPage = request.getParameter("currentPage");//ï¿½ï¿½È¡requestï¿½ï¿½ï¿½ï¿½ï¿½Äµï¿½Ç°Ò³ï¿½ï¿½
+		if(cPage==null||cPage.equals("")||cPage.equals("0"))currentPage=1;//ï¿½ï¿½ï¿½ï¿½ï¿½Ç°Ò³ï¿½æ²»ï¿½Ï·ï¿½ï¿½ï¿½ï¿½ï¿½Îª1
 		else currentPage = Integer.parseInt(cPage);
-		PageHelper.startPage(currentPage, 4);//²éÑ¯µÚ¼¸Ò³£¬Ã¿Ò³4Ìõ¼ÇÂ¼
+		PageHelper.startPage(currentPage, 4);//ï¿½ï¿½Ñ¯ï¿½Ú¼ï¿½Ò³ï¿½ï¿½Ã¿Ò³4ï¿½ï¿½ï¿½ï¿½Â¼
 		
 		sqlSession = MyBatisUtil.getSqlSession();
 		studentDao = sqlSession.getMapper(StudentMapper.class);
 		StudentExample se = new StudentExample();
 		list = studentDao.selectByExample(se);
-		PageInfo<Student> page = new PageInfo<>(list);//¸ù¾Ý²éÑ¯µÃµ½µÄlistÀ´ÓÃ²å¼þÉú³ÉPageInfoÒ³ÃæÐÅÏ¢
+		PageInfo<Student> page = new PageInfo<>(list);//ï¿½ï¿½ï¿½Ý²ï¿½Ñ¯ï¿½Ãµï¿½ï¿½ï¿½listï¿½ï¿½ï¿½Ã²ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½PageInfoÒ³ï¿½ï¿½ï¿½ï¿½Ï¢
 		ModelAndView modelAndView = new ModelAndView("stuMgmt");
-		modelAndView.addObject("mapname", "/");//´«»ØÓ³ÉäÃû
-		modelAndView.addObject("studentlist", page);//´«»Ø²å¼þÉú³ÉµÄÒ³ÃæÐÅÏ¢PageInfo
-		//modelAndView.addObject("attributeType","");//·µ»Ø±äÁ¿ÀàÐÍ£¬±¾·½·¨ÎªselectAll²»ÐèÒª²ÎÊý£¬ËùÒÔÁ½¸ö¶¼Îª¿Õ
-		//modelAndView.addObject("arributeValue","");//·µ»Ø±äÁ¿Öµ
+		modelAndView.addObject("mapname", "/");//ï¿½ï¿½ï¿½ï¿½Ó³ï¿½ï¿½ï¿½ï¿½
+		modelAndView.addObject("studentlist", page);//ï¿½ï¿½ï¿½Ø²ï¿½ï¿½ï¿½ï¿½ï¿½Éµï¿½Ò³ï¿½ï¿½ï¿½ï¿½Ï¢PageInfo
+		//modelAndView.addObject("attributeType","");//ï¿½ï¿½ï¿½Ø±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ÎªselectAllï¿½ï¿½ï¿½ï¿½Òªï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Îªï¿½ï¿½
+		//modelAndView.addObject("arributeValue","");//ï¿½ï¿½ï¿½Ø±ï¿½ï¿½ï¿½Öµ
 		MyBatisUtil.closeSqlSession();
 		return modelAndView;
 	}
@@ -76,13 +76,13 @@ public class StuMgmtController {
 		int num = studentDao.insert(student);
 		sqlSession.commit();
 		ModelAndView modelAndView = new ModelAndView("stuMgmt");
-		modelAndView.addObject("controllerMsg", "Ôö¼ÓÁË"+num+"ÌõÑ§ÉúÐÅÏ¢");
+		modelAndView.addObject("controllerMsg", "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½"+num+"ï¿½ï¿½Ñ§ï¿½ï¿½ï¿½ï¿½Ï¢");
 		PageHelper.startPage(1,4);
 		StudentExample se =new StudentExample();
 		list=studentDao.selectByExample(se);
 		PageInfo<Student> page = new PageInfo<>(list);
 		modelAndView.addObject("studentlist", page);
-		modelAndView.addObject("mapname", "/insert");
+		modelAndView.addObject("mapname", "/");
 		MyBatisUtil.closeSqlSession();
 		return modelAndView;
 	}
@@ -111,13 +111,13 @@ public class StuMgmtController {
 		int num = studentDao.updateByPrimaryKey(student);
 		sqlSession.commit();
 		ModelAndView modelAndView = new ModelAndView("alterStu");
-		modelAndView.addObject("controllerMsg", "¸üÐÂÁË"+num+"ÌõÑ§ÉúÐÅÏ¢");
+		modelAndView.addObject("controllerMsg", "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½"+num+"ï¿½ï¿½Ñ§ï¿½ï¿½ï¿½ï¿½Ï¢");
 		PageHelper.startPage(1,4);
 		StudentExample se =new StudentExample();
 		list=studentDao.selectByExample(se);
 		PageInfo<Student> page = new PageInfo<>(list);
 		modelAndView.addObject("studentlist", page);
-		modelAndView.addObject("mapname", "/update");
+		modelAndView.addObject("mapname", "/");
 		MyBatisUtil.closeSqlSession();
 		return modelAndView;
 	}
