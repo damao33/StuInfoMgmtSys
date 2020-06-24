@@ -8,7 +8,7 @@
 	</head>
 	<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/loginStyle.css" />
 	<body>
-		<form class="login-form" action="login/" method="post">
+		<form class="login-form" action="${pageContext.request.contextPath}/login/" method="post">
 				<h1>学生信息管理系统</h1>
 				<h2 align="center">用户登陆</h1>
 				<div class="txtb">
