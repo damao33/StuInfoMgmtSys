@@ -26,12 +26,19 @@
 	</form>
 	<center>${controllerMsg}</center>
 <table class="table1" border="1">
+	<colgroup>
+			<col width="20%" />
+			<col width="40%" />
+			<col width="20%" />
+			<col width="20%" />
+	</colgroup>
 	<thead>
 				<th>课程号</th>
 				<th>课程名</th>
 				<th>任课教师教师号</th>
 				<th>任课教师姓名</th>				
 	</thead>
+	
 	<tbody>
 				
 			<tr align = "center">			

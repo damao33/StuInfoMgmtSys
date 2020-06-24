@@ -18,6 +18,10 @@
 </div>
 <br>
 	<table class="table1"  border="1">
+			<colgroup>
+				<col width="65%" />
+				<col width="35%" />
+			</colgroup>
 			<thead>
 				<th>账户</th>
 				<th>密码</th>					

@@ -20,6 +20,10 @@
 	<br>
 	<center>${controllerMsg}</center>
 	<table class="table1"  border="1">
+			<colgroup>
+				<col width="60%" />
+				<col width="40%" />
+			</colgroup>		
 			<thead>
 				<th>账户</th>
 				<th>密码</th>					

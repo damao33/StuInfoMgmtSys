@@ -28,6 +28,13 @@
 	</div>
 	<br> ${controllerMsg }
 	<table class="table1" border="1">
+			<colgroup>
+				<col width="10%" />
+				<col width="15%" />
+				<col width="15%" />
+				<col width="50%" />
+				<col width="10%" />
+			</colgroup>
 		<thead>
 			<th>学号</th>
 			<th>姓名</th>

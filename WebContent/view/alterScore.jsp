@@ -26,6 +26,13 @@
 	</div>
 	</form>
 <table class="table1" border="1">
+	<colgroup>
+			<col width="15%" />
+			<col width="15%" />
+			<col width="15%" />
+			<col width="40%" />
+			<col width="15%" />
+	</colgroup>
 	<br><br>
 	<center>${controllerMsg}</center>
 	<thead>

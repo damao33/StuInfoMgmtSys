@@ -12,6 +12,8 @@ body{
 }
 
 .lable{
+	table-layout: fixed;
+    word-wrap: break-word;
 	overflow: hidden;
 	background: rgba(0, 0, 0, 0.3);	
 

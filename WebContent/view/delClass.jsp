@@ -17,7 +17,12 @@
 </div>
 	<br>
 <table class="table1"  border="1">
-		
+			<colgroup>
+				<col width="30%" />
+				<col width="40%" />
+				<col width="20%" />
+				<col width="10%" />
+			</colgroup>
 			<thead>
 				<th>班级号</th>
 				<th>班级名</th>

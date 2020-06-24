@@ -17,6 +17,15 @@
 </div>
 <br>	
 	<table class="table1"  border="1">
+			<colgroup>
+				<col width="5%" />
+				<col width="10%" />
+				<col width="5%" />
+				<col width="20%" />
+				<col width="10%" />
+				<col width="30%" />
+				<col width="20%" />
+			</colgroup>			
 			<thead>
 				<th>学号</th>
 				<th>姓名</th>
