@@ -28,7 +28,7 @@
 	
 <table class="table1" border="1">
 	<br>
-	${controllerMsg}
+	<center>${controllerMsg}</center>
 	<thead>
 		<th>账号</th>
 		<th>密码</th>				
@@ -59,6 +59,15 @@
 			{
 				window.location.href("${pageContext.request.contextPath}/sysMgmt/update?account=${sysuser.getAccount()}&newpassword="+password);
 			}
+	}
+	function exitSys()
+	{
+		var flag = confirm("是否确定退出系统？");
+		if(flag)
+		{
+			window.top.location.href("${pageContext.request.contextPath}/login.jsp");
+		}
+		
 	}
 	
 </script>

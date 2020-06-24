@@ -29,7 +29,7 @@
 	<table class="table1" border="1">
 	<br>
 	<br>
-	${controllerMsg}
+	<center>${controllerMsg}</center>
 	<thead>
 				<th>学号</th>
 				<th>姓名</th>

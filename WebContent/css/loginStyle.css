@@ -11,22 +11,6 @@ body{
 	background-image: linear-gradient(#cac6c5,#ffffff);
 }
 
-.addClass-form h1{
-	text-align: center;
-	margin-bottom: 60px;
-}
-
-.addClass-form{
-	width: 400px;
-	background-color: #f1f1f1;
-	height: 420px;
-	padding: 80px 40px;
-	border-radius: 10px;
-	position: absolute;
-	left:50%;
-	top: 50%;
-	transform: translate(-50%,-50%);
-}
 .input1{
 	min-height: 60px;
 	width: 80px;
@@ -34,8 +18,9 @@ body{
 }
 
 .login-form h1{
+	font-size: 25px;
 	text-align: center;
-	margin-bottom: 60px;
+	margin-bottom: 15px;
 }
 
 .login-form{
@@ -81,6 +66,8 @@ body{
 	border-radius: 5px;
 }
 
-.bottom-text{
+
+.msg{
 	text-align: center;
+	color: #ff0000;
 }

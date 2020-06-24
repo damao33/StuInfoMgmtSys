@@ -44,5 +44,14 @@
 			}
 		//代码	
 	}
+	function exitSys()
+	{
+		var flag = confirm("是否确定退出系统？");
+		if(flag)
+		{
+			window.top.location.href("${pageContext.request.contextPath}/login.jsp");
+		}
+		
+	}
 </script>
 </html>

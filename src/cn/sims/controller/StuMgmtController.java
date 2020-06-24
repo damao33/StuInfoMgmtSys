@@ -74,13 +74,24 @@ public class StuMgmtController {
 		student.setClno(clno);
 		student.setSschool(sschool);
 		student.setSfaculty(sfaculty);
+		StudentExample se =new StudentExample();
+		StudentExample.Criteria c = se.createCriteria();
+		c.andSnoEqualTo(sno);
+		list=studentDao.selectByExample(se);
+		ModelAndView modelAndView = new ModelAndView("stuMgmt");
+		if(list.size()>0)	{
+			PageInfo<Student> page = new PageInfo<>(list);
+			modelAndView.addObject("controllerMsg", "学号已存在！");
+			modelAndView.addObject("mapname", "/");
+			modelAndView.addObject("studentlist", page);
+			return modelAndView;
+		}		
 		int num = studentDao.insert(student);
 		sqlSession.commit();
-		ModelAndView modelAndView = new ModelAndView("stuMgmt");
 		modelAndView.addObject("controllerMsg", "插入了"+num+"条记录");
 		PageHelper.startPage(1,7);
-		StudentExample se =new StudentExample();
-		list=studentDao.selectByExample(se);
+		StudentExample s =new StudentExample();
+		list=studentDao.selectByExample(s);
 		PageInfo<Student> page = new PageInfo<>(list);
 		modelAndView.addObject("studentlist", page);
 		modelAndView.addObject("mapname", "/");
