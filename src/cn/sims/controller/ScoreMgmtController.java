@@ -15,8 +15,11 @@ import com.github.pagehelper.PageInfo;
 
 import cn.sims.util.MyBatisUtil;
 import cn.sims.dao.ScoreMapper;
+import cn.sims.model.CourseExample;
 import cn.sims.model.Score;
 import cn.sims.model.ScoreExample;
+import cn.sims.model.Sysuser;
+import cn.sims.model.SysuserExample;
 
 @Controller
 @RequestMapping("/scoreMgmt")
@@ -157,8 +160,27 @@ public class ScoreMgmtController {
 		String cno = request.getParameter("cno");
 		String cname = request.getParameter("cname");
 		String degrees = request.getParameter("degrees");
+		
+		ScoreExample es =new ScoreExample();
+		ScoreExample.Criteria c = es.createCriteria();
+		c.andSnoEqualTo(sno);
+		c.andCnoEqualTo(cno);
+		list=scoreDao.selectByExample(es);
+		ModelAndView modelAndView = new ModelAndView("scoreMgmt");
 		if(sno == null)sno="";
 		if(degrees == null||degrees =="")degrees="0";
+		System.out.println("0");
+		if(list.size()>0)
+		{
+			System.out.println("1");
+			PageInfo<Score> page = new PageInfo<>(list);
+			modelAndView.addObject("controllerMsg", "分数已存在！");
+			modelAndView.addObject("mapname", "/");
+			modelAndView.addObject("scorelist", page);
+			return modelAndView;
+		}
+		
+
 		Score score=new Score();
 		score.setSno(sno);
 		score.setSname(sname);
@@ -168,7 +190,7 @@ public class ScoreMgmtController {
 		score.setDegrees(degree);
 		int num = scoreDao.insert(score);
 		sqlSession.commit();
-		ModelAndView modelAndView = new ModelAndView("scoreMgmt");
+		//ModelAndView modelAndView = new ModelAndView("scoreMgmt");
 		modelAndView.addObject("controllerMsg", "增加了"+num+"条用户信息");
 
 		PageHelper.startPage(1, 7);
