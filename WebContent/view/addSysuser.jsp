@@ -8,7 +8,7 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
-<link rel="stylesheet" href="${pageContext.request.contextPath}/css/addStyle.css" / >
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/addStyle.css" />
 <body>
 <div class="lable">
 <a href="${pageContext.request.contextPath}/sysMgmt/">查询所有用户</a>
@@ -44,16 +44,5 @@
 			}
 		//代码	
 	}
-function deleteSysuser(){
-	var account = prompt("输入账号","");
-	
-	if(account)
-		{
-			window.location.href("${pageContext.request.contextPath}/sysMgmt/delete?account="+account);
-		}
-
-	//代码	
-}
->>>>>>> refs/remotes/origin/zh
 </script>
 </html>
