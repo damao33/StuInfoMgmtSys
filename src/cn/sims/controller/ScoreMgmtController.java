@@ -166,6 +166,7 @@ public class ScoreMgmtController {
 		c.andSnoEqualTo(sno);
 		c.andCnoEqualTo(cno);
 		list=scoreDao.selectByExample(es);
+		sqlSession.commit();
 		ModelAndView modelAndView = new ModelAndView("scoreMgmt");
 		if(sno == null)sno="";
 		if(degrees == null||degrees =="")degrees="0";
@@ -179,8 +180,6 @@ public class ScoreMgmtController {
 			modelAndView.addObject("scorelist", page);
 			return modelAndView;
 		}
-		
-
 		Score score=new Score();
 		score.setSno(sno);
 		score.setSname(sname);
@@ -188,11 +187,12 @@ public class ScoreMgmtController {
 		score.setCname(cname);
 		BigDecimal degree=new BigDecimal(degrees);
 		score.setDegrees(degree);
+		System.out.println(score.getSno()+score.getSname());
 		int num = scoreDao.insert(score);
 		sqlSession.commit();
 		//ModelAndView modelAndView = new ModelAndView("scoreMgmt");
 		modelAndView.addObject("controllerMsg", "增加了"+num+"条用户信息");
-
+		System.out.println(score.getSno()+score.getSname());
 		PageHelper.startPage(1, 7);
 		ScoreExample se = new ScoreExample();
 		list = scoreDao.selectByExample(se);
@@ -202,6 +202,7 @@ public class ScoreMgmtController {
 		
 		MyBatisUtil.closeSqlSession();
 		return modelAndView;
+		
 	}
 	@RequestMapping("/update")
 	public ModelAndView updateScoreByExample(HttpServletRequest request)
