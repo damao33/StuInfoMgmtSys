@@ -79,7 +79,7 @@ public class StuMgmtController {
 		c.andSnoEqualTo(sno);
 		list=studentDao.selectByExample(se);
 		ModelAndView modelAndView = new ModelAndView("stuMgmt");
-		if(list.size()>0)	{
+		if(list.size()>0){
 			PageInfo<Student> page = new PageInfo<>(list);
 			modelAndView.addObject("controllerMsg", "学号已存在！");
 			modelAndView.addObject("mapname", "/");
@@ -91,6 +91,7 @@ public class StuMgmtController {
 		modelAndView.addObject("controllerMsg", "插入了"+num+"条记录");
 		PageHelper.startPage(1,7);
 		StudentExample s =new StudentExample();
+		StudentExample.Criteria a = se.createCriteria();
 		list=studentDao.selectByExample(s);
 		PageInfo<Student> page = new PageInfo<>(list);
 		modelAndView.addObject("studentlist", page);
@@ -116,7 +117,6 @@ public class StuMgmtController {
 		if(sbirthday!=null) {
 			birthday =  sdf.parse(sbirthday);student.setSbirthday(birthday);
 		}
-		
 		if(sno == null) sno="";
 		student.setSno(sno);
 		student.setSname(sname);
@@ -160,7 +160,6 @@ public class StuMgmtController {
 	@RequestMapping("/ssno")
 	public ModelAndView selectStuBySno(HttpServletRequest request)
 	{
-
 		sqlSession = MyBatisUtil.getSqlSession();
 		studentDao = sqlSession.getMapper(StudentMapper.class);
 		String sno = request.getParameter("sno");
