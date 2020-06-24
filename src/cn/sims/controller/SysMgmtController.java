@@ -100,9 +100,7 @@ public class SysMgmtController {
 		Sysuser sysuser = new Sysuser(account,password);
 		int num = sysuserDao.insert(sysuser);
 		sqlSession.commit();
-		
 		modelAndView.addObject("controllerMsg", "插入了"+num+"条记录");
-		
 		SysuserExample se1 =new SysuserExample();
 		list=sysuserDao.selectByExample(se1);
 		PageInfo<Sysuser> page1 = new PageInfo<>(list);
