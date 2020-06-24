@@ -122,7 +122,7 @@ public class ClsMgmtController {
 		int num = classDao.insert(cls);
 		sqlSession.commit();
 
-		modelAndView.addObject("controllerMsg", "增加了" + num + "条用户信息");
+		modelAndView.addObject("controllerMsg", "增加了" + num + "条班级信息");
 
 		PageHelper.startPage(1, 7);
 		ClassExample se = new ClassExample();
