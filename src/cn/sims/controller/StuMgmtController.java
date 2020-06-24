@@ -91,6 +91,7 @@ public class StuMgmtController {
 		modelAndView.addObject("controllerMsg", "插入了"+num+"条记录");
 		PageHelper.startPage(1,7);
 		StudentExample s =new StudentExample();
+		StudentExample.Criteria a = se.createCriteria();
 		list=studentDao.selectByExample(s);
 		PageInfo<Student> page = new PageInfo<>(list);
 		modelAndView.addObject("studentlist", page);
