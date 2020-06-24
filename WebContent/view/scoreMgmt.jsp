@@ -15,7 +15,7 @@
 		<a href="${pageContext.request.contextPath}/view/addScore.jsp">成绩添加</a>
 		<a href="${pageContext.request.contextPath}/view/delScore.jsp">成绩删除</a>
 		<br>
-		${controllerMsg}
+		<center>${controllerMsg}</center>
 	</div>	
 	<table class="table1"  border="1">
 			<thead>

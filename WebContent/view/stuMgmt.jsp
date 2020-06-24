@@ -16,7 +16,7 @@
 		<a href="#" onclick="deleteStudent()">删除学生信息</a>	
 	</div>
 	<br>
-	${controllerMsg}
+	<center>${controllerMsg}</center>
 	<table class="table1"  border="1">
 			<thead>
 				<th>学号</th>
