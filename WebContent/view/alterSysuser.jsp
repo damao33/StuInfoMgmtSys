@@ -28,7 +28,7 @@
 	
 <table class="table1" border="1">
 	<br>
-	${controllerMsg}
+	<center>${controllerMsg}</center>
 	<thead>
 		<th>账号</th>
 		<th>密码</th>				

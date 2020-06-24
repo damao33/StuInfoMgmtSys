@@ -24,7 +24,7 @@
 		<input  class="input1" type="submit" value="提交">
 	</div>
 	</form>
-	${controllerMsg}
+	<center>${controllerMsg}</center>
 <table class="table1" border="1">
 	<thead>
 				<th>课程号</th>

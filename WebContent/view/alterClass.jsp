@@ -29,7 +29,7 @@
 	</form>
 	<table class="table1" border="1">
 		<br> 
-		${controllerMsg}
+		<center>${controllerMsg}</center>
 
 		<thead>
 			<th>班级号</th>
