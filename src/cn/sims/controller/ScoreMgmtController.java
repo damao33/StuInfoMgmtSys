@@ -238,7 +238,7 @@ public class ScoreMgmtController {
 		ModelAndView modelAndView = new ModelAndView("alterScore");         
 		PageHelper.startPage(1, 7);
 		ScoreExample s = new ScoreExample();  
-		ScoreExample.Criteria ce = se.createCriteria();  
+		ScoreExample.Criteria ce = s.createCriteria();  
 		ce.andSnoEqualTo(sno); 
 	
 		list = scoreDao.selectByExample(s);
