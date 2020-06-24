@@ -52,18 +52,16 @@
 		var sno = prompt("输入学号","");
 		if(sno)
 		{
-			alert(sno);
+			window.location.href="${pageContext.request.contextPath}/stuInfo/sno?sno="+sno;
 		}
-		window.location.href="${pageContext.request.contextPath}/stuInfo/sno?sno="+sno;
 	}
 	function selectByClass()
 	{
 		var cls = prompt("输入班级","");
 		if(cls)
 		{
-			alert(cls);
+			window.location.href="${pageContext.request.contextPath}/stuInfo/cls?cls="+cls;
 		}
-		window.location.href="${pageContext.request.contextPath}/stuInfo/cls?cls="+cls;
 	}	
 </script>
 </html>
