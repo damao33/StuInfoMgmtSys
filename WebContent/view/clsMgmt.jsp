@@ -16,7 +16,7 @@
 		<a href="#" onclick=deleteClass()>删除班级信息</a>	
 	</div>
 	<br>
-	${controllerMsg}
+	<center>${controllerMsg}</center>
 	<table class="table1"  border="1">
 			<thead>
 				<th>班级号</th>

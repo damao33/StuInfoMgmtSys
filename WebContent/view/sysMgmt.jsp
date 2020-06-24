@@ -18,7 +18,7 @@
 <a href="#" onclick="exitSys()">退出系统</a>
 </div>
 	<br>
-	${controllerMsg}
+	<center>${controllerMsg}</center>
 	<table class="table1"  border="1">
 			<thead>
 				<th>账户</th>

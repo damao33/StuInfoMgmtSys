@@ -10,22 +10,19 @@
 	<body>
 		<form class="login-form" action="login/" method="post">
 				<h1>用户登陆</h1>
+				<h2 align="center">学生信息管理系统</h2>
 				<div class="txtb">
 					<input type="text" placeholder="这里是账号" name="account"/>
 					<span data-placeholder="account" ></span>
 					<br>
 				</div>
-				<div>
-				${loginMsg}
-				</div>
+				<p class="msg">${loginMsg}</p>
 				<div class="txtb" >
 					<input type="password"   placeholder="这里是密码" name="password"/>
 					<span data-placeholder="password"></span>
 				</div>
 				<input type="submit" class="logbtn" value="登陆" />
-				<div class="bottom-text">
-					<a href="#">注册</a>
-				</div>
 		</form>
 	</body>
 </html>
+
