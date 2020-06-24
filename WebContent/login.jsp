@@ -9,8 +9,8 @@
 	<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/loginStyle.css" />
 	<body>
 		<form class="login-form" action="login/" method="post">
-				<h1>用户登陆</h1>
-				<h2 align="center">学生信息管理系统</h2>
+				<h1>学生信息管理系统</h1>
+				<h2 align="center">用户登陆</h1>
 				<div class="txtb">
 					<input type="text" placeholder="这里是账号" name="account"/>
 					<span data-placeholder="account" ></span>
